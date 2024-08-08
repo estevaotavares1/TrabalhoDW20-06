@@ -10,8 +10,7 @@ $datainicial = $_POST['datainicial'];
 $datafinal = $_POST['datafinal'];
 $kminicial = $_POST['kminicial'];
 $preco_por_km = 2.0; // Definindo a taxa fixa por quilômetro
-$kmfinal = $_POST['kmfinal'];
-$pagamento = $_POST['pagamento'];
+
 
 // Verifica se o veículo está disponível nas datas fornecidas
 $sql_verifica_disponibilidade = "
@@ -32,12 +31,9 @@ if (mysqli_num_rows($result_disponibilidade) > 0) {
     exit();
 }
 
-// Calcula o preço do aluguel
-$preco_aluguel = ($kmfinal - $kminicial) * $preco_por_km;
-
 // Insere os dados na tabela tb_aluguel
-$sql_aluguel = "INSERT INTO tb_aluguel (datainicial_aluguel, kminicial_aluguel, datafinal_aluguel, preço_aluguel, tb_cliente_id_cliente, tb_funcionario_id_funcionario)
-                VALUES ('$datainicial', '$kminicial', '$datafinal', '$preco_aluguel', '$cliente', '$funcionario')";
+$sql_aluguel = "INSERT INTO tb_aluguel (datainicial_aluguel, kminicial_aluguel, datafinal_aluguel, preço_do_km_aluguel, tb_cliente_id_cliente, tb_funcionario_id_funcionario)
+                VALUES ('$datainicial', '$kminicial', '$datafinal', '$preço_do_km_aluguel', '$cliente', '$funcionario')";
 
 if (mysqli_query($conexao, $sql_aluguel)) {
     // Obtém o ID do aluguel recém-criado

@@ -59,11 +59,8 @@ $result_funcionarios = mysqli_query($conexao, $sql_funcionarios);
         <label for="kminicial">KM Inicial:</label>
         <input type="number" id="kminicial" name="kminicial" required><br><br>
 
-        <label for="kmfinal">KM Final:</label>
-        <input type="number" id="kmfinal" name="kmfinal" required><br><br>
-
-        <label for="pagamento">Tipo de Pagamento:</label>
-        <input type="text" id="pagamento" name="pagamento" required><br><br>
+        <label for="preço_do_km_aluguel">Preço por KM:</label>
+        <input type="number" id="preço_do_km_aluguel" name="preço_do_km_aluguel" required><br><br>
 
         <input type="submit" value="Alugar">
     </form>
