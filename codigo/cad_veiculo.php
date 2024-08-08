@@ -25,14 +25,8 @@ mysqli_stmt_bind_param($stmt, "ississsssssss", $nome, $marca, $ano, $tipo_veicul
 
 mysqli_stmt_execute($stmt);
 
-
-//if (mysqli_query($conexao, $sql)) {
-//    header('Location: index.html');
-//    exit();
-//} else {
-//    echo "Ocorreu um erro. Tente novamente.";
-//}
 mysqli_stmt_close($stmt);
+
 header("Location: index.html");
 
 ?>
