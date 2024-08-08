@@ -7,25 +7,15 @@ $cnpj = $_POST['cnpj'];
 
 require_once 'conexao.php';
 
-// Inserção dos dados na tabela tb_cliente
-$sql_cliente = "INSERT INTO tb_cliente (nome, endereco, telefone) VALUES ('$nome', '$endereco', '$telefone')";
+$sql = "INSERT INTO tb_empresa (nome, endereco, telefone, cnpj) VALUES (?, ?, ?, ?)";
 
-if (mysqli_query($conexao, $sql_cliente)) {
-    // Obtenha o ID do cliente recém-criado
-    $id_cliente = mysqli_insert_id($conexao);
+$stmt = mysqli_prepare($conexao, $sql);
 
-    // Inserção do CNPJ na tabela tb_empresa
-    $sql_empresa = "INSERT INTO tb_empresa (cnpj_empresa, tb_cliente_id_cliente) VALUES ('$cnpj', '$id_cliente')";
+mysqli_stmt_bind_param($stmt, "ssss", $nome, $endereco, $telefone, $cnpj);
 
-    if (mysqli_query($conexao, $sql_empresa)) {
-        header('Location: index.html');
-        exit();
-    } else {
-        echo "Ocorreu um erro ao inserir o CNPJ. Tente novamente.";
-    }
-} else {
-    echo "Ocorreu um erro ao inserir o cliente. Tente novamente.";
-}
+mysqli_stmt_execute($stmt);
 
-mysqli_close($conexao);
+mysqli_stmt_close($stmt);
+
+header("Location: index.html");
 ?>
