@@ -13,7 +13,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 DROP SCHEMA IF EXISTS `veiculosbd` ;
 
 -- -----------------------------------------------------
--- Schema veiculosbd
+-- Schema veiculosbd oivemsempreaqui
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `veiculosbd` ;
 USE `veiculosbd` ;
