@@ -17,14 +17,22 @@ $km_veiculo = $_POST['km_veiculo'];
 require_once 'conexao.php';
 
 // Inserção dos dados na tabela
-$sql = "INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES ('$nome', '$marca', '$ano', '$tipo_veiculo', '$placa_veiculo', '$capacidade_veiculo', '$vidroeletrico_veiculo', '$airbag_veiculo', '$capacidaportamala_veiculo', '$arcondicionado_veiculo', '$automatico_veiculo', '$km_veiculo')";
+$sql = "INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-if (mysqli_query($conexao, $sql)) {
-    header('Location: index.html');
-    exit();
-} else {
-    echo "Ocorreu um erro. Tente novamente.";
-}
+$stmt = mysqli_prepare($conexao, $sql);
 
-mysqli_close($conexao);
+mysqli_stmt_bind_param($stmt, "ississsssssss", $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo )
+
+mysqli_stmt_execute($stmt);
+
+
+//if (mysqli_query($conexao, $sql)) {
+//    header('Location: index.html');
+//    exit();
+//} else {
+//    echo "Ocorreu um erro. Tente novamente.";
+//}
+mysqli_stmt_close($stmt);
+header("Location: index.html");
+
 ?>
