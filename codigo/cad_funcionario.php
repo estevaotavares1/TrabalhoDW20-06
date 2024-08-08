@@ -7,15 +7,15 @@ $telefone_funcionario = $_POST['telefone_funcionario'];
 
 require_once 'conexao.php';
 
-// Inserção dos dados na tabela
-$sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES ('$nome_funcionario', '$cpf_funcionario', '$email_funcionario', '$telefone_funcionario')";
+$sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?, ?, ?, ?)";
 
-if (mysqli_query($conexao, $sql)) {
-    header('Location: index.html');
-    exit();
-} else {
-    echo "Ocorreu um erro. Tente novamente.";
-}
+$stmt = mysqli_prepare($conexao, $sql);
 
-mysqli_close($conexao);
+mysqli_stmt_bind_param($stmt, "ssss", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
+
+mysqli_stmt_execute($stmt);
+
+mysqli_stmt_close($stmt);
+
+header("Location: index.html");
 ?>
