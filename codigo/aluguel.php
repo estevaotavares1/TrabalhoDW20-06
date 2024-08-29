@@ -51,13 +51,13 @@ $result_funcionarios = mysqli_query($conexao, $sql_funcionarios);
         </select><br><br>
 
         <label for="datainicial">Data Inicial:</label>
-        <input type="date" id="datainicial" name="datainicial" required><br><br>
+        <input type="date" id="datainicial" name="datainicial_aluguel" required><br><br>
 
         <label for="datafinal">Data Final:</label>
-        <input type="date" id="datafinal" name="datafinal" required><br><br>
+        <input type="date" id="datafinal" name="dataprevista_aluguel" required><br><br>
 
         <label for="kminicial">KM Inicial:</label>
-        <input type="number" id="kminicial" name="kminicial" required><br><br>
+        <input type="number" id="kminicial" name="kminicial_aluguel" required><br><br>
 
         <label for="preço_do_km_aluguel">Preço por KM:</label>
         <input type="number" id="preço_do_km_aluguel" name="preço_do_km_aluguel" required><br><br>
