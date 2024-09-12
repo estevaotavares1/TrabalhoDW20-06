@@ -37,6 +37,17 @@ function cadastro_empresa($conexao, $nome, $endereco, $telefone)
 
     return $id;
 }
+function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario) {
+  $sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?, ?, ?, ?)";
+  $stmt = mysqli_prepare($conexao, $sql);
 
+  mysqli_stmt_bind_param($stmt, "sisi", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
+  mysqli_stmt_execute($stmt);
+
+  $id = mysqli_stmt_insert_id($stmt);
+  mysqli_stmt_close($stmt);
+
+  return $id;
+}
 
 ?>
