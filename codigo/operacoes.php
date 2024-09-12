@@ -1,53 +1,59 @@
-  <?php
-
-function cadastro_pessoa($conexao, $nome, $endereco, $telefone)
+<?php
+function cadastro_cliente($conexao, $nome, $endereco, $telefone)
 {
     $sql = "INSERT INTO tb_cliente (nome, endereco, telefone) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($stmt, "ssi", $nome, $endereco, $telefone);
+    mysqli_stmt_bind_param($stmt, "sss", $nome, $endereco, $telefone);
     mysqli_stmt_execute($stmt);
-
-    $sql2 = "INSERT INTO tb_pessoafisica (cpf_pessoa) VALUES (?)";
-    $stmt2 = mysqli_prepare($conexao, $sql2);
-    mysqli_stmt_bind_param($stmt2, "i", $cpf_pessoa);
-    mysqli_stmt_execute($stmt2);
-
-    $id = mysqli_stmt_insert_id($stmt);
+    $id_cliente = mysqli_insert_id($conexao); // Obtém o ID do cliente inserido
     mysqli_stmt_close($stmt);
-    mysqli_stmt_close($stmt2);
-
-    return $id;
+    
+    return $id_cliente;
 }
 
-function cadastro_empresa($conexao, $nome, $endereco, $telefone)
+function cadastro_pessoafisica($conexao, $nome, $endereco, $telefone, $cpf)
 {
-    $sql = "INSERT INTO tb_cliente (nome, endereco, telefone) VALUES (?, ?, ?)";
+    // Insere o cliente e obtém o ID
+    $id_cliente = cadastro_cliente($conexao, $nome, $endereco, $telefone);
+    
+    // Insere os dados específicos da pessoa física
+    $sql = "INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES (?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($stmt, "ssi", $nome, $endereco, $telefone);
+    mysqli_stmt_bind_param($stmt, "si", $cpf, $id_cliente);
     mysqli_stmt_execute($stmt);
-
-    $sql2 = "INSERT INTO tb_empresa (cnpj_empresa) VALUES (?)";
-    $stmt2 = mysqli_prepare($conexao, $sql2);
-    mysqli_stmt_bind_param($stmt2, "i", $cnpj_empresa);
-    mysqli_stmt_execute($stmt2);
-
-    $id = mysqli_stmt_insert_id($stmt);
     mysqli_stmt_close($stmt);
-    mysqli_stmt_close($stmt2);
-
-    return $id;
 }
+
+function cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj)
+{
+    // Insere o cliente e obtém o ID
+    $id_cliente = cadastro_cliente($conexao, $nome, $endereco, $telefone);
+    
+    // Insere os dados específicos da empresa
+    $sql = "INSERT INTO tb_empresa (cnpj_empresa, tb_cliente_id_cliente) VALUES (?, ?)";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "si", $cnpj, $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
 function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario) {
   $sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?, ?, ?, ?)";
   $stmt = mysqli_prepare($conexao, $sql);
 
-  mysqli_stmt_bind_param($stmt, "sisi", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
-  mysqli_stmt_execute($stmt);
+  // CPF como string, logo usamos 's' no lugar de 'i'
+  mysqli_stmt_bind_param($stmt, "ssss", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
 
-  $id = mysqli_stmt_insert_id($stmt);
-  mysqli_stmt_close($stmt);
-
-  return $id;
+  // Executa a query
+  if (mysqli_stmt_execute($stmt)) {
+    $id = mysqli_insert_id($conexao); // Pega o ID da última inserção
+    mysqli_stmt_close($stmt);
+    return $id;
+  } else {
+    // Em caso de erro, pode-se retornar false ou tratar o erro de outra maneira
+    mysqli_stmt_close($stmt);
+    return false;
+  }
 }
 
 ?>
