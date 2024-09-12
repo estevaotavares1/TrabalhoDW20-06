@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 function cadastro_pessoa($conexao, $nome, $endereco, $telefone)
 {
