@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Funcionário</title>
+</head>
+<body>
+    <h2>Cadastro de Funcionário</h2>
+    <form action="cad_pagamento.php" method="POST">
+        <label for="valor">Valor:</label>
+        <input type="decimal" id="valor" name="valor" required><br><br>
+
+        <label for="preco_por_km">PREÇO POR km:</label>
+        <input type="decimal" id="preco_por_km" name="preco_por_km" required><br><br>
+
+     
+        <label for="data_pagamento">Data prevista para a Devolução:</label>
+        <input type="date" id="data_pagamento" name="data_pagamento" required><br><br>
+
+
+        <label for="metodo">Metodo</label>
+        <input type="varchar" id="metodo" name="metodo" required><br><br>
+
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>

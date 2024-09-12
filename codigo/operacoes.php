@@ -49,5 +49,17 @@ function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email
 
   return $id;
 }
+function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo ) {
+    $sql = "INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo   ) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($stmt, "sss", $km, $marca, $modelo);
+    mysqli_stmt_execute($stmt);
+
+    $id = mysqli_stmt_insert_id($stmt);
+    mysqli_stmt_close($stmt);
+
+    return $id;
+}
 
 ?>
