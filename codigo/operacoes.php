@@ -71,7 +71,7 @@ function salvarEmprestimo($conexao, $idfuncionario, $idcliente) {
   $sql = "INSERT INTO tb_aluguel (tb_cliente_idcliente, tb_funcionario_id_funcionario) VALUES (?, ?)";
   $stmt = mysqli_prepare($conexao, $sql);
 
-  mysqli_stmt_bind_param($stmt, "ii", $tb_cliente_idcliente, $tb_funcionario_id_funcionario);
+  mysqli_stmt_bind_param($stmt, "ii", $tb_cliente_id_cliente, $tb_funcionario_id_funcionario);
   mysqli_stmt_execute($stmt);
 
   $id = mysqli_stmt_insert_id($stmt);
@@ -79,5 +79,59 @@ function salvarEmprestimo($conexao, $idfuncionario, $idcliente) {
 
   return $id;
 }
+function salvarVeiculoEmprestimo($conexao, $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo) {
+
+  $km_inicial = kmInicialVeiculo($conexao, $id_veiculo);
+  $km_final = 0;
+
+  $sql = "INSERT INTO tb_aluguel_has_tb_veiculo (tb_aluguel_id_aluguel, tb_veiculo_id_veiculo, km_inicial, km_final) VALUES (?, ?, ?, ?)";
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, "iiss", $tb_aluguel_id_aluguel, $idveiculo, $km_inicial, $km_final);
+  mysqli_stmt_execute($stmt);
+
+  $id = mysqli_stmt_insert_id($stmt);
+  mysqli_stmt_close($stmt);
+
+  return $id;
+}
+function kmInicialVeiculo($conexao, $id_veiculo) {
+  $sql = "SELECT km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, 'i', $id_veiculo);
+  mysqli_stmt_execute($stmt);
+
+  mysqli_stmt_bind_result($stmt, $km);
+
+  mysqli_stmt_fetch($stmt);
+  mysqli_stmt_close($stmt);
+  return $km;
+}
+function efetuarPagamento($conexao, $tb_aluguel_id_aluguel, $valor, $preco_por_km, $metodo) {
+  $sql = "INSERT INTO tb_pagamento (tb_aluguel_id_aluguel, valor, preco_por_km, metodo) VALUES (?, ?, ?, ?)";
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, "idds", $tb_aluguel_id_aluguel, $valor, $preco_por_km, $metodo);
+  mysqli_stmt_execute($stmt);
+
+  $id = mysqli_stmt_insert_id($stmt);
+  mysqli_stmt_close($stmt);
+
+  return $id;
+}
+
+function atualiza_km_final($conexao, $km_final, $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo) {
+  $sql = "UPDATE tb_aluguel_has_tb_veiculo SET km_final = ? WHERE tb_aluguel_id_aluguel = ? AND tb_veiculo_id_veiculo = ?";
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, "dii", $km_final, $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo);
+  mysqli_stmt_execute($stmt);
+
+  mysqli_stmt_close($stmt);
+
+  atualiza_km_atual($conexao, $km_final, $tb_veiculo_id_veiculo);
+}
+
 ?>
 
