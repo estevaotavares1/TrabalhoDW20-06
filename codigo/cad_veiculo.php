@@ -14,17 +14,9 @@ $automatico_veiculo = $_POST['automatico_veiculo'];
 $km_veiculo = $_POST['km_veiculo'];
 
 require_once 'conexao.php';
+require_once "operacoes.php";
 
-$sql = "INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-$stmt = mysqli_prepare($conexao, $sql);
-
-mysqli_stmt_bind_param($stmt, "ssississdssd", $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
-
-mysqli_stmt_execute($stmt);
-
-mysqli_stmt_close($stmt);
-
-header("Location: index.html");
+salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo );
 
 ?>
