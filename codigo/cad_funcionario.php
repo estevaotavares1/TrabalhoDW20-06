@@ -21,5 +21,6 @@ salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email_funciona
     // mysqli_stmt_close($stmt);
 
     // header("Location: index.html");
+    header('Location: index.html');
 
 ?>

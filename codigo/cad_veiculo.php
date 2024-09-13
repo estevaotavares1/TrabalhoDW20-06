@@ -19,4 +19,6 @@ require_once "operacoes.php";
 
 salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo );
 
+header('Location: index.html');
+
 ?>

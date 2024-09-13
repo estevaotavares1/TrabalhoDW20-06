@@ -9,5 +9,6 @@ require_once "operacoes.php";
 
 cadastro_cliente($conexao, $nome, $endereco, $telefone);
 cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj);
+header('Location: index.html');
 
 ?>

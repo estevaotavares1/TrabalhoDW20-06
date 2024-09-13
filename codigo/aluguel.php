@@ -69,4 +69,5 @@ $result_funcionarios = mysqli_query($conexao, $sql_funcionarios);
 
 <?php
 mysqli_close($conexao);
+header('Location: index.html');
 ?>
