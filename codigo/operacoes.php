@@ -67,5 +67,17 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veic
 
     return $id;
 }
+function salvarEmprestimo($conexao, $idfuncionario, $idcliente) {
+  $sql = "INSERT INTO tb_aluguel (tb_cliente_idcliente, tb_funcionario_id_funcionario) VALUES (?, ?)";
+  $stmt = mysqli_prepare($conexao, $sql);
 
+  mysqli_stmt_bind_param($stmt, "ii", $tb_cliente_idcliente, $tb_funcionario_id_funcionario);
+  mysqli_stmt_execute($stmt);
+
+  $id = mysqli_stmt_insert_id($stmt);
+  mysqli_stmt_close($stmt);
+
+  return $id;
+}
 ?>
+
