@@ -108,11 +108,11 @@ function kmInicialVeiculo($conexao, $id_veiculo) {
   mysqli_stmt_close($stmt);
   return $km;
 }
-function efetuarPagamento($conexao, $tb_aluguel_id_aluguel, $valor, $preco_por_km, $metodo) {
-  $sql = "INSERT INTO tb_pagamento (tb_aluguel_id_aluguel, valor, preco_por_km, metodo) VALUES (?, ?, ?, ?)";
+function efetuarPagamento($conexao, $tb_aluguel_id_aluguel, $valor, $preco_por_km, $data_pagamento, $metodo) {
+  $sql = "INSERT INTO tb_pagamento (tb_aluguel_id_aluguel, valor, preco_por_km, data_pagamento, metodo) VALUES (?, ?, ?, ?, ? )";
   $stmt = mysqli_prepare($conexao, $sql);
 
-  mysqli_stmt_bind_param($stmt, "idds", $tb_aluguel_id_aluguel, $valor, $preco_por_km, $metodo);
+  mysqli_stmt_bind_param($stmt, "iddss", $tb_aluguel_id_aluguel, $valor, $preco_por_km, $data_pagamento, $metodo);
   mysqli_stmt_execute($stmt);
 
   $id = mysqli_stmt_insert_id($stmt);
@@ -132,6 +132,130 @@ function atualiza_km_final($conexao, $km_final, $tb_aluguel_id_aluguel, $tb_veic
 
   atualiza_km_atual($conexao, $km_final, $tb_veiculo_id_veiculo);
 }
+function atualiza_km_atual($conexao, $km_veiculo, $id_veiculo) {
+  $sql = "UPDATE tb_veiculo SET km_veiculo = ? WHERE id_veiculo = ?";
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, "ii", $km_veiculo, $id_veiculo);
+  mysqli_stmt_execute($stmt);
+
+  mysqli_stmt_close($stmt);
+}
+function listarFuncionarios($conexao)
+{
+    $sql = "SELECT * FROM tb_funcionario";
+
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_bind_result($stmt, $id, $nome_funcionario);
+
+    mysqli_stmt_store_result($stmt);
+
+    $lista = [];
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+          $lista[] = [$id, $nome_funcionario];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
+    return $lista;
+}
+function listarClientes($conexao)
+{
+    $sql = "SELECT * FROM tb_cliente";
+
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_bind_result($stmt, $id_cliente, $nome);
+
+    mysqli_stmt_store_result($stmt);
+
+    $lista = [];
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+          $lista[] = [$id_cliente, $nome];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
+    return $lista;
+}
+function listarVeiculos($conexao)
+{
+    $sql = "SELECT * FROM veiculo";
+
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo);
+
+    mysqli_stmt_store_result($stmt);
+
+    $lista = [];
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+          $lista[] = [$id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
+    return $lista;
+}
+function listarEmprestimoCliente($conexao, $id_cliente) {
+  $sql = "SELECT * FROM tb_aluguel WHERE id_cliente = ?";
+
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, "i", $id_cliente);
+
+  mysqli_stmt_execute($stmt);
+
+  mysqli_stmt_store_result($stmt);
+  mysqli_stmt_bind_result($stmt, $id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel,  $datafinal_aluguel);
+
+  $lista = [];
+  if (mysqli_stmt_num_rows($stmt) > 0) {
+      while (mysqli_stmt_fetch($stmt)) {
+        $lista[] = [$id_emprestimo, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel];
+      }
+  }
+
+  mysqli_stmt_close($stmt);
+
+  return $lista;
+}
+function listarVeiculosEmprestimo($conexao, $id_aluguel) {
+  $sql = "SELECT id_veiculo, km_inicial FROM emprestimo_has_veiculo WHERE idemprestimo = ?";
+
+  $stmt = mysqli_prepare($conexao, $sql);
+
+  mysqli_stmt_bind_param($stmt, "i", $idemprestimo);
+
+  mysqli_stmt_execute($stmt);
+
+  mysqli_stmt_store_result($stmt);
+  mysqli_stmt_bind_result($stmt, $idveiculo, $km_inicial);
+
+  $lista = [];
+  if (mysqli_stmt_num_rows($stmt) > 0) {
+      while (mysqli_stmt_fetch($stmt)) {
+        $lista[] = [$idveiculo, $km_inicial];
+      }
+  }
+
+  mysqli_stmt_close($stmt);
+
+  return $lista;
+}
+
 
 ?>
-
