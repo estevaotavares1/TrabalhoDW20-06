@@ -20,9 +20,9 @@
             echo "<input type='checkbox' name='carros[]' value='$carro[0]'> $carro[2] -- $carro[3] -- $carro[4]-- $carro[5]-- $carro[6]-- $carro[7]-- $carro[8]-- $carro[9]-- $carro[10]-- $carro[11]-- $carro[12] (KM: $carro[1]) <br>";
         }
     ?>
-    <input type="hidden" name="idfuncionario" value="<? echo $_GET['idfuncionario'];?>">
-    <input type="hidden" name="idcliente" value="<? echo $_GET['idcliente']; ?>">
-    <input type="submit" value="Gravar">
+     <input type="hidden" name="id_cliente" value="<? echo $_GET['id_cliente']; ?>">
+    <input type="hidden" name="id_funcionario" value="<? echo $_GET['id_funcionario'];?>">
+   <input type="submit" value="Gravar">
     </form>
 
 

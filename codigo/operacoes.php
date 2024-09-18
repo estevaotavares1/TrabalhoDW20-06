@@ -67,11 +67,11 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veic
 
     return $id;
 }
-function salvarEmprestimo($conexao, $idfuncionario, $idcliente) {
-  $sql = "INSERT INTO tb_aluguel (tb_cliente_idcliente, tb_funcionario_id_funcionario) VALUES (?, ?)";
+function salvarEmprestimo($conexao, $id_funcionario, $id_cliente) {
+  $sql = "INSERT INTO tb_aluguel (id_funcionario,idcliente) VALUES (?, ?)";
   $stmt = mysqli_prepare($conexao, $sql);
 
-  mysqli_stmt_bind_param($stmt, "ii", $tb_cliente_id_cliente, $tb_funcionario_id_funcionario);
+  mysqli_stmt_bind_param($stmt, "ii", $tb_funcionario_id_funcionario,$tb_cliente_id_cliente);
   mysqli_stmt_execute($stmt);
 
   $id = mysqli_stmt_insert_id($stmt);
@@ -225,7 +225,7 @@ function listarEmprestimoCliente($conexao, $id_cliente) {
   $lista = [];
   if (mysqli_stmt_num_rows($stmt) > 0) {
       while (mysqli_stmt_fetch($stmt)) {
-        $lista[] = [$id_emprestimo, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel];
+        $lista[] = [$id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel];
       }
   }
 
@@ -234,7 +234,7 @@ function listarEmprestimoCliente($conexao, $id_cliente) {
   return $lista;
 }
 function listarVeiculosEmprestimo($conexao, $id_aluguel) {
-  $sql = "SELECT id_veiculo, km_inicial FROM emprestimo_has_veiculo WHERE idemprestimo = ?";
+  $sql = "SELECT id_veiculo, km_inicial FROM tb_aluguel_has_tb_veiculo WHERE id_aluguel = ?";
 
   $stmt = mysqli_prepare($conexao, $sql);
 

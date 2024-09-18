@@ -8,7 +8,7 @@
 <body>
     <form action="formSelecionarCarros.php">
         Funcionário: <br>
-        <select name="idfuncionario">
+        <select name="id_funcionario">
             <?php
                 require_once "conexao.php";
                 require_once "operacoes.php";

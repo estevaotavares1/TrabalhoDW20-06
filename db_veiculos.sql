@@ -152,7 +152,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pagamento` (
   `id_pagamento` INT NOT NULL AUTO_INCREMENT,
   `valor` DECIMAL(10,2) NOT NULL,
-  `preço_por_km` DECIMAL(10,2) NOT NULL,
+  `preco_por_km` DECIMAL(10,2) NOT NULL,
   `data_pagamento` DATE NOT NULL,
   `metodo` VARCHAR(45) NOT NULL,
   `tb_aluguel_id_aluguel` INT NOT NULL,
