@@ -149,14 +149,14 @@ function listarFuncionarios($conexao)
 
     mysqli_stmt_execute($stmt);
 
-    mysqli_stmt_bind_result($stmt, $id, $nome_funcionario);
+    mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario);
 
     mysqli_stmt_store_result($stmt);
 
     $lista = [];
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
-          $lista[] = [$id, $nome_funcionario];
+          $lista[] = [$id_funcionario, $nome_funcionario];
         }
     }
 
@@ -172,7 +172,7 @@ function listarClientes($conexao)
 
     mysqli_stmt_execute($stmt);
 
-    mysqli_stmt_bind_result($stmt, $id_cliente, $nome);
+    mysqli_stmt_bind_result($stmt, $id_cliente, $nome, $endereco, $telefone);
 
     mysqli_stmt_store_result($stmt);
 
@@ -189,7 +189,7 @@ function listarClientes($conexao)
 }
 function listarVeiculos($conexao)
 {
-    $sql = "SELECT * FROM veiculo";
+    $sql = "SELECT * FROM tb_veiculo";
 
     $stmt = mysqli_prepare($conexao, $sql);
 
@@ -238,17 +238,17 @@ function listarVeiculosEmprestimo($conexao, $id_aluguel) {
 
   $stmt = mysqli_prepare($conexao, $sql);
 
-  mysqli_stmt_bind_param($stmt, "i", $idemprestimo);
+  mysqli_stmt_bind_param($stmt, "i", $id_aluguel);
 
   mysqli_stmt_execute($stmt);
 
   mysqli_stmt_store_result($stmt);
-  mysqli_stmt_bind_result($stmt, $idveiculo, $km_inicial);
+  mysqli_stmt_bind_result($stmt, $id_veiculo, $km_veiculo);
 
   $lista = [];
   if (mysqli_stmt_num_rows($stmt) > 0) {
       while (mysqli_stmt_fetch($stmt)) {
-        $lista[] = [$idveiculo, $km_inicial];
+        $lista[] = [$id_veiculo, $km_veiculo];
       }
   }
 
