@@ -143,7 +143,7 @@ function atualiza_km_atual($conexao, $km_veiculo, $id_veiculo) {
 }
 function listarFuncionarios($conexao)
 {
-    $sql = "SELECT id_funcionario, nome_funcionario FROM tb_funcionario";
+    $sql = "SELECT * FROM tb_funcionario";
 
     $stmt = mysqli_prepare($conexao, $sql);
 
@@ -179,7 +179,7 @@ function listarClientes($conexao)
     $lista = [];
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
-          $lista[] = [$id_cliente, $nome, $endereco, $telefone];
+          $lista[] = [$id_cliente, $nome];
         }
     }
 
