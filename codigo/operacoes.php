@@ -143,7 +143,7 @@ function atualiza_km_atual($conexao, $km_veiculo, $id_veiculo) {
 }
 function listarFuncionarios($conexao)
 {
-    $sql = "SELECT * FROM tb_funcionario";
+    $sql = "SELECT id_funcionario, nome_funcionario FROM tb_funcionario";
 
     $stmt = mysqli_prepare($conexao, $sql);
 
