@@ -12,7 +12,8 @@
     <?php
         require_once "conexao.php";
         require_once "operacoes.php";
-        
+        $datainicial_aluguel = $_GET['datainicial_aluguel'];
+        $datafinal_aluguel = $_GET['datafinal_aluguel'];
         $carros = listarVeiculos($conexao);
 
         foreach ($carros as $carro) {
@@ -20,6 +21,8 @@
             echo "<input type='checkbox' name='carros[]' value='$carro[0]'> $carro[2] -- $carro[3] -- $carro[4]-- $carro[5]-- $carro[6]-- $carro[7]-- $carro[8]-- $carro[9]-- $carro[10]-- $carro[11]-- $carro[12] (KM: $carro[1]) <br>";
         }
     ?>
+      <input type="hidden" name="datainicial_aluguel" value="<? echo $_GET['datainicial_aluguel']; ?>">
+      <input type="hidden" name="datafinal_aluguel" value="<? echo $_GET['datafinal_aluguel'];?>">
      <input type="hidden" name="id_cliente" value="<? echo $_GET['id_cliente']; ?>">
     <input type="hidden" name="id_funcionario" value="<? echo $_GET['id_funcionario'];?>">
    <input type="submit" value="Gravar">

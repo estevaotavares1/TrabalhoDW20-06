@@ -7,6 +7,11 @@
 </head>
 <body>
     <form action="formSelecionarCarros.php">
+    <label for="datainicial_aluguel">Data Inicial do Émprestimo</label>
+        <input type="date" id="datainicial_aluguel" name="datainicial_aluguel" required><br><br>
+
+        <label for="datafinal_aluguel">Data Final do Émprestimo</label>
+        <input type="date" id="datafinal_aluguel" name="datafinal_aluguel" required><br><br>
         Funcionário: <br>
         <select name="id_funcionario">
             <?php
