@@ -3,8 +3,8 @@
 require_once "conexao.php";
 require_once "operacoes.php";
 
-$tb_cliente_id_cliente = $_GET['$tb_cliente_id_cliente'];
-$tb_funcionario_id_funcionario = $_GET['tb_funcionario_id_funcionario'];
+$tb_cliente_id_cliente = $_GET['id_cliente'];
+$tb_funcionario_id_funcionario = $_GET['id_funcionario'];
 $carros = $_GET['carros'];
 
 // grava o empréstimo e armazena o id gerado
