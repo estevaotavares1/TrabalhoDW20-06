@@ -32,7 +32,7 @@
                     $nome = $cliente[1];
                     $endereco = $cliente[2];
                     $telefone  = $cliente[3];
-                    echo "<option value='$id_cliente'>$nome>$endereco>$telefone</option>";
+                    echo "<option value='$id_cliente'>$nome</option>";
                 }
             ?>
         </select> <br><br>
