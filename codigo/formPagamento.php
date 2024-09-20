@@ -10,7 +10,7 @@
 <body>
     <h2>Lançar pagamento</h2>
     <form action="">
-    <input type="hidden" value="<?php echo $_GET['id_aluguel']; ?>">
+    <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
         Valor: <br>
         <input type="float" name="valor"><br>
         Preço por KM: <br>
@@ -36,8 +36,8 @@
         foreach ($carros as $carroEmprestimo) {
             $veiculo = listarVeiculoPorId($conexao, $carroEmprestimo[0]);
             echo "<input type='hidden' value='$veiculo[0]'>";
-            echo "<p>Veículo: $veiculo[2] - $veiculo[3]</p>";
-            echo "<p>Km Inicial: $veiculo[1]</p>";
+            echo "<p>Veículo: $veiculo[1] - $veiculo[2]</p>";
+            echo "<p>Km Inicial: $veiculo[12]</p>";
             echo "Km Final: <input type='text' name='kmfinal[]'>";
             echo "<hr>";
         }

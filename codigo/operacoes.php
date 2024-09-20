@@ -235,28 +235,6 @@ function listarVeiculoPorId($conexao, $id_veiculo)
 
     return $lista;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function listarEmprestimoCliente($conexao, $id_cliente) {
   $sql = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = ?";
 

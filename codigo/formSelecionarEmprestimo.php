@@ -21,10 +21,10 @@
             echo "<select name='id_aluguel'>";
             foreach ($emprestimos as $emprestimo) {
                 $id_aluguel = $emprestimo[0];
-                $id_funcionario = $emprestimo[1];
-                $id_cliente = $emprestimo[2];
-                $datainicial_aluguel = $emprestimo[3];
-                $datafinal_aluguel = $emprestimo[5];
+                $id_funcionario = $emprestimo[4];
+                $id_cliente = $emprestimo[3];
+                $datainicial_aluguel = $emprestimo[1];
+                $datafinal_aluguel = $emprestimo[2];
 
                 echo "<option value='$id_aluguel'>$datainicial_aluguel>$datafinal_aluguel</option>";
             }
