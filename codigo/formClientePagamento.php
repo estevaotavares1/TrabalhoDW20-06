@@ -19,8 +19,8 @@
                     $id_cliente = $cliente[0];
                     $nome = $cliente[1];
                     $endereco = $cliente[2];
-                    $telefone = $cliente[3];
-                    echo "<option value='$id_cliente'>$nome>$endereco>$telefone</option>";
+                    $telefone  = $cliente[3];
+                    echo "<option value='$id_cliente'>$nome</option>";
                 }
             ?>
         </select>

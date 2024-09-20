@@ -210,8 +210,55 @@ function listarVeiculos($conexao)
 
     return $lista;
 }
+
+function listarVeiculoPorId($conexao, $id_veiculo)
+{
+    $sql = "SELECT * FROM tb_veiculo WHERE id_veiculo = ?";
+
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($stmt, 'i', $id_veiculo);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo);
+
+    mysqli_stmt_store_result($stmt);
+
+    $lista = 0;
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+          $lista = [$id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo,$km_veiculo];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
+    return $lista;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function listarEmprestimoCliente($conexao, $id_cliente) {
-  $sql = "SELECT * FROM tb_aluguel WHERE id_cliente = ?";
+  $sql = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = ?";
 
   $stmt = mysqli_prepare($conexao, $sql);
 
@@ -234,7 +281,7 @@ function listarEmprestimoCliente($conexao, $id_cliente) {
   return $lista;
 }
 function listarVeiculosEmprestimo($conexao, $id_aluguel) {
-  $sql = "SELECT id_veiculo, km_inicial FROM tb_aluguel_has_tb_veiculo WHERE id_aluguel = ?";
+  $sql = "SELECT tb_veiculo_id_veiculo, km_inicial FROM tb_aluguel_has_tb_veiculo WHERE tb_aluguel_id_aluguel = ?";
 
   $stmt = mysqli_prepare($conexao, $sql);
 

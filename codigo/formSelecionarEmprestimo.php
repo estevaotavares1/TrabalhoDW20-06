@@ -18,7 +18,7 @@
         $quantidade = sizeof($emprestimos);
         if ($quantidade > 0) {
             echo "Emprestimos: <br>";
-            echo "<select name='idemprestimo'>";
+            echo "<select name='id_aluguel'>";
             foreach ($emprestimos as $emprestimo) {
                 $id_aluguel = $emprestimo[0];
                 $id_funcionario = $emprestimo[1];
