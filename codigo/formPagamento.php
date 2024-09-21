@@ -9,7 +9,7 @@
 
 <body>
     <h2>Lançar pagamento</h2>
-    <form action="">
+    <form action="cad_pagamento.php" method="POST">
     <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
         Valor: <br>
         <input type="float" name="valor"><br>
@@ -19,7 +19,7 @@
         <input type="date" name="data_pagamento"><br>
         Método pagamento: <br>
     
-        <select name="" id="">
+        <select name="metodo">
             <option>Dinheiro</option>
             <option>Cartão</option>
         </select> <br>
