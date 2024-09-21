@@ -18,7 +18,7 @@
 
         foreach ($carros as $carro) {
             // $id = $carro[0];
-            echo "<input type='checkbox' name='carros[]' value='$carro[0]'> $carro[2] -- $carro[3] -- $carro[4]-- $carro[5]-- $carro[6]-- $carro[7]-- $carro[8]-- $carro[9]-- $carro[10]-- $carro[11]-- $carro[12] (KM: $carro[1]) <br>";
+            echo "<input type='checkbox' name='carros[]'value='$carro[0]'><br> Nome: $carro[1] <br> Marca: $carro[2]<br> Ano: $carro[3]<br> Tipo: $carro[4]<br> Placa: $carro[5]<br> Capacidade: $carro[6]<br> Vidro Eletrico:  $carro[7]<br> Airbag:  $carro[8]<br> Porta malas: $carro[9] L<br> Ar-Condicionado: $carro[10]<br> Automatico:  $carro[11] <br> (KM: $carro[12]) <br><br>";
         }
     ?>
       <input type="hidden" name="datainicial_aluguel" value="<? echo $_GET['datainicial_aluguel']; ?>">
