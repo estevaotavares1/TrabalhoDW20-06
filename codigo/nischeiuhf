@@ -1,5 +1,0 @@
- <label for="pagamento">Tipo de Pagamento:</label>
-        <input type="text" id="pagamento" name="pagamento" required><br><br>
-
-        // Calcula o preço do aluguel
-$preco_aluguel = ($kmfinal - $kminicial) * $preco_por_km;
