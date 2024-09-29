@@ -23,6 +23,19 @@ if (mysqli_stmt_execute($stmt)) {
     echo "Ocorreu um erro. Tente novamente.";
 }
 
+// Após inserir o pagamento, adicione:
+$sqlDeleteAluguel = "DELETE FROM tb_aluguel WHERE id_aluguel = ?";
+$sqlDeleteVeiculoAlugado = "DELETE FROM tb_veiculo_alugado WHERE aluguel_id = ?";
+
+// Prepare e execute para deletar
+$stmtDeleteAluguel = mysqli_prepare($conexao, $sqlDeleteAluguel);
+mysqli_stmt_bind_param($stmtDeleteAluguel, "i", $id_aluguel);
+mysqli_stmt_execute($stmtDeleteAluguel);
+
+$stmtDeleteVeiculoAlugado = mysqli_prepare($conexao, $sqlDeleteVeiculoAlugado);
+mysqli_stmt_bind_param($stmtDeleteVeiculoAlugado, "i", $id_aluguel);
+mysqli_stmt_execute($stmtDeleteVeiculoAlugado);
+
 mysqli_stmt_close($stmt);
 mysqli_close($conexao);
 header('Location: index.html');

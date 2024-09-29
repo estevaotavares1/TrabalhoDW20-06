@@ -31,14 +31,19 @@
 
         $carros = listarVeiculosEmprestimo($conexao, $_GET['id_aluguel']);
 
-        // echo "<hr><hr>";
         foreach ($carros as $carroEmprestimo) {
             $veiculo = listarVeiculoPorId($conexao, $carroEmprestimo[0]);
-            echo "<input type='hidden' value='$veiculo[0]'>";
-            echo "<p>Veículo: $veiculo[1] - $veiculo[2]</p>";
-            echo "<p>Km Inicial: $veiculo[12]</p>";
-            echo "Km Final: <input type='text' name='kmfinal[]'>";
-            echo "<hr>";
+
+            // Certifique-se de que $veiculo tenha o número correto de elementos
+            if (count($veiculo) === 13) { // 13 campos no exemplo acima
+                echo "<input type='hidden' name='id_veiculo[]' value='{$veiculo[0]}'>"; // Correção para adicionar o ID do veículo
+                echo "<p>Veículo: {$veiculo[1]} - {$veiculo[2]}</p>";
+                echo "<p>Km Inicial: {$veiculo[12]}</p>";
+                echo "Km Final: <input type='text' name='kmfinal[]' required>"; // Adicione `required` se necessário
+                echo "<hr>";
+            } else {
+                echo "<p>Erro ao carregar informações do veículo.</p>";
+            }
         }
         ?>
 

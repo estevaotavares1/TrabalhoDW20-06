@@ -191,24 +191,20 @@ function listarVeiculos($conexao) {
     return $lista;
 }
 
-function listarVeiculoPorId($conexao, $id_veiculo) {
-    $sql = "SELECT * FROM tb_veiculo WHERE id_veiculo = ?";
+function listarVeiculoPorId($conexao, $id) {
+    $sql = "SELECT id_veiculo, nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
     $stmt = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($stmt, 'i', $id_veiculo);
+    mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
-    mysqli_stmt_store_result($stmt);
     
-    $lista = [];
-    if (mysqli_stmt_num_rows($stmt) > 0) {
-        while (mysqli_stmt_fetch($stmt)) {
-            $lista = [$id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo];
-        }
+    $result = [];
+    while (mysqli_stmt_fetch($stmt)) {
+        $result = [$id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo];
     }
-    
+
     mysqli_stmt_close($stmt);
-    return $lista;
+    return $result;
 }
 
 function listarEmprestimoCliente($conexao, $id_cliente) {
@@ -249,5 +245,17 @@ function listarVeiculosEmprestimo($conexao, $id_aluguel) {
     
     mysqli_stmt_close($stmt);
     return $lista;
+}
+
+function listarVeiculosDisponiveis($conexao) {
+    $sql = "SELECT * FROM tb_veiculo WHERE status = 'Disponível'";
+    $resultado = mysqli_query($conexao, $sql);
+    $veiculos = [];
+    
+    while ($veiculo = mysqli_fetch_assoc($resultado)) {
+        $veiculos[] = $veiculo;
+    }
+    
+    return $veiculos;
 }
 ?>

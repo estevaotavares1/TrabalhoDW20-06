@@ -14,22 +14,24 @@
         <?php
         require_once "conexao.php";
         require_once "operacoes.php";
+
         $datainicial_aluguel = $_GET['datainicial_aluguel'];
         $datafinal_aluguel = $_GET['datafinal_aluguel'];
-        $carros = listarVeiculos($conexao);
+
+        // Chama a função que lista apenas os veículos disponíveis
+        $carros = listarVeiculosDisponiveis($conexao);
 
         foreach ($carros as $carro) {
             // $id = $carro[0];
-            echo "<input type='checkbox' name='carros[]'value='$carro[0]'><br> Nome: $carro[1] <br> Marca: $carro[2]<br> Ano: $carro[3]<br> Tipo: $carro[4]<br> Placa: $carro[5]<br> Capacidade: $carro[6]<br> Vidro Eletrico:  $carro[7]<br> Airbag:  $carro[8]<br> Porta malas: $carro[9] L<br> Ar-Condicionado: $carro[10]<br> Automatico:  $carro[11] <br> (KM: $carro[12]) <br><br>";
+            echo "<input type='checkbox' name='carros[]' value='$carro[id_veiculo]'><br> Nome: $carro[nome] <br> Marca: $carro[marca]<br> Ano: $carro[ano]<br> Tipo: $carro[tipo_veiculo]<br> Placa: $carro[placa_veiculo]<br> Capacidade: $carro[capacidade_veiculo]<br> Vidro Eletrico: $carro[vidroeletrico_veiculo]<br> Airbag: $carro[airbag_veiculo]<br> Porta malas: $carro[capacidaportamala_veiculo]<br> Ar-Condicionado: $carro[arcondicionado_veiculo]<br> Automatico: $carro[automatico_veiculo]<br> (KM: $carro[km_veiculo]) <br><br>";
         }
         ?>
-        <input type="hidden" name="datainicial_aluguel" value="<? echo $_GET['datainicial_aluguel']; ?>">
-        <input type="hidden" name="datafinal_aluguel" value="<? echo $_GET['datafinal_aluguel']; ?>">
-        <input type="hidden" name="id_cliente" value="<? echo $_GET['id_cliente']; ?>">
-        <input type="hidden" name="id_funcionario" value="<? echo $_GET['id_funcionario']; ?>">
+        <input type="hidden" name="datainicial_aluguel" value="<?php echo $_GET['datainicial_aluguel']; ?>">
+        <input type="hidden" name="datafinal_aluguel" value="<?php echo $_GET['datafinal_aluguel']; ?>">
+        <input type="hidden" name="id_cliente" value="<?php echo $_GET['id_cliente']; ?>">
+        <input type="hidden" name="id_funcionario" value="<?php echo $_GET['id_funcionario']; ?>">
         <input type="submit" value="Gravar">
     </form>
-
 
 </body>
 

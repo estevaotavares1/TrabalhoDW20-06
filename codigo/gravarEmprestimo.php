@@ -17,4 +17,12 @@ foreach ($carros as $carro) {
     salvarVeiculoEmprestimo($conexao, $id_aluguel, $carro);
 }
 
+// Após inserir o aluguel, adicione:
+$sql = "UPDATE tb_veiculo SET status = 'Indisponível' WHERE id_veiculo = ?";
+
+// Prepare e execute
+$stmt = mysqli_prepare($conexao, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id_veiculo); // Assume que você já tem $id_veiculo
+mysqli_stmt_execute($stmt);
+
 header("Location: index.html");
