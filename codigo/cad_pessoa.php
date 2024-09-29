@@ -14,4 +14,3 @@ if (!empty($nome) && !empty($endereco) && !empty($telefone) && !empty($cpf)) {
 } else {
     echo "Por favor, preencha todos os campos.";
 }
-?>

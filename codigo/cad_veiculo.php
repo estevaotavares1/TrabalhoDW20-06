@@ -23,4 +23,3 @@ if (!empty($nome) && !empty($marca) && !empty($ano) && !empty($tipo_veiculo) && 
 } else {
     echo "Por favor, preencha todos os campos obrigatórios.";
 }
-?>

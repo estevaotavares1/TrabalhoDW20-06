@@ -1,21 +1,18 @@
 Possíveis Melhorias
+
 Campos booleanos:
-
 Alguns campos, como vidroeletrico_veiculo, arcondicionado_veiculo, e airbag_veiculo, deveriam ser BOOLEAN ou TINYINT(1) ao invés de VARCHAR(45), já que são atributos que possuem valores de "sim" ou "não".
-Normalização:
 
-A criação de tabelas separadas para pessoas físicas e jurídicas (tb_pessoafisica e tb_empresa) é uma abordagem válida, mas poderia ser simplificada com uma tabela de clientes que contém uma coluna tipo_cliente (com valores possíveis como 'Pessoa Física' ou 'Empresa') e as colunas cpf e cnpj diretamente, como ocorre no seu banco de dados original.
 Tipos de dados:
-
 O tipo de dados para campos como cpf_funcionario, telefone_funcionario, placa_veiculo poderia ser ajustado para tamanhos mais adequados ao formato esperado (CPF com 14 caracteres e telefone com 15, por exemplo).
 km_inicial e km_final na tabela de relacionamento entre aluguel e veículo deveriam ser INT ou DECIMAL ao invés de VARCHAR.
+
 Manutenção de dados de quilometragem:
-
 Ao invés de registrar km_inicial e km_final no relacionamento tb_aluguel_has_tb_veiculo, seria interessante que esses valores também fossem atualizados diretamente na tabela tb_veiculo para refletir o histórico de quilometragem após cada aluguel.
+
 Tratamento de Nomes:
-
 A coluna nome em tb_cliente está limitada a 45 caracteres, o que pode ser insuficiente para armazenar nomes completos de forma adequada. Aumentar esse limite para algo como 100 ou 150 caracteres seria mais realista.
-Relacionamentos e índices:
 
+Relacionamentos e índices:
 Todos os relacionamentos e chaves estrangeiras estão bem definidos com restrições de integridade referencial, o que garante a consistência dos dados entre as tabelas.
 Essa estrutura de banco de dados é adequada para um sistema básico de aluguel de veículos, mas pode ser refinada com os ajustes mencionados para garantir melhor desempenho, consistência e manutenibilidade.

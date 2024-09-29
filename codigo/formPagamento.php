@@ -11,14 +11,14 @@
     <form action="cad_pagamento.php" method="POST">
         <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
         Valor: <br>
-        <input type="float" name="valor"><br>
+        <input type="float" name="valor" required><br>
         Preço por KM: <br>
-        <input type="float" name="preco_por_km"><br>
+        <input type="float" name="preco_por_km" required><br>
         Data Atual: <br>
-        <input type="date" name="data_pagamento"><br>
+        <input type="date" name="data_pagamento" required><br>
         Método pagamento: <br>
 
-        <select name="metodo">
+        <select name="metodo" required>
             <option>Dinheiro</option>
             <option>Cartão</option>
         </select> <br>
@@ -41,10 +41,7 @@
             echo "<hr>";
         }
         ?>
-        Valor total a pagar: <br>
-        <input type="text" name="valor" disabled><br>
 
-        <button onclick="">Calcular valor</button>
         <input type="submit" value='Lançar pagamento'>
     </form>
 </body>

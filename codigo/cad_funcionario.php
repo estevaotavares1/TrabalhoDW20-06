@@ -15,4 +15,3 @@ if (!empty($nome_funcionario) && !empty($cpf_funcionario) && !empty($email_funci
 } else {
     echo "Por favor, preencha todos os campos.";
 }
-?>
