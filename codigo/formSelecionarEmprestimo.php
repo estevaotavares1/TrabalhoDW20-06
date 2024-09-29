@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,9 @@
         <?php
         require_once "conexao.php";
         require_once "operacoes.php";
-        
+
         $emprestimos = listarEmprestimoCliente($conexao, $_GET['id_cliente']);
-        
+
         $quantidade = sizeof($emprestimos);
         if ($quantidade > 0) {
             echo "Emprestimos: <br>";
@@ -30,8 +30,7 @@
             }
             echo "</select><br><br>";
             echo "<input type='submit' value='Preencher dados do pagamento'>";
-        }
-        else {
+        } else {
             echo "Não há empréstimos para esse cliente.";
         }
         ?>

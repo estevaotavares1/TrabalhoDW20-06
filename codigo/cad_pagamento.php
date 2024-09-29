@@ -26,5 +26,3 @@ if (mysqli_stmt_execute($stmt)) {
 mysqli_stmt_close($stmt);
 mysqli_close($conexao);
 header('Location: index.html');
-
-?>

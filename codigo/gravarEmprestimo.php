@@ -10,7 +10,7 @@ $datafinal_aluguel = $_GET['datafinal_aluguel'];
 $carros = $_GET['carros'];
 
 // grava o empréstimo e armazena o id gerado
-$id_aluguel = salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario,$tb_cliente_id_cliente);
+$id_aluguel = salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario, $tb_cliente_id_cliente);
 
 // grava cada um dos carros selecionados
 foreach ($carros as $carro) {
@@ -18,4 +18,3 @@ foreach ($carros as $carro) {
 }
 
 header("Location: index.html");
-?>
