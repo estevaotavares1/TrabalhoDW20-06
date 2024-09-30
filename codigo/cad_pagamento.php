@@ -24,14 +24,21 @@ if (mysqli_stmt_execute($stmt)) {
 }
 
 // Após inserir o pagamento, adicione:
-$sqlDeleteAluguel = "DELETE FROM tb_aluguel WHERE id_aluguel = ?";
-$sqlDeleteVeiculoAlugado = "DELETE FROM tb_veiculo_alugado WHERE aluguel_id = ?";
+$sqlUpdateVeiculo = "UPDATE tb_veiculo SET status = 'Disponível' WHERE id_veiculo IN (SELECT veiculo_id FROM tb_veiculo_alugado WHERE aluguel_id = ?)";
 
-// Prepare e execute para deletar
+// Prepare e execute para atualizar o status dos veículos
+$stmtUpdateVeiculo = mysqli_prepare($conexao, $sqlUpdateVeiculo);
+mysqli_stmt_bind_param($stmtUpdateVeiculo, "i", $id_aluguel);
+mysqli_stmt_execute($stmtUpdateVeiculo);
+
+// Em seguida, delete da tabela de aluguel
+$sqlDeleteAluguel = "DELETE FROM tb_aluguel WHERE id_aluguel = ?";
 $stmtDeleteAluguel = mysqli_prepare($conexao, $sqlDeleteAluguel);
 mysqli_stmt_bind_param($stmtDeleteAluguel, "i", $id_aluguel);
 mysqli_stmt_execute($stmtDeleteAluguel);
 
+// Delete da tabela de veículos alugados
+$sqlDeleteVeiculoAlugado = "DELETE FROM tb_veiculo_alugado WHERE aluguel_id = ?";
 $stmtDeleteVeiculoAlugado = mysqli_prepare($conexao, $sqlDeleteVeiculoAlugado);
 mysqli_stmt_bind_param($stmtDeleteVeiculoAlugado, "i", $id_aluguel);
 mysqli_stmt_execute($stmtDeleteVeiculoAlugado);
