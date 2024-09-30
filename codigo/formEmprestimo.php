@@ -25,7 +25,7 @@
 
             foreach ($funcionarios as $funcionario) {
                 $id_funcionario = $funcionario['id_funcionario'];
-                $nome_funcionario = $funcionario['nome'];
+                $nome_funcionario = $funcionario['nome_funcionario'];
                 echo "<option value='$id_funcionario'>$nome_funcionario</option>";
             }
             ?>
