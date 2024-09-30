@@ -138,37 +138,59 @@ function listarFuncionarios($conexao) {
     $sql = "SELECT id_funcionario, nome_funcionario FROM tb_funcionario";
     $stmt = mysqli_prepare($conexao, $sql);
     
+    // Executa a consulta
     mysqli_stmt_execute($stmt);
+    
+    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario);
     mysqli_stmt_store_result($stmt);
-    
+
     $lista = [];
+    
+    // Verifica se há registros e preenche o array associativo
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
-            $lista[] = [$id_funcionario, $nome_funcionario];
+            $lista[] = [
+                'id_funcionario' => $id_funcionario,
+                'nome_funcionario' => $nome_funcionario
+            ];
         }
     }
     
+    // Fecha a instrução
     mysqli_stmt_close($stmt);
+    
     return $lista;
 }
 
 function listarClientes($conexao) {
-    $sql = "SELECT * FROM tb_cliente";
+    $sql = "SELECT id_cliente, nome, endereco, telefone FROM tb_cliente";
     $stmt = mysqli_prepare($conexao, $sql);
-    
+
+    // Executa a consulta
     mysqli_stmt_execute($stmt);
+
+    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_cliente, $nome, $endereco, $telefone);
     mysqli_stmt_store_result($stmt);
-    
+
     $lista = [];
+    
+    // Verifica se há registros e preenche o array associativo
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
-            $lista[] = [$id_cliente, $nome];
+            $lista[] = [
+                'id_cliente' => $id_cliente,
+                'nome' => $nome,
+                'endereco' => $endereco,
+                'telefone' => $telefone
+            ];
         }
     }
-    
+
+    // Fecha a instrução
     mysqli_stmt_close($stmt);
+
     return $lista;
 }
 
