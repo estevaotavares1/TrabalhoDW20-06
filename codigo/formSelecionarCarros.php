@@ -21,7 +21,6 @@
         // Chama a função que lista apenas os veículos disponíveis
         $carros = listarVeiculosDisponiveis($conexao);
 
-        <?php
         // Adicione isso ao listar os carros disponíveis
         foreach ($carros as $carro) {
             echo "<input type='checkbox' name='carros[]' value='{$carro['id_veiculo']}'><br>
@@ -29,14 +28,14 @@
                   Marca: {$carro['marca']}<br>
                   Ano: {$carro['ano']}<br>
                   Tipo: {$carro['tipo_veiculo']}<br>
-                  Placa: {$carro['placa']}<br>
-                  Capacidade: {$carro['capacidade']}<br>
-                  Vidro Eletrico: {$carro['vidro_eletrico']}<br>
-                  Airbag: {$carro['airbag']}<br>
-                  Porta malas: {$carro['capacidade_porta_mala']}<br>
-                  Ar-Condicionado: {$carro['ar_condicionado']}<br>
-                  Automático: {$carro['automatico']}<br>
-                  (KM: {$carro['km_inicial']}) <br><br>";
+                  Placa: {$carro['placa_veiculo']}<br>
+                  Capacidade: {$carro['capacidade_veiculo']}<br>
+                  Vidro Eletrico: {$carro['vidroeletrico_veiculo']}<br>
+                  Airbag: {$carro['airbag_veiculo']}<br>
+                  Porta malas: {$carro['capacidaportamala_veiculo']}<br>
+                  Ar-Condicionado: {$carro['arcondicionado_veiculo']}<br>
+                  Automático: {$carro['automatico_veiculo']}<br>
+                  (KM: {$carro['km_veiculo']}) <br><br>";
         }
         ?>
 
