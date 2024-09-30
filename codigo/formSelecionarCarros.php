@@ -21,22 +21,25 @@
         // Chama a função que lista apenas os veículos disponíveis
         $carros = listarVeiculosDisponiveis($conexao);
 
+        <?php
+        // Adicione isso ao listar os carros disponíveis
         foreach ($carros as $carro) {
             echo "<input type='checkbox' name='carros[]' value='{$carro['id_veiculo']}'><br>
-            Nome: {$carro['nome']}<br>
-            Marca: {$carro['marca']}<br>
-            Ano: {$carro['ano']}<br>
-            Tipo: {$carro['tipo_veiculo']}<br>
-            Placa: {$carro['placa']}<br>
-            Capacidade: {$carro['capacidade']}<br>
-            Vidro Elétrico: {$carro['vidro_eletrico']}<br>
-            Airbag: {$carro['airbag']}<br>
-            Porta-malas: {$carro['capacidade_porta_mala']}<br>
-            Ar-Condicionado: {$carro['ar_condicionado']}<br>
-            Automático: {$carro['automatico']}<br>
-            (KM: {$carro['km_inicial']})<br><br>";
+                  Nome: {$carro['nome']} <br>
+                  Marca: {$carro['marca']}<br>
+                  Ano: {$carro['ano']}<br>
+                  Tipo: {$carro['tipo_veiculo']}<br>
+                  Placa: {$carro['placa']}<br>
+                  Capacidade: {$carro['capacidade']}<br>
+                  Vidro Eletrico: {$carro['vidro_eletrico']}<br>
+                  Airbag: {$carro['airbag']}<br>
+                  Porta malas: {$carro['capacidade_porta_mala']}<br>
+                  Ar-Condicionado: {$carro['ar_condicionado']}<br>
+                  Automático: {$carro['automatico']}<br>
+                  (KM: {$carro['km_inicial']}) <br><br>";
         }
         ?>
+
         <input type="hidden" name="datainicial_aluguel" value="<?php echo $_GET['datainicial_aluguel']; ?>">
         <input type="hidden" name="datafinal_aluguel" value="<?php echo $_GET['datafinal_aluguel']; ?>">
         <input type="hidden" name="id_cliente" value="<?php echo $_GET['id_cliente']; ?>">
