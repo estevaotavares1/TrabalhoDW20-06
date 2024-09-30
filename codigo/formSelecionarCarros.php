@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Selecionar Carros</title>
 </head>
 
 <body>
     <h3>Carros Disponíveis</h3>
 
-    <form action="gravarEmprestimo.php">
+    <form action="gravarEmprestimo.php" method="GET">
         <?php
         require_once "conexao.php";
         require_once "operacoes.php";
@@ -22,8 +22,19 @@
         $carros = listarVeiculosDisponiveis($conexao);
 
         foreach ($carros as $carro) {
-            // $id = $carro[0];
-            echo "<input type='checkbox' name='carros[]' value='$carro[id_veiculo]'><br> Nome: $carro[nome] <br> Marca: $carro[marca]<br> Ano: $carro[ano]<br> Tipo: $carro[tipo_veiculo]<br> Placa: $carro[placa_veiculo]<br> Capacidade: $carro[capacidade_veiculo]<br> Vidro Eletrico: $carro[vidroeletrico_veiculo]<br> Airbag: $carro[airbag_veiculo]<br> Porta malas: $carro[capacidaportamala_veiculo]<br> Ar-Condicionado: $carro[arcondicionado_veiculo]<br> Automatico: $carro[automatico_veiculo]<br> (KM: $carro[km_veiculo]) <br><br>";
+            echo "<input type='checkbox' name='carros[]' value='{$carro['id_veiculo']}'><br>
+            Nome: {$carro['nome']}<br>
+            Marca: {$carro['marca']}<br>
+            Ano: {$carro['ano']}<br>
+            Tipo: {$carro['tipo_veiculo']}<br>
+            Placa: {$carro['placa']}<br>
+            Capacidade: {$carro['capacidade']}<br>
+            Vidro Elétrico: {$carro['vidro_eletrico']}<br>
+            Airbag: {$carro['airbag']}<br>
+            Porta-malas: {$carro['capacidade_porta_mala']}<br>
+            Ar-Condicionado: {$carro['ar_condicionado']}<br>
+            Automático: {$carro['automatico']}<br>
+            (KM: {$carro['km_inicial']})<br><br>";
         }
         ?>
         <input type="hidden" name="datainicial_aluguel" value="<?php echo $_GET['datainicial_aluguel']; ?>">
