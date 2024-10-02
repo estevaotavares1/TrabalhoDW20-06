@@ -1,3 +1,7 @@
+<?php
+require_once 'testalogin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>

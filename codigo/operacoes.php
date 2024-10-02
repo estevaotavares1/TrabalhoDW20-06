@@ -298,3 +298,82 @@ function listarVeiculosDisponiveis($conexao)
 
     return $veiculos;
 }
+
+// As funções do Listar
+function imprimirFuncionarios($conexao)
+{
+    $sql = "SELECT * FROM tb_funcionario";
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    // Executa a consulta
+    mysqli_stmt_execute($stmt);
+
+    // Vincula os resultados às variáveis
+    mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
+    mysqli_stmt_store_result($stmt);
+
+    $lista = [];
+
+    // Verifica se há registros e preenche o array associativo
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+            $lista[] = [
+                'id_funcionario' => $id_funcionario,
+                'nome_funcionario' => $nome_funcionario,
+                'cpf_funcionario' => $cpf_funcionario,
+                'email_funcionario' => $email_funcionario,
+                'telefone_funcionario' => $telefone_funcionario
+            ];
+        }
+    }
+
+    // Fecha a instrução
+    mysqli_stmt_close($stmt);
+
+    return $lista;
+}
+
+function imprimirClientes($conexao)
+{
+    // Consulta que une tb_cliente, tb_pessoafisica e tb_empresa para diferenciar por CPF e CNPJ
+    $sql = "SELECT 
+                c.id_cliente, 
+                c.nome, 
+                c.endereco, 
+                c.telefone, 
+                pf.cpf_pessoa, 
+                e.cnpj_empresa
+            FROM tb_cliente c
+            LEFT JOIN tb_pessoafisica pf ON c.id_cliente = pf.tb_cliente_id_cliente
+            LEFT JOIN tb_empresa e ON c.id_cliente = e.tb_cliente_id_cliente";
+
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    // Executa a consulta
+    mysqli_stmt_execute($stmt);
+
+    // Vincula os resultados às variáveis
+    mysqli_stmt_bind_result($stmt, $id_cliente, $nome, $endereco, $telefone, $cpf_pessoa, $cnpj_empresa);
+    mysqli_stmt_store_result($stmt);
+
+    $lista = [];
+
+    // Verifica se há registros e preenche o array associativo
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+            $lista[] = [
+                'id_cliente' => $id_cliente,
+                'nome' => $nome,
+                'endereco' => $endereco,
+                'telefone' => $telefone,
+                'cpf_pessoa' => $cpf_pessoa,
+                'cnpj_empresa' => $cnpj_empresa
+            ];
+        }
+    }
+
+    // Fecha a instrução
+    mysqli_stmt_close($stmt);
+
+    return $lista;
+}

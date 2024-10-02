@@ -9,7 +9,7 @@ require_once "operacoes.php";
 
 if (!empty($nome) && !empty($endereco) && !empty($telefone) && !empty($cnpj)) {
     cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj);
-    header('Location: index.html');
+    header('Location: atividades.php');
     exit; // Sempre bom adicionar um exit após header para evitar execução de código adicional
 } else {
     echo "Por favor, preencha todos os campos.";

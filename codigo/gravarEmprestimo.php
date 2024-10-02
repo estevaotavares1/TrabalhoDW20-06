@@ -30,5 +30,5 @@ foreach ($carros as $carro) {
     mysqli_stmt_close($stmtUpdateVeiculo);
 }
 
-header("Location: index.html");
+header("Location: atividades.php");
 exit();

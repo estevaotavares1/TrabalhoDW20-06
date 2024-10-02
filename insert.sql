@@ -1,26 +1,4 @@
--- Inserindo 5 clientes (pessoas físicas)
-INSERT INTO tb_cliente (nome, endereco, telefone) VALUES
-('João Silva', 'Rua A, 123', 123456789),
-('Maria Oliveira', 'Rua B, 456', 987654321),
-('Carlos Souza', 'Rua C, 789', 123123123),
-('Ana Santos', 'Rua D, 101', 321321321),
-('Pedro Alves', 'Rua E, 202', 456456456);
-
--- Inserindo 5 pessoas físicas
-INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES
-('12345678901', 1),
-('98765432100', 2),
-('12312312312', 3),
-('32132132132', 4),
-('45645645645', 5);
-
--- Inserindo 5 empresas
-INSERT INTO tb_empresa (cnpj_empresa, tb_cliente_id_cliente) VALUES
-('12345678000101', 1),
-('98765432000100', 2),
-('12312312000112', 3),
-('32132132000132', 4),
-('45645645000145', 5);
+USE `veiculosbd` ;
 
 -- Inserindo 5 funcionários
 INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES
