@@ -5,47 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Empréstimo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-    <form action="formSelecionarCarros.php" method="GET">
-        <label for="datainicial_aluguel">Data Inicial do Empréstimo</label>
-        <input type="date" id="datainicial_aluguel" name="datainicial_aluguel" required><br><br>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Formulário de Empréstimo</h2>
+        <form action="formSelecionarVeiculos.php" method="GET">
+            <div class="mb-3">
+                <label for="datainicial_aluguel" class="form-label">Data Inicial do Empréstimo</label>
+                <input type="date" id="datainicial_aluguel" name="datainicial_aluguel" class="form-control" required>
+            </div>
 
-        <label for="datafinal_aluguel">Data Final do Empréstimo</label>
-        <input type="date" id="datafinal_aluguel" name="datafinal_aluguel" required><br><br>
-        
-        Funcionário: <br>
-        <select name="id_funcionario">
-            <?php
-            require_once "conexao.php";
-            require_once "operacoes.php";
+            <div class="mb-3">
+                <label for="datafinal_aluguel" class="form-label">Data Final do Empréstimo</label>
+                <input type="date" id="datafinal_aluguel" name="datafinal_aluguel" class="form-control" required>
+            </div>
 
-            $funcionarios = listarFuncionarios($conexao);
+            <div class="mb-3">
+                <label for="id_funcionario" class="form-label">Funcionário</label>
+                <select name="id_funcionario" id="id_funcionario" class="form-select" required>
+                    <?php
+                    require_once "conexao.php";
+                    require_once "operacoes.php";
 
-            foreach ($funcionarios as $funcionario) {
-                $id_funcionario = $funcionario['id_funcionario'];
-                $nome_funcionario = $funcionario['nome_funcionario'];
-                echo "<option value='$id_funcionario'>$nome_funcionario</option>";
-            }
-            ?>
-        </select><br><br>
+                    $funcionarios = listarFuncionarios($conexao);
 
-        Cliente: <br>
-        <select name="id_cliente">
-            <?php
-            $clientes = listarClientes($conexao);
+                    foreach ($funcionarios as $funcionario) {
+                        $id_funcionario = $funcionario['id_funcionario'];
+                        $nome_funcionario = $funcionario['nome_funcionario'];
+                        echo "<option value='$id_funcionario'>$nome_funcionario</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
-            foreach ($clientes as $cliente) {
-                $id_cliente = $cliente['id_cliente'];
-                $nome = $cliente['nome'];
-                echo "<option value='$id_cliente'>$nome</option>";
-            }
-            ?>
-        </select><br><br>
+            <div class="mb-3">
+                <label for="id_cliente" class="form-label">Cliente</label>
+                <select name="id_cliente" id="id_cliente" class="form-select" required>
+                    <?php
+                    $clientes = listarClientes($conexao);
 
-        <input type="submit" value="Selecionar carros">
-    </form>
+                    foreach ($clientes as $cliente) {
+                        $id_cliente = $cliente['id_cliente'];
+                        $nome = $cliente['nome'];
+                        echo "<option value='$id_cliente'>$nome</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Selecionar veículos" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ $id_aluguel = salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_alugue
 // Grava cada um dos carros selecionados
 foreach ($carros as $carro) {
     salvarVeiculoEmprestimo($conexao, $id_aluguel, $carro);
-    
+
     // Atualiza o status do veículo para 'Indisponível'
     $sql = "UPDATE tb_veiculo SET status = 'Indisponível' WHERE id_veiculo = ?";
     $stmt = mysqli_prepare($conexao, $sql);
@@ -28,9 +28,7 @@ foreach ($carros as $carro) {
     mysqli_stmt_bind_param($stmtUpdateVeiculo, "i", $id_aluguel);
     mysqli_stmt_execute($stmtUpdateVeiculo);
     mysqli_stmt_close($stmtUpdateVeiculo);
-
 }
 
 header("Location: index.html");
 exit();
-?>

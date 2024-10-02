@@ -22,4 +22,4 @@ if (!empty($nome) && !empty($marca) && !empty($ano) && !empty($tipo_veiculo) && 
     exit; // Adiciona um exit para evitar execução de código adicional
 } else {
     echo "Por favor, preencha todos os campos obrigatórios.";
-}   
+}

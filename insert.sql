@@ -34,6 +34,6 @@ INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario
 INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo, status) VALUES
 ('Civic', 'Honda', 2020, 'Carro', 'ABC1234', '5 passageiros', 1, 1, '500L', 1, 1, 10000.00, 'Disponível'),
 ('Corolla', 'Toyota', 2021, 'Carro', 'DEF5678', '5 passageiros', 1, 1, '470L', 1, 1, 15000.00, 'Disponível'),
-('Tucson', 'Hyundai', 2019, 'SUV', 'GHI9012', '5 passageiros', 1, 1, '600L', 1, 0, 20000.00, 'Disponível'),
-('S10', 'Chevrolet', 2022, 'Caminhonete', 'JKL3456', '5 passageiros', 1, 1, '900L', 1, 1, 8000.00, 'Disponível'),
-('Kicks', 'Nissan', 2020, 'SUV', 'MNO7890', '5 passageiros', 1, 1, '432L', 1, 0, 12000.00, 'Disponível');
+('Tucson', 'Hyundai', 2019, 'Carro', 'GHI9012', '5 passageiros', 1, 1, '600L', 1, 0, 20000.00, 'Disponível'),
+('Hornet', 'Honda', 2022, 'Moto', 'JKL3456', '2 passageiros', 0, 0, '900L', 0, 0, 8000.00, 'Disponível'),
+('XJ6', 'Yamaha', 2020, 'Moto', 'MNO7890', '2 passageiros', 0, 0, '432L', 0, 0, 12000.00, 'Disponível');
