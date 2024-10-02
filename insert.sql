@@ -1,26 +1,39 @@
-USE veiculosbd;
+-- Inserindo 5 clientes (pessoas físicas)
+INSERT INTO tb_cliente (nome, endereco, telefone) VALUES
+('João Silva', 'Rua A, 123', 123456789),
+('Maria Oliveira', 'Rua B, 456', 987654321),
+('Carlos Souza', 'Rua C, 789', 123123123),
+('Ana Santos', 'Rua D, 101', 321321321),
+('Pedro Alves', 'Rua E, 202', 456456456);
 
-INSERT INTO `veiculosbd`.`tb_cliente` (nome, endereco, telefone) VALUES
-('João Silva', 'Rua A, 123', 987654321),
-('Maria Oliveira', 'Avenida B, 456', 987654322),
-('Pedro Santos', 'Praça C, 789', 987654323);
+-- Inserindo 5 pessoas físicas
+INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES
+('12345678901', 1),
+('98765432100', 2),
+('12312312312', 3),
+('32132132132', 4),
+('45645645645', 5);
 
-INSERT INTO `veiculosbd`.`tb_empresa` (cnpj_empresa, tb_cliente_id_cliente) VALUES
-('12345', 1),
-('23456', 2),
-('34567', 3);
+-- Inserindo 5 empresas
+INSERT INTO tb_empresa (cnpj_empresa, tb_cliente_id_cliente) VALUES
+('12345678000101', 1),
+('98765432000100', 2),
+('12312312000112', 3),
+('32132132000132', 4),
+('45645645000145', 5);
 
-INSERT INTO `veiculosbd`.`tb_pessoafisica` (cpf_pessoa, tb_cliente_id_cliente) VALUES
-('12345678', 1),
-('23456789', 2),
-('34567890', 3);
+-- Inserindo 5 funcionários
+INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES
+('Lucas Ferreira', '12345678910', 'lucas.ferreira@email.com', 998877665),
+('Gabriel Lima', '98765432111', 'gabriel.lima@email.com', 997766554),
+('Fernanda Costa', '12312312313', 'fernanda.costa@email.com', 996655443),
+('Juliana Mendes', '32132132133', 'juliana.mendes@email.com', 995544332),
+('Ricardo Pereira', '45645645646', 'ricardo.pereira@email.com', 994433221);
 
-INSERT INTO `veiculosbd`.`tb_funcionario` (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES
-('Ana Costa', '12345678901', 'ana.costa@email.com', 987654324),
-('Roberto Almeida', '23456789012', 'roberto.almeida@email.com', 987654325),
-('Fernanda Lima', '34567890123', 'fernanda.lima@email.com', 987654326);
-
-INSERT INTO `veiculosbd`.`tb_veiculo` (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES
-('Fusca', 'Volkswagen', 1980, 'Hatch', 'ABC1D23', '4', 1, 1, '300', 1, 0, 10000.00),
-('Civic', 'Honda', 2020, 'Sedan', 'XYZ4E56', '5', 1, 1, '400', 1, 1, 5000.00),
-('Onix', 'Chevrolet', 2019, 'Hatch', 'JKL7M89', '5', 1, 1, '350', 1, 1, 20000.00);
+-- Inserindo 5 veículos
+INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo, status) VALUES
+('Civic', 'Honda', 2020, 'Carro', 'ABC1234', '5 passageiros', 1, 1, '500L', 1, 1, 10000.00, 'Disponível'),
+('Corolla', 'Toyota', 2021, 'Carro', 'DEF5678', '5 passageiros', 1, 1, '470L', 1, 1, 15000.00, 'Disponível'),
+('Tucson', 'Hyundai', 2019, 'SUV', 'GHI9012', '5 passageiros', 1, 1, '600L', 1, 0, 20000.00, 'Disponível'),
+('S10', 'Chevrolet', 2022, 'Caminhonete', 'JKL3456', '5 passageiros', 1, 1, '900L', 1, 1, 8000.00, 'Disponível'),
+('Kicks', 'Nissan', 2020, 'SUV', 'MNO7890', '5 passageiros', 1, 1, '432L', 1, 0, 12000.00, 'Disponível');

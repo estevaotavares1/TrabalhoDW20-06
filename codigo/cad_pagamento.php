@@ -12,7 +12,7 @@ require_once 'conexao.php';
 $sql = "INSERT INTO tb_pagamento (valor, preco_por_km, data_pagamento, metodo, tb_aluguel_id_aluguel) VALUES (?, ?, ?, ?, ?)";
 $stmt = mysqli_prepare($conexao, $sql);
 // Vinculação dos parâmetros (data: string, km inicial: double, preço do km: double, data prevista: string)
-mysqli_stmt_bind_param($stmt, "dssss", $valor, $preco_por_km, $data_pagamento, $metodo, $id_aluguel);
+mysqli_stmt_bind_param($stmt, "dsssi", $valor, $preco_por_km, $data_pagamento, $metodo, $id_aluguel);
 mysqli_stmt_execute($stmt);
 
 // Atualiza o status dos veículos relacionados ao aluguel
@@ -27,6 +27,8 @@ mysqli_stmt_bind_param($stmtUpdateVeiculo, "i", $id_aluguel);
 mysqli_stmt_execute($stmtUpdateVeiculo);
 mysqli_stmt_close($stmtUpdateVeiculo);
 
+// Delete da tabela de veículos alugados
+// $sqlDeleteVeiculoAlugado = "DELETE FROM tb_veiculo_alugado WHERE aluguel_id = ?";
 
 // Excluir o registro da tabela tb_pagamento primeiro
 // $sqlDeletePagamento = "DELETE FROM tb_pagamento WHERE tb_aluguel_id_aluguel = ?";
