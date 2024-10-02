@@ -230,13 +230,13 @@ function listarVeiculoPorId($conexao, $id) {
 }
 
 function listarEmprestimoCliente($conexao, $id_cliente) {
-    $sql = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = ?";
+    $sql = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = ? AND status = 'Pendente'";
     $stmt = mysqli_prepare($conexao, $sql);
-    
+
     mysqli_stmt_bind_param($stmt, "i", $id_cliente);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
-    mysqli_stmt_bind_result($stmt, $id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel, $status );
+    mysqli_stmt_bind_result($stmt, $id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel, $status);
     
     $lista = [];
     if (mysqli_stmt_num_rows($stmt) > 0) {
