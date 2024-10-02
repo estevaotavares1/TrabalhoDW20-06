@@ -18,10 +18,10 @@
             $clientes = listarClientes($conexao);
 
             foreach ($clientes as $cliente) {
-                $id_cliente = $cliente[0];
-                $nome = $cliente[1];
-                $endereco = $cliente[2];
-                $telefone  = $cliente[3];
+                $id_cliente = $cliente['id_cliente'];
+                $nome = $cliente['nome'];
+                $endereco = $cliente['endereco'];
+                $telefone  = $cliente['telefone'];
                 echo "<option value='$id_cliente'>$nome</option>";
             }
             ?>

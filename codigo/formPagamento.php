@@ -11,14 +11,14 @@
     <form action="cad_pagamento.php" method="POST">
         <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
         Valor: <br>
-        <input type="float" name="valor" required><br>
+        <input type="number" name="valor" step="0.01" min="0" required><br>
         Preço por KM: <br>
-        <input type="float" name="preco_por_km" required><br>
+        <input type="number" name="preco_por_km" step="0.01" min="0" required><br>
         Data Atual: <br>
         <input type="date" name="data_pagamento" required><br>
         Método pagamento: <br>
 
-        <select name="metodo" required>
+        <select name = "metodo" required >
             <option>Dinheiro</option>
             <option>Cartão</option>
         </select> <br>
@@ -39,7 +39,7 @@
                 echo "<input type='hidden' name='id_veiculo[]' value='{$veiculo[0]}'>"; // Correção para adicionar o ID do veículo
                 echo "<p>Veículo: {$veiculo[1]} - {$veiculo[2]}</p>";
                 echo "<p>Km Inicial: {$veiculo[12]}</p>";
-                echo "Km Final: <input type='text' name='kmfinal[]' required>"; // Adicione `required` se necessário
+                echo "Km Final: <input type='number' name='kmfinal[]' step='0.01' min='{$veiculo[12]}' required>"; // Campo para Km Final
                 echo "<hr>";
             } else {
                 echo "<p>Erro ao carregar informações do veículo.</p>";

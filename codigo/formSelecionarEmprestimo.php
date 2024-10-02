@@ -12,8 +12,9 @@
         <?php
         require_once "conexao.php";
         require_once "operacoes.php";
+        $id_cliente = $_GET['id_cliente'];
 
-        $emprestimos = listarEmprestimoCliente($conexao, $_GET['id_cliente']);
+        $emprestimos = listarEmprestimoCliente($conexao, $id_cliente);
 
         $quantidade = sizeof($emprestimos);
         if ($quantidade > 0) {
@@ -29,6 +30,7 @@
                 echo "<option value='$id_aluguel'>$datainicial_aluguel>$datafinal_aluguel</option>";
             }
             echo "</select><br><br>";
+            echo "<input type='hidden' name='id_cliente' value='$id_cliente'>";
             echo "<input type='submit' value='Preencher dados do pagamento'>";
         } else {
             echo "Não há empréstimos para esse cliente.";

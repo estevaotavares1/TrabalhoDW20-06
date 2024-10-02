@@ -10,7 +10,7 @@ $datafinal_aluguel = $_GET['datafinal_aluguel'];
 $carros = $_GET['carros'];
 
 // Grava o empréstimo e armazena o ID gerado
-$id_aluguel = salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario, $tb_cliente_id_cliente);
+$id_aluguel = salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario, $tb_cliente_id_cliente,);
 
 // Grava cada um dos carros selecionados
 foreach ($carros as $carro) {
@@ -22,6 +22,13 @@ foreach ($carros as $carro) {
     mysqli_stmt_bind_param($stmt, "i", $carro);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+
+    $sqlUpdateVeiculo = "UPDATE tb_aluguel SET status = 'Pendente' WHERE id_aluguel = ?";
+    $stmtUpdateVeiculo = mysqli_prepare($conexao, $sqlUpdateVeiculo);
+    mysqli_stmt_bind_param($stmtUpdateVeiculo, "i", $id_aluguel);
+    mysqli_stmt_execute($stmtUpdateVeiculo);
+    mysqli_stmt_close($stmtUpdateVeiculo);
+
 }
 
 header("Location: index.html");

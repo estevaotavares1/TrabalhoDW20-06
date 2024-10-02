@@ -57,7 +57,7 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veic
 }
 
 function salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario, $tb_cliente_id_cliente) {
-    $sql = "INSERT INTO tb_aluguel (datainicial_aluguel, datafinal_aluguel, tb_funcionario_id_funcionario, tb_cliente_id_cliente) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_aluguel (datainicial_aluguel, datafinal_aluguel, tb_funcionario_id_funcionario, tb_cliente_id_cliente) VALUES (?, ?, ?, ?, )";
     $stmt = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($stmt, "ssii", $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario, $tb_cliente_id_cliente);
@@ -103,7 +103,7 @@ function efetuarPagamento($conexao, $tb_aluguel_id_aluguel, $valor, $preco_por_k
     $sql = "INSERT INTO tb_pagamento (tb_aluguel_id_aluguel, valor, preco_por_km, data_pagamento, metodo) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($stmt, "iddss", $tb_aluguel_id_aluguel, $valor, $preco_por_km, $data_pagamento, $metodo);
+    mysqli_stmt_bind_param($stmt, "idsis", $tb_aluguel_id_aluguel, $valor, $preco_por_km, $data_pagamento, $metodo);
     mysqli_stmt_execute($stmt);
     
     $id = mysqli_insert_id($conexao);
@@ -236,7 +236,7 @@ function listarEmprestimoCliente($conexao, $id_cliente) {
     mysqli_stmt_bind_param($stmt, "i", $id_cliente);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
-    mysqli_stmt_bind_result($stmt, $id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel);
+    mysqli_stmt_bind_result($stmt, $id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel, $status );
     
     $lista = [];
     if (mysqli_stmt_num_rows($stmt) > 0) {
