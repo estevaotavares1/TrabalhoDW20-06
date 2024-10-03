@@ -377,3 +377,29 @@ function imprimirClientes($conexao)
 
     return $lista;
 }
+
+function imprimirVeiculosDisponiveis($conexao)
+{
+    $sql = "SELECT * FROM tb_veiculo WHERE status = 'Disponível'";
+    $resultado = mysqli_query($conexao, $sql);
+    $veiculos = [];
+
+    while ($veiculo = mysqli_fetch_assoc($resultado)) {
+        $veiculos[] = $veiculo;
+    }
+
+    return $veiculos;
+}
+
+function imprimirVeiculosIndisponiveis($conexao)
+{
+    $sql = "SELECT * FROM tb_veiculo WHERE status = 'Indisponível'";
+    $resultado = mysqli_query($conexao, $sql);
+    $veiculos = [];
+
+    while ($veiculo = mysqli_fetch_assoc($resultado)) {
+        $veiculos[] = $veiculo;
+    }
+
+    return $veiculos;
+}
