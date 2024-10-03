@@ -52,7 +52,7 @@ require_once 'testalogin.php';
         </li>
         <li class="list-group-item">
           <a href="listagens.html" class="text-decoration-none"
-            >Acessar registros</a
+            >Acessar os Registros</a
           >
         </li>
       </ul>
