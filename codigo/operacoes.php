@@ -1,4 +1,13 @@
 <?php
+/**
+ * Cadastra um novo cliente.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param string $nome Nome do cliente.
+ * @param string $endereco Endereço do cliente.
+ * @param string $telefone Telefone do cliente.
+ * @return int ID do cliente inserido.
+ */
 function cadastro_cliente($conexao, $nome, $endereco, $telefone)
 {
     $sql = "INSERT INTO tb_cliente (nome, endereco, telefone) VALUES (?, ?, ?)";
@@ -11,6 +20,15 @@ function cadastro_cliente($conexao, $nome, $endereco, $telefone)
     return $id_cliente;
 }
 
+/**
+ * Cadastra uma pessoa física.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param string $nome Nome da pessoa física.
+ * @param string $endereco Endereço da pessoa física.
+ * @param string $telefone Telefone da pessoa física.
+ * @param string $cpf CPF da pessoa física.
+ */
 function cadastro_pessoafisica($conexao, $nome, $endereco, $telefone, $cpf)
 {
     $id_cliente = cadastro_cliente($conexao, $nome, $endereco, $telefone);
@@ -21,6 +39,15 @@ function cadastro_pessoafisica($conexao, $nome, $endereco, $telefone, $cpf)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Cadastra uma empresa.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param string $nome Nome da empresa.
+ * @param string $endereco Endereço da empresa.
+ * @param string $telefone Telefone da empresa.
+ * @param string $cnpj CNPJ da empresa.
+ */
 function cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj)
 {
     $id_cliente = cadastro_cliente($conexao, $nome, $endereco, $telefone);
@@ -31,6 +58,16 @@ function cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Salva um novo funcionário.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param string $nome_funcionario Nome do funcionário.
+ * @param string $cpf_funcionario CPF do funcionário.
+ * @param string $email_funcionario Email do funcionário.
+ * @param string $telefone_funcionario Telefone do funcionário.
+ * @return int|bool ID do funcionário inserido ou false em caso de erro.
+ */
 function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario)
 {
     $sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?, ?, ?, ?)";
@@ -47,6 +84,24 @@ function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email
     }
 }
 
+/**
+ * Salva um novo veículo.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param string $nome Nome do veículo.
+ * @param string $marca Marca do veículo.
+ * @param int $ano Ano do veículo.
+ * @param string $tipo_veiculo Tipo do veículo.
+ * @param string $placa_veiculo Placa do veículo.
+ * @param string $capacidade_veiculo Capacidade do veículo.
+ * @param string $vidroeletrico_veiculo Indicação se possui vidro elétrico.
+ * @param string $airbag_veiculo Indicação se possui airbag.
+ * @param string $capacidaportamala_veiculo Capacidade do porta-malas.
+ * @param string $arcondicionado_veiculo Indicação se possui ar-condicionado.
+ * @param string $automatico_veiculo Indicação se é automático.
+ * @param string $km_veiculo Quilometragem do veículo.
+ * @return int ID do veículo inserido.
+ */
 function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo)
 {
     $sql = "INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -61,6 +116,16 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veic
     return $id;
 }
 
+/**
+ * Salva um novo empréstimo.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param string $datainicial_aluguel Data inicial do aluguel.
+ * @param string $datafinal_aluguel Data final do aluguel.
+ * @param int $tb_funcionario_id_funcionario ID do funcionário associado.
+ * @param int $tb_cliente_id_cliente ID do cliente associado.
+ * @return int ID do aluguel inserido.
+ */
 function salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $tb_funcionario_id_funcionario, $tb_cliente_id_cliente)
 {
     $sql = "INSERT INTO tb_aluguel (datainicial_aluguel, datafinal_aluguel, tb_funcionario_id_funcionario, tb_cliente_id_cliente) VALUES (?, ?, ?, ?)";
@@ -75,6 +140,14 @@ function salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $t
     return $id;
 }
 
+/**
+ * Associa um veículo a um empréstimo, com o KM inicial.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $tb_aluguel_id_aluguel ID do aluguel associado.
+ * @param int $tb_veiculo_id_veiculo ID do veículo associado.
+ * @return int ID do registro de veículo no aluguel.
+ */
 function salvarVeiculoEmprestimo($conexao, $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo)
 {
     $km_inicial = kmInicialVeiculo($conexao, $tb_veiculo_id_veiculo);
@@ -92,6 +165,13 @@ function salvarVeiculoEmprestimo($conexao, $tb_aluguel_id_aluguel, $tb_veiculo_i
     return $id;
 }
 
+/**
+ * Obtém o KM inicial de um veículo.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_veiculo ID do veículo.
+ * @return int KM inicial do veículo.
+ */
 function kmInicialVeiculo($conexao, $id_veiculo)
 {
     $sql = "SELECT km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
@@ -107,6 +187,17 @@ function kmInicialVeiculo($conexao, $id_veiculo)
     return $km;
 }
 
+/**
+ * Insere um novo pagamento no banco de dados para um aluguel específico.
+ *
+ * @param object $conexao Conexão com o banco de dados.
+ * @param int $tb_aluguel_id_aluguel ID do aluguel associado ao pagamento.
+ * @param float $valor Valor do pagamento.
+ * @param float $preco_por_km Preço por km cobrado no aluguel.
+ * @param string $data_pagamento Data do pagamento.
+ * @param string $metodo Método de pagamento.
+ * @return int ID do pagamento inserido.
+ */
 function efetuarPagamento($conexao, $tb_aluguel_id_aluguel, $valor, $preco_por_km, $data_pagamento, $metodo)
 {
     $sql = "INSERT INTO tb_pagamento (tb_aluguel_id_aluguel, valor, preco_por_km, data_pagamento, metodo) VALUES (?, ?, ?, ?, ?)";
@@ -121,6 +212,14 @@ function efetuarPagamento($conexao, $tb_aluguel_id_aluguel, $valor, $preco_por_k
     return $id;
 }
 
+/**
+ * Atualiza o km final de um veículo associado a um aluguel.
+ *
+ * @param object $conexao Conexão com o banco de dados.
+ * @param float $km_final Km final registrado.
+ * @param int $tb_aluguel_id_aluguel ID do aluguel.
+ * @param int $tb_veiculo_id_veiculo ID do veículo.
+ */
 function atualiza_km_final($conexao, $km_final, $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo)
 {
     $sql = "UPDATE tb_aluguel_has_tb_veiculo SET km_final = ? WHERE tb_aluguel_id_aluguel = ? AND tb_veiculo_id_veiculo = ?";
@@ -131,9 +230,17 @@ function atualiza_km_final($conexao, $km_final, $tb_aluguel_id_aluguel, $tb_veic
 
     mysqli_stmt_close($stmt);
 
+    // Atualiza o km atual do veículo
     atualiza_km_atual($conexao, $km_final, $tb_veiculo_id_veiculo);
 }
 
+/**
+ * Atualiza o km atual de um veículo.
+ *
+ * @param object $conexao Conexão com o banco de dados.
+ * @param float $km_veiculo Km atualizado do veículo.
+ * @param int $id_veiculo ID do veículo.
+ */
 function atualiza_km_atual($conexao, $km_veiculo, $id_veiculo)
 {
     $sql = "UPDATE tb_veiculo SET km_veiculo = ? WHERE id_veiculo = ?";
@@ -145,21 +252,23 @@ function atualiza_km_atual($conexao, $km_veiculo, $id_veiculo)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Retorna uma lista de funcionários com ID e nome.
+ *
+ * @param object $conexao Conexão com o banco de dados.
+ * @return array Lista de funcionários (ID e nome).
+ */
 function listarFuncionarios($conexao)
 {
     $sql = "SELECT id_funcionario, nome_funcionario FROM tb_funcionario";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    // Executa a consulta
     mysqli_stmt_execute($stmt);
-
-    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario);
     mysqli_stmt_store_result($stmt);
 
     $lista = [];
 
-    // Verifica se há registros e preenche o array associativo
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -169,27 +278,28 @@ function listarFuncionarios($conexao)
         }
     }
 
-    // Fecha a instrução
     mysqli_stmt_close($stmt);
 
     return $lista;
 }
 
+/**
+ * Lista todos os clientes com detalhes de contato.
+ *
+ * @param object $conexao Conexão com o banco de dados.
+ * @return array Lista de clientes com detalhes (ID, nome, endereço, telefone).
+ */
 function listarClientes($conexao)
 {
     $sql = "SELECT id_cliente, nome, endereco, telefone FROM tb_cliente";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    // Executa a consulta
     mysqli_stmt_execute($stmt);
-
-    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_cliente, $nome, $endereco, $telefone);
     mysqli_stmt_store_result($stmt);
 
     $lista = [];
 
-    // Verifica se há registros e preenche o array associativo
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -201,12 +311,17 @@ function listarClientes($conexao)
         }
     }
 
-    // Fecha a instrução
     mysqli_stmt_close($stmt);
 
     return $lista;
 }
 
+/**
+ * Retorna uma lista com todos os veículos.
+ *
+ * @param object $conexao Conexão com o banco de dados.
+ * @return array Lista de veículos com detalhes.
+ */
 function listarVeiculos($conexao)
 {
     $sql = "SELECT * FROM tb_veiculo";
@@ -226,6 +341,7 @@ function listarVeiculos($conexao)
     mysqli_stmt_close($stmt);
     return $lista;
 }
+
 
 function listarVeiculoPorId($conexao, $id)
 {
