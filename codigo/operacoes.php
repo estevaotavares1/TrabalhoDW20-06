@@ -343,6 +343,13 @@ function listarVeiculos($conexao)
 }
 
 
+/**
+ * Obtém os dados de um veículo específico pelo seu ID.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id ID do veículo.
+ * @return array Dados do veículo (ID, nome, marca, ano, tipo, placa, capacidade, e outros atributos).
+ */
 function listarVeiculoPorId($conexao, $id)
 {
     $sql = "SELECT id_veiculo, nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
@@ -360,6 +367,13 @@ function listarVeiculoPorId($conexao, $id)
     return $result;
 }
 
+/**
+ * Lista os empréstimos pendentes de um cliente específico.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente.
+ * @return array Lista de empréstimos pendentes (ID do aluguel, ID do funcionário, ID do cliente, data inicial e final do aluguel).
+ */
 function listarEmprestimoCliente($conexao, $id_cliente)
 {
     $sql = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = ? AND status = 'Pendente'";
@@ -381,6 +395,13 @@ function listarEmprestimoCliente($conexao, $id_cliente)
     return $lista;
 }
 
+/**
+ * Lista os veículos associados a um empréstimo específico.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_aluguel ID do aluguel.
+ * @return array Lista de veículos do empréstimo (ID do veículo e quilometragem inicial).
+ */
 function listarVeiculosEmprestimo($conexao, $id_aluguel)
 {
     $sql = "SELECT tb_veiculo_id_veiculo, km_inicial FROM tb_aluguel_has_tb_veiculo WHERE tb_aluguel_id_aluguel = ?";
@@ -402,6 +423,12 @@ function listarVeiculosEmprestimo($conexao, $id_aluguel)
     return $lista;
 }
 
+/**
+ * Lista todos os veículos disponíveis para empréstimo.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de veículos disponíveis, cada um com os dados completos do veículo.
+ */
 function listarVeiculosDisponiveis($conexao)
 {
     $sql = "SELECT * FROM tb_veiculo WHERE status = 'Disponível'";
@@ -415,27 +442,30 @@ function listarVeiculosDisponiveis($conexao)
     return $veiculos;
 }
 
+
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 
+/**
+ * Lista todos os funcionários, retornando um array com os dados completos de cada um.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de funcionários (ID, nome, CPF, e-mail, telefone).
+ */
 function imprimirFuncionarios($conexao)
 {
     $sql = "SELECT * FROM tb_funcionario";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    // Executa a consulta
     mysqli_stmt_execute($stmt);
-
-    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
     mysqli_stmt_store_result($stmt);
 
     $lista = [];
 
-    // Verifica se há registros e preenche o array associativo
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -448,15 +478,19 @@ function imprimirFuncionarios($conexao)
         }
     }
 
-    // Fecha a instrução
     mysqli_stmt_close($stmt);
 
     return $lista;
 }
 
+/**
+ * Lista todos os clientes, incluindo CPF para pessoas físicas e CNPJ para empresas.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de clientes (ID, nome, endereço, telefone, CPF ou CNPJ).
+ */
 function imprimirClientes($conexao)
 {
-    // Consulta que une tb_cliente, tb_pessoafisica e tb_empresa para diferenciar por CPF e CNPJ
     $sql = "SELECT 
                 c.id_cliente, 
                 c.nome, 
@@ -470,16 +504,12 @@ function imprimirClientes($conexao)
 
     $stmt = mysqli_prepare($conexao, $sql);
 
-    // Executa a consulta
     mysqli_stmt_execute($stmt);
-
-    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_cliente, $nome, $endereco, $telefone, $cpf_pessoa, $cnpj_empresa);
     mysqli_stmt_store_result($stmt);
 
     $lista = [];
 
-    // Verifica se há registros e preenche o array associativo
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -493,12 +523,17 @@ function imprimirClientes($conexao)
         }
     }
 
-    // Fecha a instrução
     mysqli_stmt_close($stmt);
 
     return $lista;
 }
 
+/**
+ * Lista todos os veículos disponíveis para empréstimo.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de veículos disponíveis, cada um com os dados completos.
+ */
 function imprimirVeiculosDisponiveis($conexao)
 {
     $sql = "SELECT * FROM tb_veiculo WHERE status = 'Disponível'";
@@ -512,6 +547,12 @@ function imprimirVeiculosDisponiveis($conexao)
     return $veiculos;
 }
 
+/**
+ * Lista todos os veículos indisponíveis para empréstimo.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de veículos indisponíveis, cada um com os dados completos.
+ */
 function imprimirVeiculosIndisponiveis($conexao)
 {
     $sql = "SELECT * FROM tb_veiculo WHERE status = 'Indisponível'";
@@ -525,6 +566,12 @@ function imprimirVeiculosIndisponiveis($conexao)
     return $veiculos;
 }
 
+/**
+ * Lista todos os aluguéis, incluindo informações sobre o cliente e o funcionário responsáveis.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de aluguéis com as datas de início e fim, e os nomes do cliente e do funcionário.
+ */
 function imprimirAlugueis($conexao)
 {
     $sql = "SELECT 
@@ -539,16 +586,12 @@ function imprimirAlugueis($conexao)
     
     $stmt = mysqli_prepare($conexao, $sql);
     
-    // Executa a consulta
     mysqli_stmt_execute($stmt);
-    
-    // Vincula os resultados às variáveis
     mysqli_stmt_bind_result($stmt, $id_aluguel, $datainicial_aluguel, $datafinal_aluguel, $nome_cliente, $nome_funcionario);
     mysqli_stmt_store_result($stmt);
     
     $lista = [];
     
-    // Preenche o array associativo se houver registros
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -561,12 +604,17 @@ function imprimirAlugueis($conexao)
         }
     }
     
-    // Fecha a instrução
     mysqli_stmt_close($stmt);
     
     return $lista;
 }
 
+/**
+ * Lista todos os pagamentos, incluindo o valor, o preço por km, a data de pagamento, o método e o ID do aluguel associado.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @return array Lista de pagamentos com informações detalhadas de cada registro.
+ */
 function imprimirPagamentos($conexao)
 {
     $sql = "SELECT 
