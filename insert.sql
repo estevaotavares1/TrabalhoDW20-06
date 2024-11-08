@@ -1,6 +1,6 @@
 USE `veiculosbd` ;
 
--- Inserindo 5 funcionários
+-- Inserindo 20 funcionários
 INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario, senha_funcionario) VALUES
 ('Lucas Ferreira', '12345678910', 'lucas.ferreira@email.com', 998877665, 'lucasps123'),
 ('Gabriel Lima', '98765432111', 'gabriel.lima@email.com', 997766554, 'limagabriel7'),
@@ -23,7 +23,7 @@ INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario
 ('Camila Teixeira', '32145698766', 'camila.teixeira@email.com', 980909887, 'camila.t99'),
 ('Ricardo Pereira', '45645645646', 'ricardo.pereira@email.com', 994433221, 'ricar23do');
 
--- Inserindo 5 veículos
+-- Inserindo 20 veículos
 INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo, status) VALUES
 ('Civic', 'Honda', 2020, 'ABC1234', '5 passageiros', 1, 1, '500L', 1, 1, 10000.00, 'Disponível'),
 ('Corolla', 'Toyota', 2021, 'DEF5678', '5 passageiros', 1, 1, '470L', 1, 1, 15000.00, 'Disponível'),
@@ -45,3 +45,48 @@ INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vid
 ('Cherokee', 'Jeep', 2020, 'ZAB5678', '5 passageiros', 1, 1, '600L', 1, 0, 22000.00, 'Disponível'),
 ('C4 Cactus', 'Citroën', 2021, 'CDE9012', '5 passageiros', 1, 0, '400L', 1, 1, 17000.00, 'Disponível'),
 ('XJ6', 'Yamaha', 2020, 'MNO7890', '2 passageiros', 0, 0, '432L', 0, 0, 12000.00, 'Disponível');
+
+-- Inserindo 20 clientes
+INSERT INTO tb_cliente (nome, endereco, telefone) VALUES 
+('Lucas Ferreira', 'Rua A, 123', 998877665),
+('Gabriel Lima', 'Avenida B, 456', 997766554),
+('Fernanda Costa', 'Travessa C, 789', 996655443),
+('Juliana Mendes', 'Rua D, 101', 995544332),
+('Roberto Farias', 'Avenida E, 202', 981010998),
+('Camila Teixeira', 'Rua F, 303', 980909887),
+('Marcos Silva', 'Rua G, 404', 977887766),
+('Patrícia Almeida', 'Avenida H, 505', 976766554),
+('Carlos Souza', 'Rua I, 606', 975655443),
+('Amanda Oliveira', 'Rua J, 707', 974544332),
+('Ricardo Martins', 'Avenida K, 808', 973433221),
+('Sofia Pereira', 'Rua L, 909', 972322110),
+('Thiago Costa', 'Avenida M, 1010', 971211099),
+('Elisa Rocha', 'Rua N, 1111', 970100988),
+('Vítor Almeida', 'Rua P, 1313', 968888766),
+('Isabela Souza', 'Avenida Q, 1414', 967777655),
+('João Santos', 'Rua R, 1515', 966666544),
+('Letícia Silva', 'Rua S, 1616', 965555433),
+('Fernando Lima', 'Avenida T, 1717', 964444322),
+('José Santos', 'Rua O, 1212', 969999877);
+
+INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES 
+('12345678901', 1),
+('98765432100', 2),
+('12312312312', 3),
+('32132132132', 4),
+('45645645645', 5),
+('78978978978', 6),
+('15915915915', 7),
+('25825825825', 8),
+('36936936936', 9),
+('95195195195', 10),
+('75375375375', 11),
+('86486486486', 12),
+('74174174174', 13),
+('85285285285', 14),
+('96396396396', 15),
+('14714714714', 16),
+('25825825824', 17),
+('36936936935', 18),
+('74174174173', 19),
+('85285285284', 20);
