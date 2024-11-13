@@ -22,82 +22,32 @@
                 $datainicial_aluguel = $_GET['datainicial_aluguel'];
                 $datafinal_aluguel = $_GET['datafinal_aluguel'];
 
-                // Chama a função que lista apenas os veículos disponíveis
-                $carros = listarVeiculosDisponiveis($conexao);
+                $veiculos = listarVeiculosDisponiveis($conexao);
 
-                // Inicia contadores para separação
-                $motos = [];
-                $carrosTipo = [];
-
-                // Separa os carros e motos
-                foreach ($carros as $carro) {
-                    if (strtolower($carro['tipo_veiculo']) == 'moto') {
-                        $motos[] = $carro;
-                    } else {
-                        $carrosTipo[] = $carro;
-                    }
-                }
-
-                // Exibe as motos
-                if (!empty($motos)) {
-                    echo "<div class='col-12 mb-4'><h4>Motos Disponíveis</h4></div>";
-                    foreach ($motos as $moto) {
+                // Exibe os Carros
+                    echo "<div class='col-12 mb-4'><h4>Veículos Disponíveis</h4></div>";
+                    foreach ($veiculos as $veiculo) {
                         echo "
                         <div class='col-md-6 mb-4'>
                             <div class='card'>
                                 <div class='card-body'>
-                                    <h5 class='card-title'>{$moto['nome']}</h5>
+                                    <h5 class='card-title'>{$veiculo['nome']}</h5>
                                     <p class='card-text'>
-                                        Marca: {$moto['marca']}<br>
-                                        Ano: {$moto['ano']}<br>
-                                        Tipo: {$moto['tipo_veiculo']}<br>
-                                        Placa: {$moto['placa_veiculo']}<br>
-                                        Capacidade: {$moto['capacidade_veiculo']}<br>
-                                        Vidro Elétrico: {$moto['vidroeletrico_veiculo']}<br>
-                                        Airbag: {$moto['airbag_veiculo']}<br>
-                                        Porta-malas: {$moto['capacidaportamala_veiculo']}<br>
-                                        Ar-condicionado: {$moto['arcondicionado_veiculo']}<br>
-                                        Automático: {$moto['automatico_veiculo']}<br>
-                                        KM: {$moto['km_veiculo']}
+                                        Marca: {$veiculo['marca']}<br>
+                                        Ano: {$veiculo['ano']}<br>
+                                        Tipo: {$veiculo['tipo_veiculo']}<br>
+                                        Placa: {$veiculo['placa_veiculo']}<br>
+                                        Capacidade: {$veiculo['capacidade_veiculo']}<br>
+                                        Vidro Elétrico: {$veiculo['vidroeletrico_veiculo']}<br>
+                                        Airbag: {$veiculo['airbag_veiculo']}<br>
+                                        Porta-malas: {$veiculo['capacidaportamala_veiculo']}<br>
+                                        Ar-condicionado: {$veiculo['arcondicionado_veiculo']}<br>
+                                        Automático: {$veiculo['automatico_veiculo']}<br>
+                                        KM: {$veiculo['km_veiculo']}
                                     </p>
                                     <div class='form-check'>
-                                        <input class='form-check-input' type='checkbox' name='carros[]' value='{$moto['id_veiculo']}' id='carro{$moto['id_veiculo']}'>
-                                        <label class='form-check-label' for='carro{$moto['id_veiculo']}'>
-                                            Selecionar esta moto
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        ";
-                    }
-                }
-
-                // Exibe os carros
-                if (!empty($carrosTipo)) {
-                    echo "<div class='col-12 mb-4'><h4>Carros Disponíveis</h4></div>";
-                    foreach ($carrosTipo as $carro) {
-                        echo "
-                        <div class='col-md-6 mb-4'>
-                            <div class='card'>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>{$carro['nome']}</h5>
-                                    <p class='card-text'>
-                                        Marca: {$carro['marca']}<br>
-                                        Ano: {$carro['ano']}<br>
-                                        Tipo: {$carro['tipo_veiculo']}<br>
-                                        Placa: {$carro['placa_veiculo']}<br>
-                                        Capacidade: {$carro['capacidade_veiculo']}<br>
-                                        Vidro Elétrico: {$carro['vidroeletrico_veiculo']}<br>
-                                        Airbag: {$carro['airbag_veiculo']}<br>
-                                        Porta-malas: {$carro['capacidaportamala_veiculo']}<br>
-                                        Ar-condicionado: {$carro['arcondicionado_veiculo']}<br>
-                                        Automático: {$carro['automatico_veiculo']}<br>
-                                        KM: {$carro['km_veiculo']}
-                                    </p>
-                                    <div class='form-check'>
-                                        <input class='form-check-input' type='checkbox' name='carros[]' value='{$carro['id_veiculo']}' id='carro{$carro['id_veiculo']}'>
-                                        <label class='form-check-label' for='carro{$carro['id_veiculo']}'>
+                                        <input class='form-check-input' type='checkbox' name='veiculos[]' value='{$veiculo['id_veiculo']}' id='veiculo{$veiculo['id_veiculo']}'>
+                                        <label class='form-check-label' for='veiculo{$veiculo['id_veiculo']}'>
                                             Selecionar este carro
                                         </label>
                                     </div>
@@ -106,7 +56,6 @@
                         </div>
                         ";
                     }
-                }
                 ?>
             </div>
 

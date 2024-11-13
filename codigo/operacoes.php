@@ -68,11 +68,11 @@ function cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj)
  * @param string $telefone_funcionario Telefone do funcionário.
  * @return int|bool ID do funcionário inserido ou false em caso de erro.
  */
-function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario)
+function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario)
 {
-    $sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario, senha_funcionario) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($stmt, "ssss", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
+    mysqli_stmt_bind_param($stmt, "sssss", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario);
 
     if (mysqli_stmt_execute($stmt)) {
         $id = mysqli_insert_id($conexao);
@@ -102,12 +102,12 @@ function salvarFuncionario($conexao, $nome_funcionario, $cpf_funcionario, $email
  * @param string $km_veiculo Quilometragem do veículo.
  * @return int ID do veículo inserido.
  */
-function salvarVeiculo($conexao, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo)
+function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo)
 {
-    $sql = "INSERT INTO tb_veiculo (nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($stmt, "ssisssssssss", $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
+    mysqli_stmt_bind_param($stmt, "ssissssssss", $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
     mysqli_stmt_execute($stmt);
 
     $id = mysqli_insert_id($conexao);
@@ -448,6 +448,17 @@ function listarVeiculosDisponiveis($conexao)
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+// As funções do Listar ------------------------------------------------------------------------------------------------------------
+
 
 /**
  * Lista todos os funcionários, retornando um array com os dados completos de cada um.

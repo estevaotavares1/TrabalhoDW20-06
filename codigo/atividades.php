@@ -47,7 +47,7 @@ require_once 'testalogin.php';
           >
         </li>
         <li class="list-group-item">
-          <a href="formClientePagamento.php" class="text-decoration-none"
+          <a href="pagamento_form.php" class="text-decoration-none"
             >Fazer um Pagamento</a
           >
         </li>
