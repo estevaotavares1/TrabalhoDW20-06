@@ -25,9 +25,9 @@
                 $veiculos = listarVeiculosDisponiveis($conexao);
 
                 // Exibe os Carros
-                    echo "<div class='col-12 mb-4'><h4>Veículos Disponíveis</h4></div>";
-                    foreach ($veiculos as $veiculo) {
-                        echo "
+                echo "<div class='col-12 mb-4'><h4>Veículos Disponíveis</h4></div>";
+                foreach ($veiculos as $veiculo) {
+                    echo "
                         <div class='col-md-6 mb-4'>
                             <div class='card'>
                                 <div class='card-body'>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         ";
-                    }
+                }
                 ?>
             </div>
 
