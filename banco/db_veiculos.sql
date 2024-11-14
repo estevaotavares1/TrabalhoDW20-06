@@ -182,26 +182,26 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_funcionario` (
 ENGINE = InnoDB;
 
 INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario, senha_funcionario) VALUES
-('Lucas Ferreira', '12345678910', 'lucas.ferreira@email.com', 998877665, 'lucasps123'),
-('Gabriel Lima', '98765432111', 'gabriel.lima@email.com', 997766554, 'limagabriel7'),
-('Fernanda Costa', '12312312313', 'fernanda.costa@email.com', 996655443, 'fernanda12costa'),
-('Juliana Mendes', '32132132133', 'juliana.mendes@email.com', 995544332, 'mendes7juliana'),
-('Ana Paula', '45678912300', 'ana.paula@email.com', 994433221, 'anapaula22'),
-('Carlos Eduardo', '78945612322', 'carlos.eduardo@email.com', 993322110, 'eduardocarl15'),
-('Mariana Oliveira', '12365478999', 'mariana.oliveira@email.com', 992211009, 'marioliveira01'),
-('Thiago Souza', '32198765444', 'thiago.souza@email.com', 991100998, 'tsouza78'),
-('Patrícia Gomes', '65432198755', 'patricia.gomes@email.com', 990009887, 'patriciagomes33'),
-('Renato Alves', '98712365466', 'renato.alves@email.com', 989898776, 'ralves20'),
-('Larissa Pereira', '45632178977', 'larissa.pereira@email.com', 988787665, 'laripe89'),
-('Douglas Ribeiro', '78912345688', 'douglas.ribeiro@email.com', 987676554, 'douglasri22'),
-('Tatiane Rocha', '32165498799', 'tatiane.rocha@email.com', 986565443, 'trocha18'),
-('Felipe Martins', '65498732110', 'felipe.martins@email.com', 985454332, 'fmartins21'),
-('Julia Cardoso', '12345678922', 'julia.cardoso@email.com', 984343221, 'juliacard45'),
-('Bruno Nunes', '98765432133', 'bruno.nunes@email.com', 983232110, 'bnunes56'),
-('Aline Silva', '45678912344', 'aline.silva@email.com', 982121009, 'asilva34'),
-('Roberto Farias', '78932165455', 'roberto.farias@email.com', 981010998, 'rfarias19'),
-('Camila Teixeira', '32145698766', 'camila.teixeira@email.com', 980909887, 'camila.t99'),
-('Ricardo Pereira', '45645645646', 'ricardo.pereira@email.com', 994433221, 'ricar23do');
+('Lucas Ferreira', '12345678910', 'lucas.ferreira@email.com', '(62)99877-6665', 'lucasps123'),
+('Gabriel Lima', '98765432111', 'gabriel.lima@email.com', '(62)97766-5554', 'limagabriel7'),
+('Fernanda Costa', '12312312313', 'fernanda.costa@email.com', '(62)96655-4443', 'fernanda12costa'),
+('Juliana Mendes', '32132132133', 'juliana.mendes@email.com', '(62)95444-3332', 'mendes7juliana'),
+('Ana Paula', '45678912300', 'ana.paula@email.com', '(62)94433-2210', 'anapaula22'),
+('Carlos Eduardo', '78945612322', 'carlos.eduardo@email.com', '(62)93322-2110', 'eduardocarl15'),
+('Mariana Oliveira', '12365478999', 'mariana.oliveira@email.com', '(62)92211-0099', 'marioliveira01'),
+('Thiago Souza', '32198765444', 'thiago.souza@email.com', '(62)91100-9988', 'tsouza78'),
+('Patrícia Gomes', '65432198755', 'patricia.gomes@email.com', '(62)90009-8877', 'patriciagomes33'),
+('Renato Alves', '98712365466', 'renato.alves@email.com', '(62)98989-8776', 'ralves20'),
+('Larissa Pereira', '45632178977', 'larissa.pereira@email.com', '(62)98878-7665', 'laripe89'),
+('Douglas Ribeiro', '78912345688', 'douglas.ribeiro@email.com', '(62)98767-6554', 'douglasri22'),
+('Tatiane Rocha', '32165498799', 'tatiane.rocha@email.com', '(62)98656-5443', 'trocha18'),
+('Felipe Martins', '65498732110', 'felipe.martins@email.com', '(62)98545-4332', 'fmartins21'),
+('Julia Cardoso', '12345678922', 'julia.cardoso@email.com', '(62)98434-3221', 'juliacard45'),
+('Bruno Nunes', '98765432133', 'bruno.nunes@email.com', '(62)98323-2110', 'bnunes56'),
+('Aline Silva', '45678912344', 'aline.silva@email.com', '(62)98212-1009', 'asilva34'),
+('Roberto Farias', '78932165455', 'roberto.farias@email.com', '(62)98101-0998', 'rfarias19'),
+('Camila Teixeira', '32145698766', 'camila.teixeira@email.com', '(62)98090-9887', 'camila.t99'),
+('Ricardo Pereira', '45645645646', 'ricardo.pereira@email.com', '(62)94433-2210', 'ricar23do');
 
 
 -- -----------------------------------------------------
@@ -245,26 +245,26 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pessoafisica` (
 ENGINE = InnoDB;
 
 INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES 
-('12345678901', 1),
-('98765432100', 2),
-('12312312312', 3),
-('32132132132', 4),
-('45645645645', 5),
-('78978978978', 6),
-('15915915915', 7),
-('25825825825', 8),
-('36936936936', 9),
-('95195195195', 10),
-('75375375375', 11),
-('86486486486', 12),
-('74174174174', 13),
-('85285285285', 14),
-('96396396396', 15),
-('14714714714', 16),
-('25825825824', 17),
-('36936936935', 18),
-('74174174173', 19),
-('85285285284', 20);
+('123.456.789-01', 1),
+('987.654.321-00', 2),
+('123.123.123-12', 3),
+('321.321.321-32', 4),
+('456.456.456-45', 5),
+('789.789.789-78', 6),
+('159.159.159-15', 7),
+('258.258.258-25', 8),
+('369.369.369-36', 9),
+('951.951.951-95', 10),
+('753.753.753-75', 11),
+('864.864.864-86', 12),
+('741.741.741-74', 13),
+('852.852.852-85', 14),
+('963.963.963-96', 15),
+('147.147.147-14', 16),
+('258.258.258-24', 17),
+('369.369.369-35', 18),
+('741.741.741-73', 19),
+('852.852.852-84', 20);
 
 -- -----------------------------------------------------
 -- Table `veiculosbd`.`tb_veiculo`
