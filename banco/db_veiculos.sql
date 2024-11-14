@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_cliente` (
   `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NOT NULL,
   `endereco` VARCHAR(45) NOT NULL,
-  `telefone` INT(11) NOT NULL,
+  `telefone` VARCHAR(14) NOT NULL,
   PRIMARY KEY (`id_cliente`))
 ENGINE = InnoDB;
 
@@ -173,9 +173,9 @@ DROP TABLE IF EXISTS `veiculosbd`.`tb_funcionario` ;
 CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_funcionario` (
   `id_funcionario` INT NOT NULL AUTO_INCREMENT,
   `nome_funcionario` VARCHAR(100) NOT NULL,
-  `cpf_funcionario` VARCHAR(11) NOT NULL,
+  `cpf_funcionario` VARCHAR(14) NOT NULL,
   `email_funcionario` VARCHAR(100) NOT NULL,
-  `telefone_funcionario` INT(11) NOT NULL,
+  `telefone_funcionario` VARCHAR(14) NOT NULL,
   `senha_funcionario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_funcionario`))
 ENGINE = InnoDB;
@@ -232,7 +232,7 @@ DROP TABLE IF EXISTS `veiculosbd`.`tb_pessoafisica` ;
 
 CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pessoafisica` (
   `id_pessoa` INT NOT NULL AUTO_INCREMENT,
-  `cpf_pessoa` VARCHAR(11) NOT NULL,
+  `cpf_pessoa` VARCHAR(14) NOT NULL,
   `tb_cliente_id_cliente` INT NOT NULL,
   PRIMARY KEY (`id_pessoa`),
   INDEX `fk_tb_pessoafisica_tb_cliente1_idx` (`tb_cliente_id_cliente` ASC) VISIBLE,
