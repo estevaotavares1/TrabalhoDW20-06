@@ -43,6 +43,7 @@
             <?php
             require_once "conexao.php";
             require_once "operacoes.php";
+            require_once "operacoes2.php";
 
             $carros = listarVeiculosEmprestimo($conexao, $_GET['id_aluguel']);
 

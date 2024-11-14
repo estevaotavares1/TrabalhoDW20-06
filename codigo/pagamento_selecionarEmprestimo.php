@@ -17,6 +17,7 @@
             <?php
             require_once "conexao.php";
             require_once "operacoes.php";
+            require_once "operacoes2.php";
             $id_cliente = $_GET['id_cliente'];
 
             $emprestimos = listarEmprestimoCliente($conexao, $id_cliente);
