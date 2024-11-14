@@ -1,28 +1,6 @@
 <?php
 
 /**
- * Obtém o KM inicial de um veículo.
- *
- * @param mysqli $conexao Conexão com o banco de dados.
- * @param int $id_veiculo ID do veículo.
- * @return int KM inicial do veículo.
- */
-function kmInicialVeiculo($conexao, $id_veiculo)
-{
-    $sql = "SELECT km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
-    $stmt = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_bind_param($stmt, 'i', $id_veiculo);
-    mysqli_stmt_execute($stmt);
-
-    mysqli_stmt_bind_result($stmt, $km);
-    mysqli_stmt_fetch($stmt);
-    mysqli_stmt_close($stmt);
-
-    return $km;
-}
-
-/**
  * Insere um novo pagamento no banco de dados para um aluguel específico.
  *
  * @param object $conexao Conexão com o banco de dados.
