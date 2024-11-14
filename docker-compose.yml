@@ -12,6 +12,8 @@ services:
     image: mariadb:10.5
     container_name: "mariadb-veiculos"
     restart: always
+    volumes:
+      - ./banco/db_veiculos.sql:/docker-entrypoint-initdb.d/db_veiculos.sql
     environment:
       - MARIADB_USER=root
       - MARIADB_ROOT_PASSWORD=321
