@@ -50,14 +50,14 @@
             foreach ($carros as $carroEmprestimo) {
                 $veiculo = listarVeiculoPorId($conexao, $carroEmprestimo[0]);
 
-                // Certifique-se de que $veiculo tenha o número correto de elementos
-                if (count($veiculo) === 13) { // 13 campos no exemplo acima
-                    echo "<input type='hidden' name='id_veiculo[]' value='{$veiculo[0]}'>"; // Correção para adicionar o ID do veículo
+                // Validação, certifica-se de que $veiculo tenha o número correto de elementos (campos para preencher)
+                if (count($veiculo) === 12) {
+                    echo "<input type='hidden' name='id_veiculo[]' value='{$veiculo[0]}'>";
                     echo "<div class='mb-3'>";
                     echo "<p><strong>Veículo:</strong> {$veiculo[1]} - {$veiculo[2]}</p>";
-                    echo "<p><strong>Km Inicial:</strong> {$veiculo[12]}</p>";
+                    echo "<p><strong>Km Inicial:</strong> {$veiculo[11]}</p>";
                     echo "<label for='kmfinal' class='form-label'>Km Final:</label>";
-                    echo "<input type='number' name='kmfinal[]' class='form-control' step='0.01' min='{$veiculo[12]}' required>"; // Campo para Km Final
+                    echo "<input type='number' name='kmfinal[]' class='form-control' step='0.01' min='{$veiculo[11]}' required>";
                     echo "</div>";
                     echo "<hr>";
                 } else {
