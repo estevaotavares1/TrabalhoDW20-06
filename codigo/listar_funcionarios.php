@@ -20,6 +20,7 @@
                         <th>CPF</th>
                         <th>Email</th>
                         <th>Telefone</th>
+                        <th>Senha</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -37,6 +38,7 @@
                             $cpf_funcionario = $funcionario['cpf_funcionario'];
                             $email_funcionario = $funcionario['email_funcionario'];
                             $telefone_funcionario = $funcionario['telefone_funcionario'];
+                            $senha_funcionario = $funcionario['senha_funcionario'];
 
                             echo "<tr>";
                             echo "<td>$id_funcionario</td>";
@@ -44,6 +46,7 @@
                             echo "<td>$cpf_funcionario</td>";
                             echo "<td>$email_funcionario</td>";
                             echo "<td>$telefone_funcionario</td>";
+                            echo "<td>$senha_funcionario</td>";
                             echo "<td>
                                     <a href='editar_funcionario.php?id_funcionario=$id_funcionario' class='btn btn-warning btn-sm'>Editar</a>
                                     <a href='excluir_funcionario.php?id_funcionario=$id_funcionario' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>

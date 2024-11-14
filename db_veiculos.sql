@@ -182,6 +182,11 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_veiculo` (
   PRIMARY KEY (`id_veiculo`))
 ENGINE = InnoDB;
 
+ALTER TABLE tb_veiculo 
+ADD COLUMN status ENUM('Disponível', 'Indisponível') NOT NULL DEFAULT 'Disponível';
+
+ALTER TABLE tb_aluguel 
+ADD COLUMN status ENUM('Pendente', 'Pago', 'Cancelado') NOT NULL DEFAULT 'Pendente';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

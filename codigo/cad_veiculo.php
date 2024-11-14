@@ -5,11 +5,11 @@ $marca = $_POST['marca'];
 $ano = $_POST['ano'];
 $placa_veiculo = $_POST['placa_veiculo'];
 $capacidade_veiculo = $_POST['capacidade_veiculo'];
-$vidroeletrico_veiculo = $_POST['vidroeletrico_veiculo'];
-$airbag_veiculo = $_POST['airbag_veiculo'];
+$vidroeletrico_veiculo = ($_POST['vidroeletrico_veiculo'] == 's' ? 1 : 0);
+$airbag_veiculo = ($_POST['airbag_veiculo'] == 's' ? 1 : 0);
 $capacidaportamala_veiculo = $_POST['capacidaportamala_veiculo'];
-$arcondicionado_veiculo = $_POST['arcondicionado_veiculo'];
-$automatico_veiculo = $_POST['automatico_veiculo'];
+$arcondicionado_veiculo = ($_POST['arcondicionado_veiculo'] == 's' ? 1 : 0);
+$automatico_veiculo = ($_POST['automatico_veiculo'] == 's' ? 1 : 0);
 $km_veiculo = $_POST['km_veiculo'];
 
 require_once 'conexao.php';

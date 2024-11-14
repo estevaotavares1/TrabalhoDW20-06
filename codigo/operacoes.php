@@ -107,7 +107,7 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidad
     $sql = "INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($stmt, "ssissssssss", $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
+    mysqli_stmt_bind_param($stmt, "ssissiiisss", $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
     mysqli_stmt_execute($stmt);
 
     $id = mysqli_insert_id($conexao);
@@ -348,19 +348,19 @@ function listarVeiculos($conexao)
  *
  * @param mysqli $conexao Conexão com o banco de dados.
  * @param int $id ID do veículo.
- * @return array Dados do veículo (ID, nome, marca, ano, tipo, placa, capacidade, e outros atributos).
+ * @return array Dados do veículo (ID, nome, marca, ano, placa, capacidade, e outros atributos).
  */
 function listarVeiculoPorId($conexao, $id)
 {
-    $sql = "SELECT id_veiculo, nome, marca, ano, tipo_veiculo, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
+    $sql = "SELECT id_veiculo, nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
+    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
 
     $result = [];
     while (mysqli_stmt_fetch($stmt)) {
-        $result = [$id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo];
+        $result = [$id_veiculo, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo];
     }
 
     mysqli_stmt_close($stmt);
@@ -472,7 +472,7 @@ function imprimirFuncionarios($conexao)
     $stmt = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario);
+    mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario);
     mysqli_stmt_store_result($stmt);
 
     $lista = [];
@@ -484,7 +484,8 @@ function imprimirFuncionarios($conexao)
                 'nome_funcionario' => $nome_funcionario,
                 'cpf_funcionario' => $cpf_funcionario,
                 'email_funcionario' => $email_funcionario,
-                'telefone_funcionario' => $telefone_funcionario
+                'telefone_funcionario' => $telefone_funcionario,
+                'senha_funcionario' => $senha_funcionario
             ];
         }
     }

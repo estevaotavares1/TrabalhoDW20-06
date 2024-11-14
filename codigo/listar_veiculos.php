@@ -19,7 +19,6 @@
                         <th>Nome</th>
                         <th>Marca</th>
                         <th>Ano</th>
-                        <th>Tipo</th>
                         <th>Placa</th>
                         <th>Capacidade</th>
                         <th>Vidro Elétrico</th>
@@ -36,11 +35,11 @@
                     require_once "conexao.php";
                     require_once "operacoes.php";
 
-                    // Listar veículos disponíveis e indisponíveis
+                    // Lista os veículos disponíveis e indisponíveis
                     $veiculosDisponiveis = imprimirVeiculosDisponiveis($conexao);
                     $veiculosIndisponiveis = imprimirVeiculosIndisponiveis($conexao);
 
-                    // Função auxiliar para exibir veículos em formato de tabela
+                    // Função para exibir em formato de tabela
                     function exibirTabelaVeiculos($veiculos, $status)
                     {
                         foreach ($veiculos as $veiculo) {
@@ -54,7 +53,6 @@
                             echo "<td>{$veiculo['nome']}</td>";
                             echo "<td>{$veiculo['marca']}</td>";
                             echo "<td>{$veiculo['ano']}</td>";
-                            echo "<td>{$veiculo['tipo_veiculo']}</td>";
                             echo "<td>{$veiculo['placa_veiculo']}</td>";
                             echo "<td>{$veiculo['capacidade_veiculo']}</td>";
                             echo "<td>$vidroEletrico</td>";

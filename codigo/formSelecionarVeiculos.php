@@ -35,7 +35,6 @@
                                     <p class='card-text'>
                                         Marca: {$veiculo['marca']}<br>
                                         Ano: {$veiculo['ano']}<br>
-                                        Tipo: {$veiculo['tipo_veiculo']}<br>
                                         Placa: {$veiculo['placa_veiculo']}<br>
                                         Capacidade: {$veiculo['capacidade_veiculo']}<br>
                                         Vidro Elétrico: {$veiculo['vidroeletrico_veiculo']}<br>
