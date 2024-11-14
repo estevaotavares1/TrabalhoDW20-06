@@ -116,6 +116,24 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidad
     return $id;
 }
 
+
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+// As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
+
+
 /**
  * Salva um novo empréstimo.
  *
@@ -226,32 +244,6 @@ function listarClientes($conexao)
 
     mysqli_stmt_close($stmt);
 
-    return $lista;
-}
-
-/**
- * Retorna uma lista com todos os veículos.
- *
- * @param object $conexao Conexão com o banco de dados.
- * @return array Lista de veículos com detalhes.
- */
-function listarVeiculos($conexao)
-{
-    $sql = "SELECT * FROM tb_veiculo";
-    $stmt = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
-    mysqli_stmt_store_result($stmt);
-
-    $lista = [];
-    if (mysqli_stmt_num_rows($stmt) > 0) {
-        while (mysqli_stmt_fetch($stmt)) {
-            $lista[] = [$id_veiculo, $nome, $marca, $ano, $tipo_veiculo, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo];
-        }
-    }
-
-    mysqli_stmt_close($stmt);
     return $lista;
 }
 
