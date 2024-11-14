@@ -84,7 +84,47 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_cliente` (
   PRIMARY KEY (`id_cliente`))
 ENGINE = InnoDB;
 
-
+INSERT INTO tb_cliente (nome, endereco, telefone) VALUES 
+('Lucas Ferreira', 'Rua A, 123', 998877665),
+('Gabriel Lima', 'Avenida B, 456', 997766554),
+('Fernanda Costa', 'Travessa C, 789', 996655443),
+('Juliana Mendes', 'Rua D, 101', 995544332),
+('Roberto Farias', 'Avenida E, 202', 981010998),
+('Camila Teixeira', 'Rua F, 303', 980909887),
+('Marcos Silva', 'Rua G, 404', 977887766),
+('Patrícia Almeida', 'Avenida H, 505', 976766554),
+('Carlos Souza', 'Rua I, 606', 975655443),
+('Amanda Oliveira', 'Rua J, 707', 974544332),
+('Ricardo Martins', 'Avenida K, 808', 973433221),
+('Sofia Pereira', 'Rua L, 909', 972322110),
+('Thiago Costa', 'Avenida M, 1010', 971211099),
+('Elisa Rocha', 'Rua N, 1111', 970100988),
+('Vítor Almeida', 'Rua P, 1313', 968888766),
+('Isabela Souza', 'Avenida Q, 1414', 967777655),
+('João Santos', 'Rua R, 1515', 966666544),
+('Letícia Silva', 'Rua S, 1616', 965555433),
+('Fernando Lima', 'Avenida T, 1717', 964444322),
+('José Santos', 'Rua O, 1212', 969999877),
+('Tech Solutions', 'Rua A, 123', 998877665),
+('Global Industries', 'Avenida B, 456', 997766554),
+('InovaTech', 'Travessa C, 789', 996655443),
+('Bright Future Ltda', 'Rua D, 101', 995544332),
+('NextGen Systems', 'Avenida E, 202', 981010998),
+('Creative Minds', 'Rua F, 303', 980909887),
+('Green Energy Solutions', 'Rua G, 404', 977887766),
+('ProActive Corp.', 'Avenida H, 505', 976766554),
+('Visionary Enterprises', 'Rua I, 606', 975655443),
+('Innovative Designs', 'Rua J, 707', 974544332),
+('SpeedTech Inc.', 'Avenida K, 808', 973433221),
+('Blue Sky Innovations', 'Rua L, 909', 972322110),
+('Smart Ventures', 'Avenida M, 1010', 971211099),
+('Alpha Technologies', 'Rua N, 1111', 970100988),
+('Quantum Solutions', 'Rua P, 1313', 968888766),
+('Digital Horizons', 'Avenida Q, 1414', 967777655),
+('Evolv Technologies', 'Rua R, 1515', 966666544),
+('SmartWorks Ltda', 'Rua S, 1616', 965555433),
+('FutureTech Enterprises', 'Avenida T, 1717', 964444322),
+('Prime Innovations', 'Rua O, 1212', 969999877);
 -- -----------------------------------------------------
 -- Table `veiculosbd`.`tb_empresa`
 -- -----------------------------------------------------
@@ -92,7 +132,7 @@ DROP TABLE IF EXISTS `veiculosbd`.`tb_empresa` ;
 
 CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_empresa` (
   `id_empresa` INT NOT NULL AUTO_INCREMENT,
-  `cnpj_empresa` VARCHAR(15) NOT NULL,
+  `cnpj_empresa` VARCHAR(18) NOT NULL,
   `tb_cliente_id_cliente` INT NOT NULL,
   PRIMARY KEY (`id_empresa`),
   INDEX `fk_tb_empresa_tb_cliente1_idx` (`tb_cliente_id_cliente` ASC) VISIBLE,
@@ -103,6 +143,27 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_empresa` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO tb_empresa (cnpj_empresa, tb_cliente_id_cliente) VALUES
+('12.345.678/0001-90', 21),
+('98.765.432/0001-12', 22),
+('11.223.344/0001-55', 23),
+('22.334.455/0001-66', 24),
+('33.445.566/0001-77', 25),
+('44.556.677/0001-88', 26),
+('55.667.788/0001-99', 27),
+('66.778.899/0001-00', 28),
+('77.889.900/0001-11', 29),
+('88.990.011/0001-22', 30),
+('99.001.112/0001-33', 31),
+('10.111.213/0001-44', 32),
+('21.223.324/0001-55', 33),
+('32.334.435/0001-66', 34),
+('43.445.546/0001-77', 35),
+('54.556.657/0001-88', 36),
+('65.667.768/0001-99', 37),
+('76.778.879/0001-00', 38),
+('87.889.980/0001-11', 39),
+('98.990.091/0001-22', 40);
 
 -- -----------------------------------------------------
 -- Table `veiculosbd`.`tb_funcionario`
@@ -118,6 +179,28 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_funcionario` (
   `senha_funcionario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_funcionario`))
 ENGINE = InnoDB;
+
+INSERT INTO tb_funcionario (nome_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario, senha_funcionario) VALUES
+('Lucas Ferreira', '12345678910', 'lucas.ferreira@email.com', 998877665, 'lucasps123'),
+('Gabriel Lima', '98765432111', 'gabriel.lima@email.com', 997766554, 'limagabriel7'),
+('Fernanda Costa', '12312312313', 'fernanda.costa@email.com', 996655443, 'fernanda12costa'),
+('Juliana Mendes', '32132132133', 'juliana.mendes@email.com', 995544332, 'mendes7juliana'),
+('Ana Paula', '45678912300', 'ana.paula@email.com', 994433221, 'anapaula22'),
+('Carlos Eduardo', '78945612322', 'carlos.eduardo@email.com', 993322110, 'eduardocarl15'),
+('Mariana Oliveira', '12365478999', 'mariana.oliveira@email.com', 992211009, 'marioliveira01'),
+('Thiago Souza', '32198765444', 'thiago.souza@email.com', 991100998, 'tsouza78'),
+('Patrícia Gomes', '65432198755', 'patricia.gomes@email.com', 990009887, 'patriciagomes33'),
+('Renato Alves', '98712365466', 'renato.alves@email.com', 989898776, 'ralves20'),
+('Larissa Pereira', '45632178977', 'larissa.pereira@email.com', 988787665, 'laripe89'),
+('Douglas Ribeiro', '78912345688', 'douglas.ribeiro@email.com', 987676554, 'douglasri22'),
+('Tatiane Rocha', '32165498799', 'tatiane.rocha@email.com', 986565443, 'trocha18'),
+('Felipe Martins', '65498732110', 'felipe.martins@email.com', 985454332, 'fmartins21'),
+('Julia Cardoso', '12345678922', 'julia.cardoso@email.com', 984343221, 'juliacard45'),
+('Bruno Nunes', '98765432133', 'bruno.nunes@email.com', 983232110, 'bnunes56'),
+('Aline Silva', '45678912344', 'aline.silva@email.com', 982121009, 'asilva34'),
+('Roberto Farias', '78932165455', 'roberto.farias@email.com', 981010998, 'rfarias19'),
+('Camila Teixeira', '32145698766', 'camila.teixeira@email.com', 980909887, 'camila.t99'),
+('Ricardo Pereira', '45645645646', 'ricardo.pereira@email.com', 994433221, 'ricar23do');
 
 
 -- -----------------------------------------------------
@@ -160,6 +243,27 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pessoafisica` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES 
+('12345678901', 1),
+('98765432100', 2),
+('12312312312', 3),
+('32132132132', 4),
+('45645645645', 5),
+('78978978978', 6),
+('15915915915', 7),
+('25825825825', 8),
+('36936936936', 9),
+('95195195195', 10),
+('75375375375', 11),
+('86486486486', 12),
+('74174174174', 13),
+('85285285285', 14),
+('96396396396', 15),
+('14714714714', 16),
+('25825825824', 17),
+('36936936935', 18),
+('74174174173', 19),
+('85285285284', 20);
 
 -- -----------------------------------------------------
 -- Table `veiculosbd`.`tb_veiculo`
@@ -187,6 +291,29 @@ ADD COLUMN status ENUM('Disponível', 'Indisponível') NOT NULL DEFAULT 'Dispon�
 
 ALTER TABLE tb_aluguel 
 ADD COLUMN status ENUM('Pendente', 'Pago', 'Cancelado') NOT NULL DEFAULT 'Pendente';
+
+
+INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo, status) VALUES
+('Civic', 'Honda', 2020, 'ABC1234', '5 passageiros', 1, 1, '500L', 1, 1, 10000.00, 'Disponível'),
+('Corolla', 'Toyota', 2021, 'DEF5678', '5 passageiros', 1, 1, '470L', 1, 1, 15000.00, 'Disponível'),
+('Tucson', 'Hyundai', 2019, 'GHI9012', '5 passageiros', 1, 1, '600L', 1, 0, 20000.00, 'Disponível'),
+('Fit', 'Honda', 2022, 'JKL3456', '5 passageiros', 1, 1, '200L', 1, 1, 8000.00, 'Disponível'), 
+('Fiesta', 'Ford', 2020, 'MNO1234', '4 passageiros', 1, 0, '350L', 1, 1, 12000.00, 'Disponível'),
+('Kwid', 'Renault', 2021, 'PQR5678', '4 passageiros', 1, 1, '290L', 1, 0, 9000.00, 'Disponível'),
+('Sandero', 'Renault', 2019, 'STU9012', '5 passageiros', 1, 0, '320L', 0, 1, 11000.00, 'Disponível'),
+('Gol', 'Volkswagen', 2022, 'VWX3456', '5 passageiros', 1, 1, '300L', 1, 1, 13500.00, 'Disponível'),
+('Palio', 'Fiat', 2021, 'YZA1234', '5 passageiros', 1, 1, '280L', 0, 0, 9500.00, 'Disponível'),
+('Onix', 'Chevrolet', 2020, 'BCD5678', '5 passageiros', 1, 1, '280L', 1, 1, 10000.00, 'Disponível'),
+('Argo', 'Fiat', 2021, 'EFG9012', '5 passageiros', 1, 1, '350L', 1, 0, 11500.00, 'Disponível'),
+('Renegade', 'Jeep', 2020, 'HIJ3456', '5 passageiros', 1, 0, '500L', 0, 1, 16000.00, 'Disponível'),
+('HR-V', 'Honda', 2021, 'KLM1234', '5 passageiros', 1, 1, '400L', 1, 1, 18000.00, 'Disponível'),
+('X1', 'BMW', 2022, 'NOP5678', '5 passageiros', 1, 1, '500L', 1, 1, 25000.00, 'Disponível'),
+('Q3', 'Audi', 2021, 'QRS9012', '5 passageiros', 1, 1, '600L', 1, 0, 23000.00, 'Disponível'),
+('Compass', 'Jeep', 2020, 'TUV3456', '5 passageiros', 1, 1, '450L', 1, 1, 21000.00, 'Disponível'),
+('Tiguan', 'Volkswagen', 2021, 'WXY1234', '5 passageiros', 1, 0, '550L', 1, 1, 24000.00, 'Disponível'),
+('Cherokee', 'Jeep', 2020, 'ZAB5678', '5 passageiros', 1, 1, '600L', 1, 0, 22000.00, 'Disponível'),
+('C4 Cactus', 'Citroën', 2021, 'CDE9012', '5 passageiros', 1, 0, '400L', 1, 1, 17000.00, 'Disponível'),
+('Figo', 'Ford', 2020, 'MNO7890', '2 passageiros', 1, 1, '150L', 1, 1, 12000.00, 'Disponível');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
