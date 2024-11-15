@@ -7,3 +7,9 @@ body {
   max-width: 400px;
   width: 100%;
 }
+
+label.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
