@@ -289,6 +289,103 @@ function listarVeiculosDisponiveis($conexao)
 }
 
 
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+// As funções do Pagamento ------------------------------------------------------------------------------------------------------------
+
+/**
+ * Obtém os dados de um veículo específico pelo seu ID.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id ID do veículo.
+ * @return array Dados do veículo (ID, nome, marca, ano, placa, capacidade, e outros atributos).
+ */
+function listarVeiculoPorId($conexao, $id)
+{
+    $sql = "SELECT id_veiculo, nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo FROM tb_veiculo WHERE id_veiculo = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo);
+
+    $result = [];
+    while (mysqli_stmt_fetch($stmt)) {
+        $result = [$id_veiculo, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo];
+    }
+
+    mysqli_stmt_close($stmt);
+    return $result;
+}
+
+/**
+ * Lista os empréstimos pendentes de um cliente específico.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente.
+ * @return array Lista de empréstimos pendentes (ID do aluguel, ID do funcionário, ID do cliente, data inicial e final do aluguel).
+ */
+function listarEmprestimoCliente($conexao, $id_cliente)
+{
+    $sql = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = ? AND status = 'Pendente'";
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($stmt, "i", $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+    mysqli_stmt_bind_result($stmt, $id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel, $status);
+
+    $lista = [];
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+            $lista[] = [$id_aluguel, $id_funcionario, $id_cliente, $datainicial_aluguel, $datafinal_aluguel];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+    return $lista;
+}
+
+/**
+ * Lista os veículos associados a um empréstimo específico.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_aluguel ID do aluguel.
+ * @return array Lista de veículos do empréstimo (ID do veículo e quilometragem inicial).
+ */
+function listarVeiculosEmprestimo($conexao, $id_aluguel)
+{
+    $sql = "SELECT tb_veiculo_id_veiculo, km_inicial FROM tb_aluguel_has_tb_veiculo WHERE tb_aluguel_id_aluguel = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($stmt, "i", $id_aluguel);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+    mysqli_stmt_bind_result($stmt, $id_veiculo, $km_veiculo);
+
+    $lista = [];
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+            $lista[] = [$id_veiculo, $km_veiculo];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+    return $lista;
+}
+
+
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
 // As funções do Listar ------------------------------------------------------------------------------------------------------------
