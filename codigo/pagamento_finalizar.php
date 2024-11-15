@@ -22,12 +22,24 @@ $stmtUpdateVeiculo = mysqli_prepare($conexao, $sqlUpdateVeiculo);
 mysqli_stmt_bind_param($stmtUpdateVeiculo, "i", $id_aluguel);
 mysqli_stmt_execute($stmtUpdateVeiculo);
 
-// Atualiza o status da tabela aluguel
-$sqlUpdateVeiculo = "UPDATE tb_aluguel SET status = 'Pago' WHERE id_aluguel = ?";
-$stmtUpdateVeiculo = mysqli_prepare($conexao, $sqlUpdateVeiculo);
-mysqli_stmt_bind_param($stmtUpdateVeiculo, "i", $id_aluguel);
-mysqli_stmt_execute($stmtUpdateVeiculo);
-mysqli_stmt_close($stmtUpdateVeiculo);
+// Atualiza o status que aparece na tabela aluguel
+$sqlUpdateAluguel = "UPDATE tb_aluguel SET status = 'Pago' WHERE id_aluguel = ?";
+$stmtUpdateAluguel = mysqli_prepare($conexao, $sqlUpdateAluguel);
+mysqli_stmt_bind_param($stmtUpdateAluguel, "i", $id_aluguel);
+mysqli_stmt_execute($stmtUpdateAluguel);
+mysqli_stmt_close($stmtUpdateAluguel);
+
+// Atualiza a quilometragem dos veículos
+foreach ($_POST['id_veiculo'] as $index => $idVeiculo) {
+    $kmPercorrido = $_POST['kmpercorrido'][$index];
+
+    // Atualiza cada veículo somando o km atual com o percorrido
+    $sqlUpdateKmVeiculo = "UPDATE tb_veiculo SET km_veiculo = km_veiculo + ? WHERE id_veiculo = ?";
+    $stmtUpdateKmVeiculo = mysqli_prepare($conexao, $sqlUpdateKmVeiculo);
+    mysqli_stmt_bind_param($stmtUpdateKmVeiculo, "di", $kmPercorrido, $idVeiculo);
+    mysqli_stmt_execute($stmtUpdateKmVeiculo);
+    mysqli_stmt_close($stmtUpdateKmVeiculo);
+}
 
 // Exclui o registro da tabela tb_aluguel_has_tb_veiculo
 $sqlDeleteVeiculoAlugado = "DELETE FROM tb_aluguel_has_tb_veiculo WHERE tb_aluguel_id_aluguel = ?";
