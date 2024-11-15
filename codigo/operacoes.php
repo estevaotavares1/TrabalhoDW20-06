@@ -191,12 +191,11 @@ function salvarEmprestimo($conexao, $datainicial_aluguel, $datafinal_aluguel, $t
 function salvarVeiculoEmprestimo($conexao, $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo)
 {
     $km_inicial = kmInicialVeiculo($conexao, $tb_veiculo_id_veiculo);
-    $km_final = 0;
 
-    $sql = "INSERT INTO tb_aluguel_has_tb_veiculo (tb_aluguel_id_aluguel, tb_veiculo_id_veiculo, km_inicial, km_final) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO tb_aluguel_has_tb_veiculo (tb_aluguel_id_aluguel, tb_veiculo_id_veiculo, km_inicial) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    mysqli_stmt_bind_param($stmt, "iiss", $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo, $km_inicial, $km_final);
+    mysqli_stmt_bind_param($stmt, "iis", $tb_aluguel_id_aluguel, $tb_veiculo_id_veiculo, $km_inicial);
     mysqli_stmt_execute($stmt);
 
     $id = mysqli_insert_id($conexao);

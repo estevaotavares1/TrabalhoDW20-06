@@ -54,7 +54,6 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_aluguel_has_tb_veiculo` (
   `tb_aluguel_id_aluguel` INT NOT NULL,
   `tb_veiculo_id_veiculo` INT NOT NULL,
   `km_inicial` DECIMAL(10,2) NULL,
-  `km_final` DECIMAL(10,2) NULL,
   PRIMARY KEY (`tb_aluguel_id_aluguel`, `tb_veiculo_id_veiculo`),
   INDEX `fk_tb_aluguel_has_tb_veiculo_tb_veiculo1_idx` (`tb_veiculo_id_veiculo` ASC) VISIBLE,
   INDEX `fk_tb_aluguel_has_tb_veiculo_tb_aluguel1_idx` (`tb_aluguel_id_aluguel` ASC) VISIBLE,
