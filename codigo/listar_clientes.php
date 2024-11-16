@@ -50,7 +50,6 @@
                             echo "<td>$documento</td>";
                             echo "<td>
                                     <a href='editar_cliente.php?id_cliente=$id_cliente' class='btn btn-warning btn-sm'>Editar</a>
-                                    <a href='excluir_cliente.php?id_cliente=$id_cliente' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>
                                   </td>";
                             echo "</tr>";
                         }

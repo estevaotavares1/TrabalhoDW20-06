@@ -49,7 +49,6 @@
                             echo "<td>$senha_funcionario</td>";
                             echo "<td>
                                     <a href='editar_funcionario.php?id_funcionario=$id_funcionario' class='btn btn-warning btn-sm'>Editar</a>
-                                    <a href='excluir_funcionario.php?id_funcionario=$id_funcionario' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>
                                   </td>";
                             echo "</tr>";
                         }
