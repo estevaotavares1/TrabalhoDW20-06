@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Empréstimo</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos/style.css" />
 </head>
@@ -12,7 +15,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Formulário de Empréstimo</h2>
-        <form action="formSelecionarVeiculos.php" method="GET">
+        <form id="emprestimo" action="formSelecionarVeiculos.php" method="GET">
             <div class="mb-3">
                 <label for="datainicial_aluguel" class="form-label">Data Inicial do Empréstimo</label>
                 <input type="date" id="datainicial_aluguel" name="datainicial_aluguel" class="form-control" required>
@@ -61,6 +64,51 @@
             </div>
         </form>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            var dataAtual = new Date().toISOString().split("T")[0];
+            $("#datainicial_aluguel").attr("min", dataAtual);
+
+            jQuery.validator.addMethod(
+                "dataFinalMaiorQueInicial",
+                function(value, element) {
+                    var dataInicial = $("#datainicial_aluguel").val();
+                    return (
+                        this.optional(element) ||
+                        new Date(value) >= new Date(dataInicial)
+                    );
+                },
+                "A data final não pode ser anterior à data inicial."
+            );
+
+            $("#emprestimo").validate({
+                rules: {
+                    datainicial_aluguel: {
+                        required: true,
+                        date: true,
+                    },
+                    datafinal_aluguel: {
+                        required: true,
+                        date: true,
+                        dataFinalMaiorQueInicial: true,
+                    }
+                },
+                messages: {
+                    datainicial_aluguel: {
+                        required: "A data inicial do empréstimo é obrigatória.",
+                        date: "Por favor, insira uma data válida.",
+                    },
+                    datafinal_aluguel: {
+                        required: "A data final do empréstimo é obrigatória.",
+                        date: "Por favor, insira uma data válida.",
+                        dataFinalMaiorQueInicial: "A data final não pode ser anterior à data inicial.",
+                    }
+                }
+            });
+        });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

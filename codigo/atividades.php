@@ -37,7 +37,7 @@ require_once 'testalogin.php';
         <a href="formEmprestimo.php" class="text-decoration-none">Fazer um Aluguel</a>
       </li>
       <li class="list-group-item">
-        <a href="pagamento_form.php" class="text-decoration-none">Fazer um Pagamento</a>
+        <a href="pagamento_clienteSelect.php" class="text-decoration-none">Fazer um Pagamento</a>
       </li>
       <li class="list-group-item">
         <a href="listagens.html" class="text-decoration-none">Acessar os Registros</a>

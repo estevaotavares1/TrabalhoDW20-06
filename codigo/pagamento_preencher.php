@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Lançar Pagamento</h2>
-        <form action="pagamento_finalizar.php" method="POST">
+        <form action="pagamento_terminar.php" method="POST">
             <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
 
             <div class="mb-3">

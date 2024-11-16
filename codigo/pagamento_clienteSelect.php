@@ -12,7 +12,7 @@
     <div class="container mt-5">
         <h3 class="text-center mb-4">Selecionar Cliente</h3>
 
-        <form action="pagamento_selecionarEmprestimo.php" method="GET">
+        <form action="pagamento_emprestimoSelect.php" method="GET">
             <div class="mb-3">
                 <label for="id_cliente" class="form-label">Cliente:</label>
                 <select name="id_cliente" id="id_cliente" class="form-select" required>

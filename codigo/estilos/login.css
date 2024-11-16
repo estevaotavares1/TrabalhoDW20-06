@@ -3,8 +3,7 @@ body {
   background-color: #f8f9fa !important; /* cinza claro */
 }
 
-label.error {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 5px;
+#login_lucas .card {
+  max-width: 400px;
+  width: 100%;
 }
