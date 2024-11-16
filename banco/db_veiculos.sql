@@ -293,26 +293,26 @@ ALTER TABLE tb_aluguel
 ADD COLUMN status ENUM('Pendente', 'Pago', 'Cancelado') NOT NULL DEFAULT 'Pendente';
 
 INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo, status) VALUES
-('Civic', 'Honda', 2020, 'ABC1234', '5', 1, 1, '500L', 1, 1, 10000.00, 'Disponível'),
-('Corolla', 'Toyota', 2021, 'DEF5678', '5', 1, 1, '470L', 1, 1, 15000.00, 'Disponível'),
-('Tucson', 'Hyundai', 2019, 'GHI9012', '5', 1, 1, '600L', 1, 0, 20000.00, 'Disponível'),
-('Fit', 'Honda', 2022, 'JKL3456', '5', 1, 1, '200L', 1, 1, 8000.00, 'Disponível'), 
-('Fiesta', 'Ford', 2020, 'MNO1234', '4', 1, 0, '350L', 1, 1, 12000.00, 'Disponível'),
-('Kwid', 'Renault', 2021, 'PQR5678', '4', 1, 1, '290L', 1, 0, 9000.00, 'Disponível'),
-('Sandero', 'Renault', 2019, 'STU9012', '5', 1, 0, '320L', 0, 1, 11000.00, 'Disponível'),
-('Gol', 'Volkswagen', 2022, 'VWX3456', '5', 1, 1, '300L', 1, 1, 13500.00, 'Disponível'),
-('Palio', 'Fiat', 2021, 'YZA1234', '5', 1, 1, '280L', 0, 0, 9500.00, 'Disponível'),
-('Onix', 'Chevrolet', 2020, 'BCD5678', '5', 1, 1, '280L', 1, 1, 10000.00, 'Disponível'),
-('Argo', 'Fiat', 2021, 'EFG9012', '5', 1, 1, '350L', 1, 0, 11500.00, 'Disponível'),
-('Renegade', 'Jeep', 2020, 'HIJ3456', '5', 1, 0, '500L', 0, 1, 16000.00, 'Disponível'),
-('HR-V', 'Honda', 2021, 'KLM1234', '5', 1, 1, '400L', 1, 1, 18000.00, 'Disponível'),
-('X1', 'BMW', 2022, 'NOP5678', '5', 1, 1, '500L', 1, 1, 25000.00, 'Disponível'),
-('Q3', 'Audi', 2021, 'QRS9012', '5', 1, 1, '600L', 1, 0, 23000.00, 'Disponível'),
-('Compass', 'Jeep', 2020, 'TUV3456', '5', 1, 1, '450L', 1, 1, 21000.00, 'Disponível'),
-('Tiguan', 'Volkswagen', 2021, 'WXY1234', '5', 1, 0, '550L', 1, 1, 24000.00, 'Disponível'),
-('Cherokee', 'Jeep', 2020, 'ZAB5678', '5', 1, 1, '600L', 1, 0, 22000.00, 'Disponível'),
-('C4 Cactus', 'Citroën', 2021, 'CDE9012', '5', 1, 0, '400L', 1, 1, 17000.00, 'Disponível'),
-('Figo', 'Ford', 2020, 'MNO7890', '2', 1, 1, '150L', 1, 1, 12000.00, 'Disponível');
+('Civic', 'Honda', 2020, 'ABC-1234', '5', 1, 1, '500L', 1, 1, 10000.00, 'Disponível'),
+('Corolla', 'Toyota', 2021, 'DEF-5678', '5', 1, 1, '470L', 1, 1, 15000.00, 'Disponível'),
+('Tucson', 'Hyundai', 2019, 'GHI-9012', '5', 1, 1, '600L', 1, 0, 20000.00, 'Disponível'),
+('Fit', 'Honda', 2022, 'JKL-3456', '5', 1, 1, '200L', 1, 1, 8000.00, 'Disponível'), 
+('Fiesta', 'Ford', 2020, 'MNO-1234', '4', 1, 0, '350L', 1, 1, 12000.00, 'Disponível'),
+('Kwid', 'Renault', 2021, 'PQR-5678', '4', 1, 1, '290L', 1, 0, 9000.00, 'Disponível'),
+('Sandero', 'Renault', 2019, 'STU-9012', '5', 1, 0, '320L', 0, 1, 11000.00, 'Disponível'),
+('Gol', 'Volkswagen', 2022, 'VWX-3456', '5', 1, 1, '300L', 1, 1, 13500.00, 'Disponível'),
+('Palio', 'Fiat', 2021, 'YZA-1234', '5', 1, 1, '280L', 0, 0, 9500.00, 'Disponível'),
+('Onix', 'Chevrolet', 2020, 'BCD-5678', '5', 1, 1, '280L', 1, 1, 10000.00, 'Disponível'),
+('Argo', 'Fiat', 2021, 'EFG-9012', '5', 1, 1, '350L', 1, 0, 11500.00, 'Disponível'),
+('Renegade', 'Jeep', 2020, 'HIJ-3456', '5', 1, 0, '500L', 0, 1, 16000.00, 'Disponível'),
+('HR-V', 'Honda', 2021, 'KLM-1234', '5', 1, 1, '400L', 1, 1, 18000.00, 'Disponível'),
+('X1', 'BMW', 2022, 'NOP-5678', '5', 1, 1, '500L', 1, 1, 25000.00, 'Disponível'),
+('Q3', 'Audi', 2021, 'QRS-9012', '5', 1, 1, '600L', 1, 0, 23000.00, 'Disponível'),
+('Compass', 'Jeep', 2020, 'TUV-3456', '5', 1, 1, '450L', 1, 1, 21000.00, 'Disponível'),
+('Tiguan', 'Volkswagen', 2021, 'WXY-1234', '5', 1, 0, '550L', 1, 1, 24000.00, 'Disponível'),
+('Cherokee', 'Jeep', 2020, 'ZAB-5678', '5', 1, 1, '600L', 1, 0, 22000.00, 'Disponível'),
+('C4 Cactus', 'Citroën', 2021, 'CDE-9012', '5', 1, 0, '400L', 1, 1, 17000.00, 'Disponível'),
+('Figo', 'Ford', 2020, 'MNO-7890', '2', 1, 1, '150L', 1, 1, 12000.00, 'Disponível');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
