@@ -16,16 +16,6 @@
             <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
 
             <div class="mb-3">
-                <label for="valor" class="form-label">Valor:</label>
-                <input type="number" name="valor" step="0.01" min="0" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="preco_por_km" class="form-label">Preço por KM:</label>
-                <input type="number" name="preco_por_km" step="0.01" min="0" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
                 <label for="data_pagamento" class="form-label">Data Atual:</label>
                 <input type="date" name="data_pagamento" class="form-control" required>
             </div>
@@ -36,6 +26,11 @@
                     <option value="Dinheiro">Dinheiro</option>
                     <option value="Cartão">Cartão</option>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="preco_por_km" class="form-label">Preço por KM:</label>
+                <input type="text" class="calculo" name="preco_por_km" id="precokm" value="0" required>
             </div>
 
             <h4>Veículos</h4>
@@ -54,9 +49,9 @@
                     echo "<input type='hidden' name='id_veiculo[]' value='{$veiculo[0]}'>";
                     echo "<div class='mb-3'>";
                     echo "<p><strong>Veículo:</strong> {$veiculo[1]} - {$veiculo[2]}</p>";
-                    echo "<p><strong>Km Inicial:</strong> {$veiculo[11]}</p>";
-                    echo "<label for='kmfinal' class='form-label'>Km Final:</label>";
-                    echo "<input type='number' name='kmfinal[]' class='form-control' step='0.01' min='{$veiculo[11]}' required>";
+                    echo "<p><strong>Km Inicial:</strong> <span class='km-inicial' data-kminicial='{$veiculo[11]}'>{$veiculo[11]}</span></p>";
+                    echo "<label for='kmpercorrido' class='form-label'>Km Percorrido:</label>";
+                    echo "<input type='number' name='kmpercorrido[]' class='form-control kmpercorrido' step='0.01' required>";
                     echo "</div>";
                     echo "<hr>";
                 } else {
@@ -64,6 +59,11 @@
                 }
             }
             ?>
+
+            <div class="mb-3">
+                <label for="valor" class="form-label">Valor Total do Aluguel (R$):</label>
+                <input type="text" name="valor" id="valor" value="0" class="form-control" disabled>
+            </div>
 
             <div class="text-center">
                 <input type="submit" value="Lançar Pagamento" class="btn btn-primary">
