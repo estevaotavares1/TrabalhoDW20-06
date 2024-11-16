@@ -68,7 +68,9 @@
         </div>
 
         <div class="mb-3">
-          <label for="capacidade_veiculo" class="form-label">Capacidade:</label>
+          <label for="capacidade_veiculo" class="form-label"
+            >Capacidade de Passageiros:</label
+          >
           <input
             type="text"
             id="capacidade_veiculo"
@@ -141,7 +143,7 @@
 
         <div class="mb-3">
           <label for="capacidaportamala_veiculo" class="form-label"
-            >Capacidade Porta-malas:</label
+            >Capacidade do Porta-malas em Litros:</label
           >
           <input
             type="text"
@@ -259,6 +261,9 @@
             },
             capacidade_veiculo: {
               required: true,
+              number: true,
+              min: 0,
+              max: 9,
             },
             vidroeletrico_veiculo: {
               required: true,
@@ -268,6 +273,9 @@
             },
             capacidaportamala_veiculo: {
               required: true,
+              number: true,
+              min: 0,
+              max: 1700,
             },
             arcondicionado_veiculo: {
               required: true,
@@ -278,6 +286,7 @@
             km_veiculo: {
               required: true,
               number: true,
+              min: 0,
             },
           },
           messages: {
@@ -295,10 +304,13 @@
             },
             placa_veiculo: {
               required: "A placa do veículo é obrigatória.",
-              placaValida: "Informe uma placa válida.",
+              placaValida: "Informe uma placa válida no formato AAA-9999.",
             },
             capacidade_veiculo: {
               required: "A capacidade do veículo é obrigatória.",
+              number: "Digite uma quantidade válida de passageiros.",
+              min: "O número de passageiros não pode ser um valor negativo.",
+              max: "Esse carro não existe meu nobre kkkkk.",
             },
             vidroeletrico_veiculo: {
               required:
@@ -309,6 +321,9 @@
             },
             capacidaportamala_veiculo: {
               required: "A capacidade do porta-malas é obrigatória.",
+              number: "Digite a capacidade em litros do porta-malas.",
+              min: "A capacidade do porta-malas não pode ser negativa.",
+              max: "Aí já não é um carro, é um navio cargueiro.",
             },
             arcondicionado_veiculo: {
               required:
@@ -320,14 +335,20 @@
             km_veiculo: {
               required: "O km inicial do veículo é obrigatório.",
               number: "O km deve ser um número válido.",
+              min: "O km não pode ser um valor negativo",
             },
-          },
-          submitHandler: function (form) {
-            form.submit();
           },
         });
 
         $("#placa_veiculo").mask("AAA-9999");
+
+        jQuery.validator.addMethod(
+          "placaValida",
+          function (value, element) {
+            return this.optional(element) || /^[A-Z]{3}-\d{4}$/.test(value);
+          },
+          "Informe uma placa válida no formato AAA-9999."
+        );
       });
     </script>
   </body>
