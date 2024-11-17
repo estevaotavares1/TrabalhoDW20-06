@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lançar Pagamento</title>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/jquery.mask.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos/style.css" />
 </head>
@@ -52,14 +49,14 @@
             foreach ($carros as $carroEmprestimo) {
                 $veiculo = listarVeiculoPorId($conexao, $carroEmprestimo[0]);
 
+                // Validação, certifica-se de que $veiculo tenha o número correto de elementos (campos para preencher)
                 if (count($veiculo) === 12) {
                     echo "<input type='hidden' name='id_veiculo[]' value='{$veiculo[0]}'>";
                     echo "<div class='mb-3'>";
                     echo "<p><strong>Veículo:</strong> {$veiculo[1]} - {$veiculo[2]}</p>";
-                    echo "<p><strong>Km Atual:</strong> <span class='km-atual'>{$veiculo[11]}</span></p>";
-                    echo "<label for='kmpercorrido' class='form-label'>Km Percorrido:</label>";
-                    echo "<input type='number' name='kmpercorrido[]' class='form-control kmpercorrido' step='0.01' min='0' required>";
-                    echo "<p><strong>Nova Quilometragem:</strong> <span class='nova-km'>0.00</span></p>";
+                    echo "<p><strong>Km Inicial:</strong> {$veiculo[11]}</p>";
+                    echo "<label for='kmfinal' class='form-label'>Km Final:</label>";
+                    echo "<input type='number' name='kmfinal[]' class='form-control' step='0.01' min='{$veiculo[11]}' required>";
                     echo "</div>";
                     echo "<hr>";
                 } else {
@@ -74,21 +71,7 @@
         </form>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $(".kmpercorrido").on("input", function() {
-                const kmAtual = parseFloat($(this).closest(".mb-3").find(".km-atual").text());
-                const kmPercorrido = parseFloat($(this).val()) || 0;
-                const novaKm = kmAtual + kmPercorrido;
-                $(this).closest(".mb-3").find(".nova-km").text(novaKm.toFixed(2));
-            });
-        });
-    </script>
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
