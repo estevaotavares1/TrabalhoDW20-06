@@ -15,18 +15,8 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Lançar Pagamento</h2>
-        <form action="pagamento_terminar.php" method="POST">
+        <form id="formPagamento" action="pagamento_terminar.php" method="POST">
             <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
-
-            <div class="mb-3">
-                <label for="valor" class="form-label">Valor:</label>
-                <input type="number" name="valor" step="0.01" min="0" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="preco_por_km" class="form-label">Preço por KM:</label>
-                <input type="number" name="preco_por_km" step="0.01" min="0" class="form-control" required>
-            </div>
 
             <div class="mb-3">
                 <label for="data_pagamento" class="form-label">Data Atual:</label>
@@ -39,6 +29,21 @@
                     <option value="Dinheiro">Dinheiro</option>
                     <option value="Cartão">Cartão</option>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="preco_por_km" class="form-label">Preço por KM:</label>
+                <input type="number" name="preco_por_km" step="0.01" min="0" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="kmtotaldoaluguel" class="form-label">Total de KM do Aluguel:</label>
+                <span id="kmtotaldoaluguel">0.00</span> KM
+            </div>
+
+            <div class="mb-3">
+                <label for="valor" class="form-label">Valor Final:</label>
+                <input type="number" name="valor" step="0.01" min="0" class="form-control" readonly>
             </div>
 
             <h4>Veículos</h4>
@@ -81,6 +86,47 @@
                 const kmPercorrido = parseFloat($(this).val()) || 0;
                 const novaKm = kmAtual + kmPercorrido;
                 $(this).closest(".mb-3").find(".nova-km").text(novaKm.toFixed(2));
+            });
+
+            function calcularValor() {
+                let totalKmPercorrido = 0;
+
+                $(".kmpercorrido").each(function() {
+                    totalKmPercorrido += parseFloat($(this).val()) || 0;
+                });
+
+                const precoPorKm = parseFloat($("input[name='preco_por_km']").val()) || 0;
+                const valorFinal = totalKmPercorrido * precoPorKm;
+
+                $("input[name='valor']").val(valorFinal.toFixed(2));
+                $("#kmtotaldoaluguel").text(totalKmPercorrido.toFixed(2));
+            }
+
+            $(".kmpercorrido, input[name='preco_por_km']").on("input", calcularValor);
+
+            calcularValor();
+
+            $("#formPagamento").validate({
+                rules: {
+                    preco_por_km: {
+                        required: true,
+                        number: true,
+                        min: 0,
+                    },
+                    data_pagamento: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    preco_por_km: {
+                        required: "O preço do km rodado do é obrigatório.",
+                        number: "O preço do km deve ser um número válido.",
+                        min: "O preço não pode ser um valor negativo",
+                    },
+                    data_pagamento: {
+                        required: "Informe a data em que o pagamento foi feito.",
+                    },
+                },
             });
         });
     </script>
