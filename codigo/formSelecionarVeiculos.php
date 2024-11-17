@@ -10,6 +10,85 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="atividades.php">Atividades</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            aria-current="page"
+                            href="formEmprestimo.php">Alugar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Registros
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="listar_alugueis.php">Listar Aluguéis</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_clientes.php">Listar Clientes</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_funcionarios.php">Listar Funcionários</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_pagamentos.php">Listar Pagamentos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_veiculos.php">Listar Veículos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cadastros
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="cadastro_empresa.html">Cadastrar uma Empresa</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_funcionario.html">Cadastrar um Funcionário</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_pessoa.html">Cadastrar uma Pessoa</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_veiculo.html">Cadastrar um Veículo</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h3 class="text-center mb-4">Veículos Disponíveis</h3>
 
