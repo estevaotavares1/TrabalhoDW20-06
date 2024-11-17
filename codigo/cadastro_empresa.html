@@ -101,7 +101,8 @@
             },
             telefone: {
               required: true,
-              telefoneValido: true,
+              minlength: 14,
+              maxlength: 14,
             },
             cnpj: {
               required: true,
@@ -123,7 +124,8 @@
             },
             telefone: {
               required: "O campo telefone é obrigatório.",
-              telefoneValido: "Informe um telefone válido.",
+              minlength: "Insira o telefone no formato adequado.",
+              maxlength: "Insira o telefone no formato adequado.",
             },
             cnpj: {
               required: "CNPJ é necessário.",
@@ -147,16 +149,6 @@
             );
           },
           "Informe um CNPJ válido."
-        );
-
-        jQuery.validator.addMethod(
-          "telefoneValido",
-          function (value, element) {
-            return (
-              this.optional(element) || /^\(\d{2}\)\d{5}-\d{4}$/.test(value)
-            );
-          },
-          "Informe um telefone válido no formato (00)00000-0000."
         );
       });
     </script>
