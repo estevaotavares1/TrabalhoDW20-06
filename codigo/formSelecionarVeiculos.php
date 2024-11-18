@@ -10,7 +10,18 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <header
+        class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="logo">
+            <h2>Sistema de Aluguéis de Veículos</h2>
+        </div>
+        <div class="user-info text-end">
+            <p>Proprietário: Lucas Faria</p>
+            <p>Data: 28/11/2024 - 13:55</p>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="atividades.php">Atividades</a>
             <button
@@ -147,6 +158,10 @@
             </div>
         </form>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

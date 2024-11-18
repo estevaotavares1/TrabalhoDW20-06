@@ -18,7 +18,18 @@ require_once 'testalogin.php';
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <header
+    class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="logo">
+      <h2>Sistema de Aluguéis de Veículos</h2>
+    </div>
+    <div class="user-info text-end">
+      <p>Proprietário: Lucas Faria</p>
+      <p>Data: 28/11/2024 - 13:55</p>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="atividades.php">Atividades</a>
       <button
@@ -98,7 +109,7 @@ require_once 'testalogin.php';
     </div>
   </nav>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Sistema de Cadastro</h2>
+    <h2 class="text-center mb-4">Todas as Ações do Sistema</h2>
     <ul class="list-group">
       <li class="list-group-item">
         <a href="cadastro_pessoa.html" class="text-decoration-none">Cadastro de Pessoas</a>
@@ -123,6 +134,10 @@ require_once 'testalogin.php';
       </li>
     </ul>
   </div>
+
+  <footer>
+    <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
+  </footer>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
