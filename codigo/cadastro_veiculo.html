@@ -369,7 +369,8 @@
             },
             placa_veiculo: {
               required: true,
-              placaValida: true,
+              minlength: 8,
+              maxlength: 8,
             },
             capacidade_veiculo: {
               required: true,
@@ -416,7 +417,8 @@
             },
             placa_veiculo: {
               required: "A placa do veículo é obrigatória.",
-              placaValida: "Informe uma placa válida no formato AAA-9999.",
+              minlength: "Informe uma placa válida no formato AAA-9999.",
+              maxlength: "Informe uma placa válida no formato AAA-9999.",
             },
             capacidade_veiculo: {
               required: "A capacidade do veículo é obrigatória.",
@@ -452,14 +454,6 @@
           },
         });
         $("#placa_veiculo").mask("AAA-9999");
-
-        jQuery.validator.addMethod(
-          "placaValida",
-          function (value, element) {
-            return this.optional(element) || /^[A-Z]{3}-\d{4}$/.test(value);
-          },
-          "Informe uma placa válida no formato AAA-9999."
-        );
       });
     </script>
 
