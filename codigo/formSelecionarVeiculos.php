@@ -116,35 +116,47 @@
                 $datafinal_aluguel = $_GET['datafinal_aluguel'];
 
                 $veiculos = listarVeiculosDisponiveis($conexao);
+                $quantidade = sizeof($veiculos);
 
-                foreach ($veiculos as $veiculo) {
-                    echo "
-                        <div class='col-md-6 mb-4'>
-                            <div class='card'>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>{$veiculo['nome']}</h5>
-                                    <p class='card-text'>
-                                        Marca: {$veiculo['marca']}<br>
-                                        Ano: {$veiculo['ano']}<br>
-                                        Placa: {$veiculo['placa_veiculo']}<br>
-                                        Capacidade: {$veiculo['capacidade_veiculo']}<br>
-                                        Vidro Elétrico: {$veiculo['vidroeletrico_veiculo']}<br>
-                                        Airbag: {$veiculo['airbag_veiculo']}<br>
-                                        Porta-malas: {$veiculo['capacidaportamala_veiculo']}<br>
-                                        Ar-condicionado: {$veiculo['arcondicionado_veiculo']}<br>
-                                        Automático: {$veiculo['automatico_veiculo']}<br>
-                                        KM: {$veiculo['km_veiculo']}
-                                    </p>
-                                    <div class='form-check'>
-                                        <input class='form-check-input' type='checkbox' name='veiculos[]' value='{$veiculo['id_veiculo']}' id='veiculo{$veiculo['id_veiculo']}'>
-                                        <label class='form-check-label' for='veiculo{$veiculo['id_veiculo']}'>
-                                            Selecionar este carro
-                                        </label>
+                if ($quantidade > 0) {
+                    foreach ($veiculos as $veiculo) {
+                        echo "
+                            <div class='col-md-6 mb-4'>
+                                <div class='card'>
+                                    <div class='card-body'>
+                                        <h5 class='card-title'>{$veiculo['nome']}</h5>
+                                        <p class='card-text'>
+                                            Marca: {$veiculo['marca']}<br>
+                                            Ano: {$veiculo['ano']}<br>
+                                            Placa: {$veiculo['placa_veiculo']}<br>
+                                            Capacidade: {$veiculo['capacidade_veiculo']}<br>
+                                            Vidro Elétrico: {$veiculo['vidroeletrico_veiculo']}<br>
+                                            Airbag: {$veiculo['airbag_veiculo']}<br>
+                                            Porta-malas: {$veiculo['capacidaportamala_veiculo']}<br>
+                                            Ar-condicionado: {$veiculo['arcondicionado_veiculo']}<br>
+                                            Automático: {$veiculo['automatico_veiculo']}<br>
+                                            KM: {$veiculo['km_veiculo']}
+                                        </p>
+                                        <div class='form-check'>
+                                            <input class='form-check-input' type='checkbox' name='veiculos[]' value='{$veiculo['id_veiculo']}' id='veiculo{$veiculo['id_veiculo']}'>
+                                            <label class='form-check-label' for='veiculo{$veiculo['id_veiculo']}'>
+                                                Selecionar este carro
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         ";
+                    }
+
+                    echo "<div class='text-center'>
+                        <input type='submit' value='Gravar Empréstimo' class='btn btn-primary mt-3'>
+                    </div>";
+
+                }
+
+                else {
+                    echo "<div class='alert alert-warning' role='alert'>Não há veículos disponíveis.</div>";
                 }
                 ?>
             </div>
@@ -153,11 +165,11 @@
             <input type="hidden" name="datafinal_aluguel" value="<?php echo $_GET['datafinal_aluguel']; ?>">
             <input type="hidden" name="id_cliente" value="<?php echo $_GET['id_cliente']; ?>">
             <input type="hidden" name="id_funcionario" value="<?php echo $_GET['id_funcionario']; ?>">
-
-            <div class="text-center">
-                <input type="submit" value="Gravar" class="btn btn-primary mt-3">
-            </div>
         </form>
+
+        <div class="text-center">
+            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
+        </div>
     </div>
 
     <footer>
