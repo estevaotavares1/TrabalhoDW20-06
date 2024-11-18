@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selecionar Veículos</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos/style.css" />
 </head>
@@ -103,7 +106,7 @@
     <div class="container mt-5">
         <h3 class="text-center mb-4">Veículos Disponíveis</h3>
 
-        <form action="gravarEmprestimo.php" method="GET">
+        <form id="formSelecionarVeiculos" action="gravarEmprestimo.php" method="GET">
             <div class="row">
                 <?php
                 require_once "conexao.php";
@@ -114,8 +117,6 @@
 
                 $veiculos = listarVeiculosDisponiveis($conexao);
 
-                // Exibe os Carros
-                echo "<div class='col-12 mb-4'><h4>Veículos Disponíveis</h4></div>";
                 foreach ($veiculos as $veiculo) {
                     echo "
                         <div class='col-md-6 mb-4'>
@@ -162,6 +163,25 @@
     <footer>
         <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            $("#formSelecionarVeiculos").validate({
+                rules: {
+                    'veiculos[]': {
+                        required: true,
+                        minlength: 1,
+                    }
+                },
+                messages: {
+                    'veiculos[]': {
+                        required: "Você deve selecionar pelo menos um veículo.",
+                        minlength: "Você deve selecionar pelo menos um veículo.",
+                    }
+                },
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
