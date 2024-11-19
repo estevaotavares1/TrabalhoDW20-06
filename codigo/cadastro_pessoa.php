@@ -8,7 +8,10 @@ require_once 'testalogin.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Cadastro</title>
+  <title>Cadastrar Pessoa Física</title>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -112,35 +115,112 @@ require_once 'testalogin.php';
     </div>
   </nav>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Todas as Ações do Sistema</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <a href="cadastro_pessoa.php" class="text-decoration-none">Cadastro de Pessoas</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_empresa.php" class="text-decoration-none">Cadastro de Empresas</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_funcionario.php" class="text-decoration-none">Cadastro de Funcionário</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_veiculo.php" class="text-decoration-none">Cadastro de Veículo</a>
-      </li>
-      <li class="list-group-item">
-        <a href="formEmprestimo.php" class="text-decoration-none">Fazer um Aluguel</a>
-      </li>
-      <li class="list-group-item">
-        <a href="pagamento_clienteSelect.php" class="text-decoration-none">Fazer um Pagamento</a>
-      </li>
-      <li class="list-group-item">
-        <a href="listagens.php" class="text-decoration-none">Acessar os Registros</a>
-      </li>
-    </ul>
+    <h2 class="text-center mb-4">Cadastro de Pessoa Física</h2>
+    <form id="formPessoa" action="cad_pessoa.php" method="POST">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          class="form-control"
+          placeholder="Digite o nome completo"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="endereco" class="form-label">Endereço:</label>
+        <input
+          type="text"
+          id="endereco"
+          name="endereco"
+          class="form-control"
+          placeholder="Digite o endereço completo"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone:</label>
+        <input
+          type="text"
+          id="telefone"
+          name="telefone"
+          class="form-control"
+          maxlength="14"
+          placeholder="(00)00000-0000"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="cpf" class="form-label">CPF:</label>
+        <input
+          type="text"
+          id="cpf"
+          name="cpf"
+          class="form-control"
+          maxlength="14"
+          placeholder="000.000.000-00"
+          required />
+      </div>
+
+      <div class="text-center">
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+      </div>
+    </form>
   </div>
 
   <footer>
     <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    $(document).ready(function() {
+      $("#formPessoa").validate({
+        rules: {
+          nome: {
+            required: true,
+            minlength: 2,
+          },
+          endereco: {
+            required: true,
+            minlength: 4,
+          },
+          telefone: {
+            required: true,
+            minlength: 14,
+            maxlength: 14,
+          },
+          cpf: {
+            required: true,
+            minlength: 14,
+            maxlength: 14,
+          },
+        },
+        messages: {
+          nome: {
+            required: "Campo nome é obrigatório.",
+            minlength: "O nome deve ter pelo menos 2 caracteres.",
+          },
+          endereco: {
+            required: "Campo endereço é obrigatório.",
+            minlength: "O endereço deve ter pelo menos 4 caracteres.",
+          },
+          telefone: {
+            required: "O campo telefone é obrigatório.",
+            minlength: "Insira o telefone no formato adequado.",
+            maxlength: "Insira o telefone no formato adequado.",
+          },
+          cpf: {
+            required: "O CPF é obrigatório.",
+            minlength: "Insira o CPF no formato adequado.",
+            maxlength: "Insira o CPF no formato adequado.",
+          },
+        },
+      });
+      $("#cpf").mask("000.000.000-00");
+      $("#telefone").mask("(00)00000-0000");
+    });
+  </script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

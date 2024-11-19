@@ -8,7 +8,7 @@ require_once 'testalogin.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Cadastro</title>
+  <title>Consulta</title>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -111,29 +111,23 @@ require_once 'testalogin.php';
       </div>
     </div>
   </nav>
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Todas as Ações do Sistema</h2>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Listas Disponíveis</h2>
     <ul class="list-group">
       <li class="list-group-item">
-        <a href="cadastro_pessoa.php" class="text-decoration-none">Cadastro de Pessoas</a>
+        <a href="listar_clientes.php" class="text-decoration-none">Lista de Clientes</a>
       </li>
       <li class="list-group-item">
-        <a href="cadastro_empresa.php" class="text-decoration-none">Cadastro de Empresas</a>
+        <a href="listar_funcionarios.php" class="text-decoration-none">Lista de Funcionários</a>
       </li>
       <li class="list-group-item">
-        <a href="cadastro_funcionario.php" class="text-decoration-none">Cadastro de Funcionário</a>
+        <a href="listar_veiculos.php" class="text-decoration-none">Lista de Veículos</a>
       </li>
       <li class="list-group-item">
-        <a href="cadastro_veiculo.php" class="text-decoration-none">Cadastro de Veículo</a>
+        <a href="listar_alugueis.php" class="text-decoration-none">Lista de Aluguéis</a>
       </li>
       <li class="list-group-item">
-        <a href="formEmprestimo.php" class="text-decoration-none">Fazer um Aluguel</a>
-      </li>
-      <li class="list-group-item">
-        <a href="pagamento_clienteSelect.php" class="text-decoration-none">Fazer um Pagamento</a>
-      </li>
-      <li class="list-group-item">
-        <a href="listagens.php" class="text-decoration-none">Acessar os Registros</a>
+        <a href="listar_pagamentos.php" class="text-decoration-none">Lista de Pagamentos</a>
       </li>
     </ul>
   </div>

@@ -8,7 +8,10 @@ require_once 'testalogin.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Cadastro</title>
+  <title>Cadastrar Empresa</title>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -111,36 +114,134 @@ require_once 'testalogin.php';
       </div>
     </div>
   </nav>
+
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Todas as Ações do Sistema</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <a href="cadastro_pessoa.php" class="text-decoration-none">Cadastro de Pessoas</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_empresa.php" class="text-decoration-none">Cadastro de Empresas</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_funcionario.php" class="text-decoration-none">Cadastro de Funcionário</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_veiculo.php" class="text-decoration-none">Cadastro de Veículo</a>
-      </li>
-      <li class="list-group-item">
-        <a href="formEmprestimo.php" class="text-decoration-none">Fazer um Aluguel</a>
-      </li>
-      <li class="list-group-item">
-        <a href="pagamento_clienteSelect.php" class="text-decoration-none">Fazer um Pagamento</a>
-      </li>
-      <li class="list-group-item">
-        <a href="listagens.php" class="text-decoration-none">Acessar os Registros</a>
-      </li>
-    </ul>
+    <h2 class="text-center mb-4">Cadastro de Empresa</h2>
+    <form id="formEmpresa" action="cad_empresa.php" method="POST">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          class="form-control"
+          placeholder="Digite o nome da empresa"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="endereco" class="form-label">Endereço:</label>
+        <input
+          type="text"
+          id="endereco"
+          name="endereco"
+          class="form-control"
+          placeholder="Digite o endereço completo"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone:</label>
+        <input
+          type="text"
+          id="telefone"
+          name="telefone"
+          maxlength="14"
+          class="form-control"
+          placeholder="(00)00000-0000"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="cnpj" class="form-label">CNPJ:</label>
+        <input
+          type="text"
+          id="cnpj"
+          name="cnpj"
+          maxlength="18"
+          class="form-control"
+          placeholder="00.000.000/0001-00"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="cnpjConfirm" class="form-label">Confirme o CNPJ:</label>
+        <input
+          type="text"
+          id="cnpjConfirm"
+          name="cnpjConfirm"
+          maxlength="18"
+          class="form-control"
+          placeholder="Digite novamente o CNPJ"
+          required />
+      </div>
+      <div class="text-center">
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+      </div>
+    </form>
   </div>
 
   <footer>
     <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    $(document).ready(function() {
+      $("#formEmpresa").validate({
+        rules: {
+          nome: {
+            required: true,
+            minlength: 2,
+          },
+          endereco: {
+            required: true,
+            minlength: 4,
+          },
+          telefone: {
+            required: true,
+            minlength: 14,
+            maxlength: 14,
+          },
+          cnpj: {
+            required: true,
+            minlength: 18,
+            maxlength: 18,
+          },
+          cnpjConfirm: {
+            required: true,
+            equalTo: "#cnpj",
+          },
+        },
+        messages: {
+          nome: {
+            required: "Campo nome é obrigatório.",
+            minlength: "O nome deve ter pelo menos 2 caracteres.",
+          },
+          endereco: {
+            required: "Campo endereço é obrigatório.",
+            minlength: "O endereço deve ter pelo menos 4 caracteres.",
+          },
+          telefone: {
+            required: "O campo telefone é obrigatório.",
+            minlength: "Insira o telefone no formato adequado.",
+            maxlength: "Insira o telefone no formato adequado.",
+          },
+          cnpj: {
+            required: "CNPJ é necessário.",
+            minlength: "Insira o CNPJ no formato adequado.",
+            maxlength: "Insira o CNPJ no formato adequado.",
+          },
+          cnpjConfirm: {
+            required: "Confirme o CNPJ.",
+            equalTo: "Os CNPJs não correspondem.",
+          },
+        },
+      });
+      $("#cnpj").mask("00.000.000/0001-00");
+      $("#cnpjConfirm").mask("00.000.000/0001-00");
+      $("#telefone").mask("(00)00000-0000");
+    });
+  </script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

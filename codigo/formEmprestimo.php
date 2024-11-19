@@ -1,3 +1,7 @@
+<?php
+require_once 'testalogin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -86,18 +90,21 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="cadastro_empresa.html">Cadastrar uma Empresa</a>
+                                <a class="dropdown-item" href="cadastro_empresa.php">Cadastrar uma Empresa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_funcionario.html">Cadastrar um Funcionário</a>
+                                <a class="dropdown-item" href="cadastro_funcionario.php">Cadastrar um Funcionário</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_pessoa.html">Cadastrar uma Pessoa</a>
+                                <a class="dropdown-item" href="cadastro_pessoa.php">Cadastrar uma Pessoa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_veiculo.html">Cadastrar um Veículo</a>
+                                <a class="dropdown-item" href="cadastro_veiculo.php">Cadastrar um Veículo</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a id="deslogar" class="nav-link" href="deslogar.php">Fazer Logout</a>
                     </li>
                 </ul>
             </div>

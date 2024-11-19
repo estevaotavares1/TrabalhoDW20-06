@@ -1,3 +1,7 @@
+<?php
+require_once 'testalogin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -83,18 +87,21 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="cadastro_empresa.html">Cadastrar uma Empresa</a>
+                                <a class="dropdown-item" href="cadastro_empresa.php">Cadastrar uma Empresa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_funcionario.html">Cadastrar um Funcionário</a>
+                                <a class="dropdown-item" href="cadastro_funcionario.php">Cadastrar um Funcionário</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_pessoa.html">Cadastrar uma Pessoa</a>
+                                <a class="dropdown-item" href="cadastro_pessoa.php">Cadastrar uma Pessoa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_veiculo.html">Cadastrar um Veículo</a>
+                                <a class="dropdown-item" href="cadastro_veiculo.php">Cadastrar um Veículo</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a id="deslogar" class="nav-link" href="deslogar.php">Fazer Logout</a>
                     </li>
                 </ul>
             </div>
@@ -154,6 +161,7 @@
                             echo "<td>{$veiculo['km_veiculo']}</td>";
                             echo "<td>
                                     <a href='editar_veiculo.php?id_veiculo={$veiculo['id_veiculo']}' class='btn btn-warning btn-sm'>Editar</a>
+                                    <a id='excluir' href='excluir_veiculo.php?id_veiculo={$veiculo['id_veiculo']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>
                                   </td>";
                             echo "</tr>";
                         }
@@ -161,7 +169,7 @@
 
                     // Exibir veículos disponíveis
                     if (!empty($veiculosDisponiveis)) {
-                        echo "<tr class='table-success'><td colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
+                        echo "<tr class='table'><td colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosDisponiveis, 'Disponível');
                     } else {
                         echo "<tr><td colspan='14'>Nenhum veículo disponível encontrado.</td></tr>";
@@ -169,7 +177,7 @@
 
                     // Exibir veículos indisponíveis
                     if (!empty($veiculosIndisponiveis)) {
-                        echo "<tr class='table-danger'><td colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
+                        echo "<tr class='table'><td colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosIndisponiveis, 'Indisponível');
                     } else {
                         echo "<tr><td colspan='14'>Nenhum veículo indisponível encontrado.</td></tr>";

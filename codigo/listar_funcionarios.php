@@ -1,3 +1,7 @@
+<?php
+require_once 'testalogin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,6 +14,17 @@
 </head>
 
 <body>
+    <header
+        class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="logo">
+            <h2>Sistema de Aluguéis de Veículos</h2>
+        </div>
+        <div class="user-info text-end">
+            <p>Proprietário: Lucas Faria</p>
+            <p>Data: 28/11/2024 - 13:55</p>
+        </div>
+    </header>
+
     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="atividades.php">Atividades</a>
@@ -72,18 +87,21 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="cadastro_empresa.html">Cadastrar uma Empresa</a>
+                                <a class="dropdown-item" href="cadastro_empresa.php">Cadastrar uma Empresa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_funcionario.html">Cadastrar um Funcionário</a>
+                                <a class="dropdown-item" href="cadastro_funcionario.php">Cadastrar um Funcionário</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_pessoa.html">Cadastrar uma Pessoa</a>
+                                <a class="dropdown-item" href="cadastro_pessoa.php">Cadastrar uma Pessoa</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="cadastro_veiculo.html">Cadastrar um Veículo</a>
+                                <a class="dropdown-item" href="cadastro_veiculo.php">Cadastrar um Veículo</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a id="deslogar" class="nav-link" href="deslogar.php">Fazer Logout</a>
                     </li>
                 </ul>
             </div>
@@ -129,6 +147,7 @@
                             echo "<td>$senha_funcionario</td>";
                             echo "<td>
                                     <a href='editar_funcionario.php?id_funcionario=$id_funcionario' class='btn btn-warning btn-sm'>Editar</a>
+                                    <a id='excluir' href='excluir_funcionario.php?id_funcionario=$id_funcionario' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>
                                   </td>";
                             echo "</tr>";
                         }

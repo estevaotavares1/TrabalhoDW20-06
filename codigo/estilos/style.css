@@ -42,6 +42,17 @@ nav.navbar .nav-link:hover {
   color: white;
 }
 
+#deslogar {
+  background-color: #f44336;
+  color: white !important;
+  transition: background-color 0.3s ease;
+}
+
+#deslogar:hover {
+  background-color: #b71c1c;
+  color: white !important;
+}
+
 /* Dropdown no menu */
 .dropdown-menu {
   background-color: #003366;
@@ -70,7 +81,7 @@ table td {
 }
 
 table th {
-  background-color: #0055a5;
+  background-color: #0055a5 !important;
   color: white;
 }
 
@@ -96,6 +107,19 @@ button:hover,
 .btn:hover {
   background-color: #003366;
   color: white;
+}
+
+#excluir {
+  background-color: #f44336;
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#excluir:hover {
+  background-color: #b71c1c;
+  color: white !important;
 }
 
 /* Inputs e selects */

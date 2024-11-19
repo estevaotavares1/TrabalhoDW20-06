@@ -8,7 +8,10 @@ require_once 'testalogin.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Cadastro</title>
+  <title>Cadastrar Funcionário</title>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -112,35 +115,129 @@ require_once 'testalogin.php';
     </div>
   </nav>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Todas as Ações do Sistema</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <a href="cadastro_pessoa.php" class="text-decoration-none">Cadastro de Pessoas</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_empresa.php" class="text-decoration-none">Cadastro de Empresas</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_funcionario.php" class="text-decoration-none">Cadastro de Funcionário</a>
-      </li>
-      <li class="list-group-item">
-        <a href="cadastro_veiculo.php" class="text-decoration-none">Cadastro de Veículo</a>
-      </li>
-      <li class="list-group-item">
-        <a href="formEmprestimo.php" class="text-decoration-none">Fazer um Aluguel</a>
-      </li>
-      <li class="list-group-item">
-        <a href="pagamento_clienteSelect.php" class="text-decoration-none">Fazer um Pagamento</a>
-      </li>
-      <li class="list-group-item">
-        <a href="listagens.php" class="text-decoration-none">Acessar os Registros</a>
-      </li>
-    </ul>
+    <h2 class="text-center mb-4">Cadastro de Funcionário</h2>
+    <form id="formFuncionario" action="cad_funcionario.php" method="POST">
+      <div class="mb-3">
+        <label for="nome_funcionario" class="form-label">Nome:</label>
+        <input
+          type="text"
+          id="nome_funcionario"
+          name="nome_funcionario"
+          class="form-control"
+          placeholder="Digite o nome completo"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="cpf_funcionario" class="form-label">CPF:</label>
+        <input
+          type="text"
+          id="cpf_funcionario"
+          name="cpf_funcionario"
+          maxlength="14"
+          class="form-control"
+          placeholder="000.000.000-00"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="email_funcionario" class="form-label">Email:</label>
+        <input
+          type="email"
+          id="email_funcionario"
+          name="email_funcionario"
+          class="form-control"
+          placeholder="papaula@gmail.com"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="telefone_funcionario" class="form-label">Telefone:</label>
+        <input
+          type="text"
+          id="telefone_funcionario"
+          name="telefone_funcionario"
+          class="form-control"
+          maxlength="14"
+          placeholder="(00)00000-0000"
+          required />
+      </div>
+
+      <div class="mb-3">
+        <label for="senha_funcionario" class="form-label">Senha:</label>
+        <input
+          type="text"
+          id="senha_funcionario"
+          name="senha_funcionario"
+          class="form-control"
+          placeholder="Digite sua senha"
+          required />
+      </div>
+
+      <div class="text-center">
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+      </div>
+    </form>
   </div>
 
   <footer>
     <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    $(document).ready(function() {
+      $("#formFuncionario").validate({
+        rules: {
+          nome_funcionario: {
+            required: true,
+            minlength: 2,
+          },
+          cpf_funcionario: {
+            required: true,
+            minlength: 14,
+            maxlength: 14,
+          },
+          telefone_funcionario: {
+            required: true,
+            minlength: 14,
+            maxlength: 14,
+          },
+          email_funcionario: {
+            required: true,
+            email: true,
+          },
+          senha_funcionario: {
+            required: true,
+          },
+        },
+        messages: {
+          nome_funcionario: {
+            required: "Campo nome é obrigatório.",
+            minlength: "O nome deve ter pelo menos 2 caracteres.",
+          },
+          cpf_funcionario: {
+            required: "O CPF é obrigatório.",
+            minlength: "Insira o CPF no formato adequado.",
+            maxlength: "Insira o CPF no formato adequado.",
+          },
+          telefone_funcionario: {
+            required: "O campo telefone é obrigatório.",
+            minlength: "Insira o telefone no formato adequado.",
+            maxlength: "Insira o telefone no formato adequado.",
+          },
+          email_funcionario: {
+            required: "O campo email é obrigatório.",
+            email: "Informe um email válido.",
+          },
+          senha_funcionario: {
+            required: "Campo senha é obrigatório.",
+          },
+        },
+      });
+      $("#cpf_funcionario").mask("000.000.000-00");
+      $("#telefone_funcionario").mask("(00)00000-0000");
+    });
+  </script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
