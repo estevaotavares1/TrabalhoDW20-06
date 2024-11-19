@@ -45,7 +45,9 @@ nav.navbar .nav-link:hover {
 #deslogar {
   background-color: #f44336;
   color: white !important;
+  padding: 8px 12px;
   transition: background-color 0.3s ease;
+  display: inline-block;
 }
 
 #deslogar:hover {
@@ -151,15 +153,19 @@ select:focus {
   max-width: 400px;
   width: 100%;
   border: 1px solid #ccc;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#login_lucas .card-header {
+/* Estilos dos cards */
+.card {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
   background-color: #0055a5;
   color: white;
   padding: 10px;
-  font-size: 16px;
 }
 
 /* Estilo para mensagens de erro */
