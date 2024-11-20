@@ -12,5 +12,5 @@ Proposta do Professor:
 11. O sistema somente registra essas informações;
 12. O aluguel guarda os veículos que o cliente alugou e o funcionário que realizou o atendimento;
 13. Também há um sistema de cadastro de funcionários, veículos e clientes;
-14. Fora a opção de ver quais veículos estão disponíveis e quais estão alugados e há quanto tempo estão alugados;
+14. Fora a opção de ver quais veículos estão disponíveis e quais estão alugados;
 15. O pagamento só é realizado e registrado na devolução, onde o cálculo por km rodado é feito.
