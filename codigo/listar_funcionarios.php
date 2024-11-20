@@ -9,6 +9,7 @@ require_once 'testalogin.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Funcionários</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos/style.css">
 </head>
@@ -111,6 +112,12 @@ require_once 'testalogin.php';
     </nav>
     <div class="container my-5">
         <h2 class="text-center mb-4">Lista de Funcionários</h2>
+        <form class="mb-3">
+            <div class="input-group">
+                <input id="filtro-tabela" type="text" class="form-control" placeholder="Pesquisar Funcionários">
+                <button type="button" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </form>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead class="table-dark">
@@ -171,6 +178,23 @@ require_once 'testalogin.php';
     <footer>
         <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        function filtrarTabela() {
+            var filtro = $('#filtro-tabela').val().toLowerCase();
+
+            $('table tbody tr').each(function() {
+                var textoLinha = $(this).text().toLowerCase();
+                if (textoLinha.includes(filtro)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+
+        $('#filtro-tabela').on('input', filtrarTabela);
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
