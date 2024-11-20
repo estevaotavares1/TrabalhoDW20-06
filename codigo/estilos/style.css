@@ -58,12 +58,6 @@ nav .active:hover {
   margin: 8px;
 }
 
-#deslogar:hover {
-  background-color: #b71c1c;
-  color: white !important;
-  margin: 8px;
-}
-
 /* Dropdown no menu */
 .dropdown-menu {
   background-color: #003366;

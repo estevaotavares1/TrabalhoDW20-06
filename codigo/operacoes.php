@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Cadastra um novo cliente.
  *
@@ -533,19 +534,20 @@ function imprimirAlugueis($conexao)
                 a.datainicial_aluguel, 
                 a.datafinal_aluguel, 
                 c.nome AS nome_cliente, 
-                f.nome_funcionario AS nome_funcionario
+                f.nome_funcionario AS nome_funcionario,
+                a.status
             FROM tb_aluguel a
             JOIN tb_cliente c ON a.tb_cliente_id_cliente = c.id_cliente
             JOIN tb_funcionario f ON a.tb_funcionario_id_funcionario = f.id_funcionario";
-    
+
     $stmt = mysqli_prepare($conexao, $sql);
-    
+
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_aluguel, $datainicial_aluguel, $datafinal_aluguel, $nome_cliente, $nome_funcionario);
+    mysqli_stmt_bind_result($stmt, $id_aluguel, $datainicial_aluguel, $datafinal_aluguel, $nome_cliente, $nome_funcionario, $status);
     mysqli_stmt_store_result($stmt);
-    
+
     $lista = [];
-    
+
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -553,13 +555,14 @@ function imprimirAlugueis($conexao)
                 'datainicial_aluguel' => $datainicial_aluguel,
                 'datafinal_aluguel' => $datafinal_aluguel,
                 'nome_cliente' => $nome_cliente,
-                'nome_funcionario' => $nome_funcionario
+                'nome_funcionario' => $nome_funcionario,
+                'status' => $status
             ];
         }
     }
-    
+
     mysqli_stmt_close($stmt);
-    
+
     return $lista;
 }
 
@@ -580,19 +583,16 @@ function imprimirPagamentos($conexao)
                 a.id_aluguel
             FROM tb_pagamento p
             JOIN tb_aluguel a ON p.tb_aluguel_id_aluguel = a.id_aluguel";
-    
+
     $stmt = mysqli_prepare($conexao, $sql);
-    
-    // Executa a consulta
+
     mysqli_stmt_execute($stmt);
-    
-    // Vincula os resultados às variáveis
+
     mysqli_stmt_bind_result($stmt, $id_pagamento, $valor, $preco_por_km, $data_pagamento, $metodo, $id_aluguel);
     mysqli_stmt_store_result($stmt);
-    
+
     $lista = [];
-    
-    // Preenche o array associativo se houver registros
+
     if (mysqli_stmt_num_rows($stmt) > 0) {
         while (mysqli_stmt_fetch($stmt)) {
             $lista[] = [
@@ -605,9 +605,8 @@ function imprimirPagamentos($conexao)
             ];
         }
     }
-    
-    // Fecha a instrução
+
     mysqli_stmt_close($stmt);
-    
+
     return $lista;
 }

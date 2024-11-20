@@ -120,6 +120,7 @@ require_once 'testalogin.php';
                         <th>Data Final</th>
                         <th>Cliente</th>
                         <th>Funcionário</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -136,6 +137,7 @@ require_once 'testalogin.php';
                             $datafinal_aluguel = $aluguel['datafinal_aluguel'];
                             $nome_cliente = $aluguel['nome_cliente'];
                             $nome_funcionario = $aluguel['nome_funcionario'];
+                            $status = $aluguel['status'];
 
                             echo "<tr>";
                             echo "<td>$id_aluguel</td>";
@@ -143,6 +145,7 @@ require_once 'testalogin.php';
                             echo "<td>$datafinal_aluguel</td>";
                             echo "<td>$nome_cliente</td>";
                             echo "<td>$nome_funcionario</td>";
+                            echo "<td>$status</td>";
                             echo "</tr>";
                         }
                     } else {
