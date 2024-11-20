@@ -58,6 +58,12 @@ nav .active:hover {
   margin: 8px;
 }
 
+nav .active:active {
+  background-color: #001f4d !important;
+  color: white !important;
+  margin: 8px;
+}
+
 /* Dropdown no menu */
 .dropdown-menu {
   background-color: #003366;
@@ -97,7 +103,7 @@ table tr:hover {
 button,
 .btn {
   background-color: #0055a5;
-  color: white;
+  color: white !important;
   border: none;
   cursor: pointer;
 }
@@ -105,9 +111,16 @@ button,
 button:hover,
 .btn:hover {
   background-color: #003366;
-  color: white;
+  color: white !important;
 }
 
+button:active,
+.btn:active {
+  background-color: #001f4d !important;
+  color: white !important;
+}
+
+/* Botões de Excluir */
 #excluir {
   background-color: #f44336;
   color: white !important;
@@ -117,6 +130,12 @@ button:hover,
 
 #excluir:hover {
   background-color: #b71c1c;
+  color: white !important;
+}
+
+button:active,
+#excluir:active {
+  background-color: #8a1010 !important;
   color: white !important;
 }
 
