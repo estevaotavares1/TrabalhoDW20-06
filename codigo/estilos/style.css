@@ -156,6 +156,12 @@ select:focus {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.card-header {
+  background-color: #0055a5;
+  color: white;
+  text-align: center;
+}
+
 /* Estilo para mensagens de erro */
 label.error {
   color: #f44336;

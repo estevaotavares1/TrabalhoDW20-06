@@ -121,6 +121,7 @@ require_once 'testalogin.php';
                         <th>Data do Pagamento</th>
                         <th>Método</th>
                         <th>ID Aluguel</th>
+                        <th>Nota Fiscal</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -146,6 +147,9 @@ require_once 'testalogin.php';
                             echo "<td>$data_pagamento</td>";
                             echo "<td>$metodo</td>";
                             echo "<td>$id_aluguel</td>";
+                            echo "<td>
+                                <a href='#' class='btn btn-warning btn-sm'>Imprimir</a>
+                            </td>";
                             echo "</tr>";
                         }
                     } else {

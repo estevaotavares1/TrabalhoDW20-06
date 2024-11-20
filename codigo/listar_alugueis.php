@@ -121,7 +121,6 @@ require_once 'testalogin.php';
                         <th>Cliente</th>
                         <th>Funcionário</th>
                         <th>Status</th>
-                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -147,9 +146,6 @@ require_once 'testalogin.php';
                             echo "<td>$nome_cliente</td>";
                             echo "<td>$nome_funcionario</td>";
                             echo "<td>$status</td>";
-                            echo "<td>
-                                <a href='#' class='btn btn-warning btn-sm'>Detalhar</a>
-                            </td>";
                             echo "</tr>";
                         }
                     } else {
