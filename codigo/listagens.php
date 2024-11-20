@@ -8,7 +8,7 @@ require_once 'testalogin.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consulta</title>
+  <title>Todos os Registros</title>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -24,7 +24,7 @@ require_once 'testalogin.php';
       <h2>Sistema de Aluguéis de Veículos</h2>
     </div>
     <div class="user-info text-end">
-      <p>Proprietário: Lucas Faria</p>
+      <a href="http://lattes.cnpq.br/3766134688368012" class="text-decoration-none">Proprietário: Lucas Faria</a>
       <p>Data: 28/11/2024 - 13:55</p>
     </div>
   </header>
