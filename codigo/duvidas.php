@@ -114,7 +114,7 @@
                         <div class="card-header">Sobre o Sistema</div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">Desenvolvido para uso por funcionários de uma loja de aluguel de veículos.</li>
+                                <li class="list-group-item">Desenvolvido para funcionários de uma locadora de veículos.</li>
                                 <li class="list-group-item">Os aluguéis são realizados exclusivamente de forma presencial.</li>
                                 <li class="list-group-item">Apenas carros estão disponíveis para aluguel.</li>
                                 <li class="list-group-item">O sistema apenas registra todas essas informações.</li>
@@ -141,8 +141,8 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">O valor do aluguel é cobrado por km rodado.</li>
-                                <li class="list-group-item">O valor do km é o mesmo para todos os veículos, mas pode ser alterado.</li>
-                                <li class="list-group-item">O pagamento é realizado somente na devolução do veículo.</li>
+                                <li class="list-group-item">O valor do km é padronizado, mas pode ser alterado.</li>
+                                <li class="list-group-item">O pagamento é realizado somente na devolução.</li>
                                 <li class="list-group-item">O cálculo do pagamento é feito com base nos km rodados.</li>
                             </ul>
                         </div>
@@ -154,7 +154,7 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">Cadastro de clientes, veículos e funcionários.</li>
-                                <li class="list-group-item">Registro do veículo alugado e do funcionário que realizou o atendimento.</li>
+                                <li class="list-group-item">Registro do veículo alugado e do funcionário que realizou o fez.</li>
                                 <li class="list-group-item">Consulta de veículos disponíveis e alugados.</li>
                                 <li class="list-group-item">Visualização da duração dos aluguéis ativos.</li>
                             </ul>
