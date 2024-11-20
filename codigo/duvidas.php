@@ -154,7 +154,7 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">Cadastro de clientes, veículos e funcionários.</li>
-                                <li class="list-group-item">Registro do veículo alugado e do funcionário que realizou o fez.</li>
+                                <li class="list-group-item">Registro do veículo alugado e do funcionário o realizou.</li>
                                 <li class="list-group-item">Consulta de veículos disponíveis e alugados.</li>
                                 <li class="list-group-item">Visualização da duração dos aluguéis ativos.</li>
                             </ul>
