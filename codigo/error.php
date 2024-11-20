@@ -8,7 +8,7 @@ require_once 'testalogin.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Compra Realizada com Sucesso</title>
+  <title>Email Duplicado</title>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -23,11 +23,11 @@ require_once 'testalogin.php';
       <div class="col-md-6">
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title">Ação Realizada com Sucesso!</h5>
+            <h5 class="card-title">Esse email já existe!</h5>
             <p class="card-text">
-              Pode continuar usando o sistema normalmente.
+              Digite outro endereço de email e tente novamente.
             </p>
-            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
+            <a href="cadastro_funcionario.php" class="btn btn-primary mt-3">Voltar a Tela de Cadastro</a>
           </div>
         </div>
       </div>

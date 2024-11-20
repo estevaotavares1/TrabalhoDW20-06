@@ -12,13 +12,6 @@ body {
   padding-bottom: 65px;
 }
 
-.container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Cabeçalho */
 header {
   background-color: #003366;
@@ -158,11 +151,6 @@ select:focus {
 }
 
 /* Estilo para o Index */
-#login_lucas {
-  background-color: #f0f0f0;
-  box-shadow: none;
-}
-
 #login_lucas .card {
   max-width: 400px;
   width: 100%;

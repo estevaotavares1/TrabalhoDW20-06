@@ -213,6 +213,7 @@ require_once 'testalogin.php';
           },
           senha_funcionario: {
             required: true,
+            minlength: 4,
           },
         },
         messages: {
@@ -236,6 +237,7 @@ require_once 'testalogin.php';
           },
           senha_funcionario: {
             required: "Campo senha é obrigatório.",
+            minlength: "A senha deve ter no mínimo 4 caracteres.",
           },
         },
       });
