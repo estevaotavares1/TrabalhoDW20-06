@@ -126,6 +126,46 @@ INSERT INTO tb_cliente (nome, endereco, telefone) VALUES
 ('Prime Innovations', 'Rua O, 1212', '(62)99998-7787');
 
 -- -----------------------------------------------------
+-- Table `veiculosbd`.`tb_pessoafisica`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `veiculosbd`.`tb_pessoafisica` ;
+
+CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pessoafisica` (
+  `id_pessoa` INT NOT NULL AUTO_INCREMENT,
+  `cpf_pessoa` VARCHAR(14) NOT NULL,
+  `tb_cliente_id_cliente` INT NOT NULL,
+  PRIMARY KEY (`id_pessoa`),
+  INDEX `fk_tb_pessoafisica_tb_cliente1_idx` (`tb_cliente_id_cliente` ASC) VISIBLE,
+  CONSTRAINT `fk_tb_pessoafisica_tb_cliente1`
+    FOREIGN KEY (`tb_cliente_id_cliente`)
+    REFERENCES `veiculosbd`.`tb_cliente` (`id_cliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES 
+('123.456.789-01', 1),
+('987.654.321-00', 2),
+('123.123.123-12', 3),
+('321.321.321-32', 4),
+('456.456.456-45', 5),
+('789.789.789-78', 6),
+('159.159.159-15', 7),
+('258.258.258-25', 8),
+('369.369.369-36', 9),
+('951.951.951-95', 10),
+('753.753.753-75', 11),
+('864.864.864-86', 12),
+('741.741.741-74', 13),
+('852.852.852-85', 14),
+('963.963.963-96', 15),
+('147.147.147-14', 16),
+('258.258.258-24', 17),
+('369.369.369-35', 18),
+('741.741.741-73', 19),
+('852.852.852-84', 20);
+
+-- -----------------------------------------------------
 -- Table `veiculosbd`.`tb_empresa`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `veiculosbd`.`tb_empresa` ;
@@ -223,47 +263,6 @@ CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pagamento` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `veiculosbd`.`tb_pessoafisica`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `veiculosbd`.`tb_pessoafisica` ;
-
-CREATE TABLE IF NOT EXISTS `veiculosbd`.`tb_pessoafisica` (
-  `id_pessoa` INT NOT NULL AUTO_INCREMENT,
-  `cpf_pessoa` VARCHAR(14) NOT NULL,
-  `tb_cliente_id_cliente` INT NOT NULL,
-  PRIMARY KEY (`id_pessoa`),
-  INDEX `fk_tb_pessoafisica_tb_cliente1_idx` (`tb_cliente_id_cliente` ASC) VISIBLE,
-  CONSTRAINT `fk_tb_pessoafisica_tb_cliente1`
-    FOREIGN KEY (`tb_cliente_id_cliente`)
-    REFERENCES `veiculosbd`.`tb_cliente` (`id_cliente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-INSERT INTO tb_pessoafisica (cpf_pessoa, tb_cliente_id_cliente) VALUES 
-('123.456.789-01', 1),
-('987.654.321-00', 2),
-('123.123.123-12', 3),
-('321.321.321-32', 4),
-('456.456.456-45', 5),
-('789.789.789-78', 6),
-('159.159.159-15', 7),
-('258.258.258-25', 8),
-('369.369.369-36', 9),
-('951.951.951-95', 10),
-('753.753.753-75', 11),
-('864.864.864-86', 12),
-('741.741.741-74', 13),
-('852.852.852-85', 14),
-('963.963.963-96', 15),
-('147.147.147-14', 16),
-('258.258.258-24', 17),
-('369.369.369-35', 18),
-('741.741.741-73', 19),
-('852.852.852-84', 20);
 
 -- -----------------------------------------------------
 -- Table `veiculosbd`.`tb_veiculo`
