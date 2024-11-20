@@ -1,4 +1,4 @@
-Proposta do Cliente:
+Proposta do Professor:
 1. Um sistema para os funcionários de uma loja de aluguel de veículos;
 2. Os aluguéis são feitos para pessoas e empresas;
 3. Existe uma ficha com todos os dados do cliente que aluga o veículo;
@@ -11,6 +11,6 @@ Proposta do Cliente:
 10. O aluguel e pagamento são feitos presencialmente;
 11. O sistema somente registra essas informações;
 12. O aluguel guarda os veículos que o cliente alugou e o funcionário que realizou o atendimento;
-13. Também há um sistema de cadastro de funcionários;
-14. Veículos e clientes fora a opção de ver quais veículos estão disponíveis e quais estão alugados e há quanto tempo estão alugados;
+13. Também há um sistema de cadastro de funcionários, veículos e clientes;
+14. Fora a opção de ver quais veículos estão disponíveis e quais estão alugados e há quanto tempo estão alugados;
 15. O pagamento só é realizado e registrado na devolução, onde o cálculo por km rodado é feito.
