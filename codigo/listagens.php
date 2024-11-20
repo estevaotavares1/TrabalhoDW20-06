@@ -130,6 +130,9 @@ require_once 'testalogin.php';
         <a href="listar_pagamentos.php" class="text-decoration-none">Lista de Pagamentos</a>
       </li>
     </ul>
+    <div class="text-center">
+      <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
+    </div>
   </div>
 
   <footer>

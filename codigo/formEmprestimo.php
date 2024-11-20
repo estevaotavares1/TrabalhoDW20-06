@@ -160,6 +160,9 @@ require_once 'testalogin.php';
                 <input type="submit" value="Selecionar veículos" class="btn btn-primary">
             </div>
         </form>
+        <div class="text-center">
+            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
+        </div>
     </div>
 
     <footer>

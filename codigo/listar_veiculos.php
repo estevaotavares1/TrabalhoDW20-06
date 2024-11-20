@@ -169,7 +169,7 @@ require_once 'testalogin.php';
 
                     // Exibir veículos disponíveis
                     if (!empty($veiculosDisponiveis)) {
-                        echo "<tr class='table'><td colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
+                        echo "<tr class='table-success'><td colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosDisponiveis, 'Disponível');
                     } else {
                         echo "<tr><td colspan='14'>Nenhum veículo disponível encontrado.</td></tr>";
@@ -177,7 +177,7 @@ require_once 'testalogin.php';
 
                     // Exibir veículos indisponíveis
                     if (!empty($veiculosIndisponiveis)) {
-                        echo "<tr class='table'><td colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
+                        echo "<tr class='table-danger'><td colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosIndisponiveis, 'Indisponível');
                     } else {
                         echo "<tr><td colspan='14'>Nenhum veículo indisponível encontrado.</td></tr>";
@@ -185,6 +185,10 @@ require_once 'testalogin.php';
                     ?>
                 </tbody>
             </table>
+        </div>
+        <div class="text-center">
+            <a href="listagens.php" class="btn btn-primary mt-3">Voltar</a>
+            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
         </div>
     </div>
 

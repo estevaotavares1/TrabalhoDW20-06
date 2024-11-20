@@ -152,6 +152,10 @@ require_once 'testalogin.php';
                 </tbody>
             </table>
         </div>
+        <div class="text-center">
+            <a href="listagens.php" class="btn btn-primary mt-3">Voltar</a>
+            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
+        </div>
     </div>
 
     <footer>
