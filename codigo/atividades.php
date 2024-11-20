@@ -138,7 +138,11 @@ require_once 'testalogin.php';
         <a href="listagens.php" class="text-decoration-none">Acessar os Registros</a>
       </li>
     </ul>
+    <div class="text-center">
+      <a href="duvidas.php" class="btn btn-primary mt-3">Como Usar</a>
+    </div>
   </div>
+
 
   <footer>
     <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
