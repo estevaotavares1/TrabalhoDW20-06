@@ -31,7 +31,6 @@ require_once 'testalogin.php';
 
   <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="atividades.php">Atividades</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -48,7 +47,10 @@ require_once 'testalogin.php';
             <a
               class="nav-link active"
               aria-current="page"
-              href="formEmprestimo.php">Alugar</a>
+              href="atividades.php">Todas as Ações</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="formEmprestimo.php">Alugar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>

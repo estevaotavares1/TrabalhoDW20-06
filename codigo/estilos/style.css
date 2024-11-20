@@ -12,15 +12,24 @@ body {
   padding-bottom: 65px;
 }
 
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Cabeçalho */
 header {
   background-color: #003366;
   color: white;
   text-align: center;
+  padding: 5px;
 }
 
 header .logo h2 {
   margin: 0;
+  font-weight: bold;
 }
 
 header .user-info a {
@@ -33,30 +42,33 @@ header .user-info p {
 }
 
 /* Navegação */
-
 nav.navbar {
   background-color: #0055a5 !important;
 }
 
+nav .navbar-nav {
+  margin: 0 auto;
+}
+
+nav.container-fluid {
+  align-items: center !important;
+}
+
 nav.navbar .nav-link {
   color: white !important;
+  padding: 8px;
 }
 
-nav.navbar .nav-link:hover {
+nav .active:hover {
   background-color: #003366;
   color: white;
-}
-
-#deslogar {
-  background-color: #f44336;
-  color: white !important;
-  padding: 8px 12px;
-  display: inline-block;
+  margin: 8px;
 }
 
 #deslogar:hover {
   background-color: #b71c1c;
   color: white !important;
+  margin: 8px;
 }
 
 /* Dropdown no menu */
@@ -75,11 +87,6 @@ nav.navbar .nav-link:hover {
 }
 
 /* Tabelas */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
 table th,
 table td {
   border: 1px solid #ccc;
@@ -151,6 +158,11 @@ select:focus {
 }
 
 /* Estilo para o Index */
+#login_lucas {
+  background-color: #f0f0f0;
+  box-shadow: none;
+}
+
 #login_lucas .card {
   max-width: 400px;
   width: 100%;
