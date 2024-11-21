@@ -148,7 +148,7 @@ require_once 'testalogin.php';
                             echo "<td>$metodo</td>";
                             echo "<td>$id_aluguel</td>";
                             echo "<td>
-                                <a href='#' class='btn btn-warning btn-sm'>Imprimir</a>
+                                <a href='relatorio.php?id_pagamento=$id_pagamento' class='btn btn-warning btn-sm'>Imprimir</a>
                             </td>";
                             echo "</tr>";
                         }
