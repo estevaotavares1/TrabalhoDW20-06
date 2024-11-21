@@ -1,5 +1,5 @@
 <?php
-require_once './TCPDF-main/tcpdf.php';
+require_once './tcpdf/tcpdf.php';
 require_once 'conexao.php';
 
 if (isset($_GET['id_pagamento'])) {
@@ -22,24 +22,26 @@ if (isset($_GET['id_pagamento'])) {
 
         $pdf = new TCPDF();
         $pdf->setPrintHeader(false);
-        $pdf->AddPage();
+        $pdf->AddPage("A4");
 
-        $pdf->SetFont('helvetica', '', 14);
+        $pdf->SetFont('helvetica', '', 12);
 
-        $pdf->Cell(0, 5, 'Relatório de Pagamento', 0, 1, 'C');
+        $pdf->Cell(0, 6, 'Relatório de Pagamento', 0, 1, 'C');
         $pdf->Ln();
 
         $pdf->Cell(30, 10, 'ID Pagamento', 1, 0, 'C');
         $pdf->Cell(30, 10, 'Valor', 1, 0, 'C');
         $pdf->Cell(30, 10, 'Preco por KM', 1, 0, 'C');
         $pdf->Cell(50, 10, 'Data Pagamento', 1, 0, 'C');
-        $pdf->Cell(40, 10, 'Metodo', 1, 1, 'C');
+        $pdf->Cell(40, 10, 'Metodo', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'ID Aluguel', 1, 1, 'C');
         
         $pdf->Cell(30, 10, $linha['id_pagamento'], 1, 0, 'C');
         $pdf->Cell(30, 10, $linha['valor'], 1, 0, 'C');
         $pdf->Cell(30, 10, $linha['preco_por_km'], 1, 0, 'C');
         $pdf->Cell(50, 10, $linha['data_pagamento'], 1, 0, 'C');
-        $pdf->Cell(40, 10, $linha['metodo'], 1, 1, 'C');
+        $pdf->Cell(40, 10, $linha['metodo'], 1, 0, 'C');
+        $pdf->Cell(40, 10, $linha['id_aluguel'], 1, 1, 'C');
 
         $pdf->Output();
     } else {
