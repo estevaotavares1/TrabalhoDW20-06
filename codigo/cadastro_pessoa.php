@@ -169,8 +169,10 @@ if (isset($_GET['id_cliente'])) {
   <div class="container mt-5">
     <h2 class="text-center mb-4">Cadastro de Pessoa Física</h2>
     <form id="formPessoa" action="cad_pessoa.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
+
+      <input type='hidden' name='tipo' value='p'/>
+      
       <div class="mb-3">
-      <h1><?php echo ($acao == 'editar') ? 'Editar Cliente' : 'Cadastro de Cliente'; ?></h1>
         <label for="nome" class="form-label">Nome:</label>
         <input
           type="text"
