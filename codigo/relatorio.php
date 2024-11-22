@@ -1,4 +1,5 @@
 <?php
+require_once 'testalogin.php';
 require_once './tcpdf/tcpdf.php';
 require_once 'conexao.php';
 
