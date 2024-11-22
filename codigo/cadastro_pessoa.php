@@ -1,55 +1,5 @@
 <?php
 require_once 'testalogin.php';
-
-if (isset($_GET['id_cliente'])) {
-  require_once "conexao.php";
-  $id_cliente = $_GET['id_cliente'];
-
-  $tipo = $_GET['tipo'];
-
-  if ($tipo == 'p') {
-//     select *
-// from tb_cliente as c, tb_pessoafisica as p
-// where p.tb_cliente_id_cliente = c.id_cliente
-// and c.id_cliente = 2;
-// $sql = ...
-  }
-  else {
-//     select *
-// from tb_cliente as c, tb_empresa as p
-// where p.tb_cliente_id_cliente = c.id_cliente
-// and c.id_cliente = 25;
-// $sql = ...
-  }
-  // Recupera os dados do cliente para edição
-  // $sql = "SELECT * FROM tb_cliente WHERE id_cliente = $id_cliente";
-  
-
-// preparestatement...
-// bind param...
-// execute
-  $resultado = mysqli_query($conexao, $sql);
-  $linha = mysqli_fetch_array($resultado);
-
-  $nome = $linha['nome'];
-  $endereco = $linha['endereco'];
-  $telefone = $linha['telefone'];
-
-
-  $botao = "Atualizar";
-  $acao = "editar";
-} else {
-  // Caso não haja id, trata-se de um novo cadastro
-  $id_cliente = 0;
-  $nome = '';
-  $endereco = '';
-  $telefone = '';
-  $cpf = '';
-
-  $botao = "Cadastrar";
-  $acao = "adicionar";
-}
-?>
 ?>
 
 <!DOCTYPE html>
@@ -168,10 +118,10 @@ if (isset($_GET['id_cliente'])) {
   </nav>
   <div class="container mt-5">
     <h2 class="text-center mb-4">Cadastro de Pessoa Física</h2>
-    <form id="formPessoa" action="cad_pessoa.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
+    <form id="formPessoa" action="cad_submit.php" method="POST">
 
-      <input type='hidden' name='tipo' value='p'/>
-      
+    <input type='hidden' name='tipo' value='p'/>
+
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
         <input
@@ -179,7 +129,6 @@ if (isset($_GET['id_cliente'])) {
           id="nome"
           name="nome"
           class="form-control"
-          value="<?php echo $nome; ?>"
           placeholder="Digite o nome completo"
           required />
       </div>
@@ -191,7 +140,6 @@ if (isset($_GET['id_cliente'])) {
           id="endereco"
           name="endereco"
           class="form-control"
-          value="<?php echo $endereco; ?>" 
           placeholder="Digite o endereço completo"
           required />
       </div>
@@ -203,7 +151,6 @@ if (isset($_GET['id_cliente'])) {
           id="telefone"
           name="telefone"
           class="form-control"
-          value="<?php echo $telefone; ?>" 
           maxlength="14"
           placeholder="(00)00000-0000"
           required />
