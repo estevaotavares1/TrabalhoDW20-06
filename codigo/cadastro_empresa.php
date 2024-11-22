@@ -120,6 +120,9 @@ require_once 'testalogin.php';
   <div class="container mt-5">
     <h2 class="text-center mb-4">Cadastro de Empresa</h2>
     <form id="formEmpresa" action="cad_empresa.php" method="POST">
+
+      <input type='hidden' name='tipo' value='e'/>
+      
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
         <input
