@@ -22,27 +22,36 @@ if (isset($_GET['id_pagamento'])) {
 
         $pdf = new TCPDF();
         $pdf->setPrintHeader(false);
-        $pdf->AddPage("A4");
+        $pdf->AddPage();
+
+        $pdf->SetFont('helvetica', 'B', 16);
+        $pdf->Cell(0, 10, 'NOTA FISCAL DE PAGAMENTO', 0, 1, 'C');
+        $pdf->Ln(5);
+
+        $pdf->SetFont('helvetica', 'B', 12);
+        $pdf->Cell(0, 10, 'Informações do Pagamento', 0, 1, 'L');
+        $pdf->Ln(4);
 
         $pdf->SetFont('helvetica', '', 12);
-
-        $pdf->Cell(0, 6, 'Relatório de Pagamento', 0, 1, 'C');
-        $pdf->Ln();
-
-        $pdf->Cell(30, 10, 'ID Pagamento', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'Valor', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'Preco por KM', 1, 0, 'C');
-        $pdf->Cell(50, 10, 'Data Pagamento', 1, 0, 'C');
-        $pdf->Cell(40, 10, 'Metodo', 1, 0, 'C');
-        $pdf->Cell(40, 10, 'ID Aluguel', 1, 1, 'C');
         
-        $pdf->Cell(30, 10, $linha['id_pagamento'], 1, 0, 'C');
-        $pdf->Cell(30, 10, $linha['valor'], 1, 0, 'C');
-        $pdf->Cell(30, 10, $linha['preco_por_km'], 1, 0, 'C');
-        $pdf->Cell(50, 10, $linha['data_pagamento'], 1, 0, 'C');
-        $pdf->Cell(40, 10, $linha['metodo'], 1, 0, 'C');
-        $pdf->Cell(40, 10, $linha['id_aluguel'], 1, 1, 'C');
-
+        $pdf->Cell(40, 10, 'ID Pagamento', 1, 0, 'L');
+        $pdf->Cell(60, 10, $linha['id_pagamento'], 1, 1, 'L');
+        
+        $pdf->Cell(40, 10, 'Valor', 1, 0, 'L');
+        $pdf->Cell(60, 10, 'R$ ' . number_format($linha['valor'], 2, ',', '.'), 1, 1, 'L');
+        
+        $pdf->Cell(40, 10, 'Preço por KM', 1, 0, 'L');
+        $pdf->Cell(60, 10, 'R$ ' . number_format($linha['preco_por_km'], 2, ',', '.'), 1, 1, 'L');
+        
+        $pdf->Cell(40, 10, 'Data Pagamento', 1, 0, 'L');
+        $pdf->Cell(60, 10, date('d/m/Y', strtotime($linha['data_pagamento'])), 1, 1, 'L');
+        
+        $pdf->Cell(40, 10, 'Método', 1, 0, 'L');
+        $pdf->Cell(60, 10, $linha['metodo'], 1, 1, 'L');
+        
+        $pdf->Cell(40, 10, 'ID Aluguel', 1, 0, 'L');
+        $pdf->Cell(60, 10, $linha['id_aluguel'], 1, 1, 'L');
+        
         $pdf->Output();
     } else {
         echo "Pagamento não encontrado!";
