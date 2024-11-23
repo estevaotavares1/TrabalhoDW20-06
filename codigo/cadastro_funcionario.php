@@ -176,6 +176,17 @@ require_once 'testalogin.php';
           required />
       </div>
 
+      <div class="mb-3">
+        <label for="senhaConfirm" class="form-label">Confirme sua Senha:</label>
+        <input
+          type="text"
+          id="senhaConfirm"
+          name="senhaConfirm"
+          class="form-control"
+          placeholder="Digite novamente sua senha"
+          required />
+      </div>
+
       <div class="text-center">
         <input type="submit" value="Cadastrar" class="btn btn-primary" />
       </div>
@@ -215,6 +226,10 @@ require_once 'testalogin.php';
             required: true,
             minlength: 4,
           },
+          senhaConfirm: {
+            required: true,
+            equalTo: "#senha_funcionario",
+          },
         },
         messages: {
           nome_funcionario: {
@@ -238,6 +253,10 @@ require_once 'testalogin.php';
           senha_funcionario: {
             required: "Campo senha é obrigatório.",
             minlength: "A senha deve ter no mínimo 4 caracteres.",
+          },
+          senhaConfirm: {
+            required: "Confirme sua senha.",
+            equalTo: "As senhas não correspondem.",
           },
         },
       });

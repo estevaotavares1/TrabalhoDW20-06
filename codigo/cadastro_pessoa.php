@@ -120,7 +120,7 @@ require_once 'testalogin.php';
     <h2 class="text-center mb-4">Cadastro de Pessoa Física</h2>
     <form id="formPessoa" action="cad_submit.php" method="POST">
 
-    <input type='hidden' name='tipo' value='p'/>
+      <input type='hidden' name='tipo' value='p' />
 
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>

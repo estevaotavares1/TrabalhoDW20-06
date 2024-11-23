@@ -1,65 +1,48 @@
 <?php
 require_once 'testalogin.php';
+require_once "conexao.php";
 
 if (isset($_GET['id_cliente'])) {
-  require_once "conexao.php";
   $id_cliente = $_GET['id_cliente'];
-
   $tipo = $_GET['tipo'];
 
   if ($tipo == 'p') {
-//     select *
-// from tb_cliente as c, tb_pessoafisica as p
-// where p.tb_cliente_id_cliente = c.id_cliente
-// and c.id_cliente = 2;
- $sql = "SELECT * FROM tb_cliente as c, tb_pessoafisica as p WHERE p. tb_cliente_id_cliente = c.id_cliente and c.id_cliente = $id_cliente"; 
- $resultado = mysqli_query($conexao, $sql);
- $linha = mysqli_fetch_array($resultado);
- $nome = $linha['nome'];
- $endereco = $linha['endereco'];
- $telefone = $linha['telefone'];
- $cpf = $linha['cpf_pessoa'];
+    $sql = "SELECT * FROM tb_cliente as c, tb_pessoafisica as p WHERE p. tb_cliente_id_cliente = c.id_cliente and c.id_cliente = $id_cliente";
+    $resultado = mysqli_query($conexao, $sql);
+    $linha = mysqli_fetch_array($resultado);
+    $nome = $linha['nome'];
+    $endereco = $linha['endereco'];
+    $telefone = $linha['telefone'];
+    $cpf = $linha['cpf_pessoa'];
   }
-  else {
-//     select *
-// from tb_cliente as c, tb_empresa as p
-// where p.tb_cliente_id_cliente = c.id_cliente
-// and c.id_cliente = 25;
- $sql = "SELECT * FROM tb_cliente as c, tb_empresa as p WHERE p. tb_cliente_id_cliente = c.id_cliente and c.id_cliente = $id_cliente";  
- $resultado = mysqli_query($conexao, $sql);
-  $linha = mysqli_fetch_array($resultado);
-  $nome = $linha['nome'];
-  $endereco = $linha['endereco'];
-  $telefone = $linha['telefone'];
-  $cnpj = $linha ['cnpj_empresa'];
-  }
-  
-  // Recupera os dados do cliente para edição
-  // $sql = "SELECT * FROM tb_cliente WHERE id_cliente = $id_cliente";
-  
 
-  // $resultado = mysqli_query($conexao, $sql);
-  // $linha = mysqli_fetch_array($resultado);
-  // $nome = $linha['nome'];
-  // $endereco = $linha['endereco'];
-  // $telefone = $linha['telefone'];
-  // $cpf = $linha['cpf_pessoa'];
-  // $cnpj = $linha ['cnpj_empresa'];
+  if ($tipo == 'e') {
+    $sql = "SELECT * FROM tb_cliente as c, tb_empresa as e WHERE e. tb_cliente_id_cliente = c.id_cliente and c.id_cliente = $id_cliente";
+    $resultado = mysqli_query($conexao, $sql);
+    $linha = mysqli_fetch_array($resultado);
+    $nome = $linha['nome'];
+    $endereco = $linha['endereco'];
+    $telefone = $linha['telefone'];
+    $cnpj = $linha['cnpj_empresa'];
+  }
+  
+  // else {
+    // $sql = "SELECT * FROM tb_cliente as c, tb_empresa as p WHERE p. tb_cliente_id_cliente = c.id_cliente and c.id_cliente = $id_cliente";
+    // $resultado = mysqli_query($conexao, $sql);
+    // $linha = mysqli_fetch_array($resultado);
+    // $nome = $linha['nome'];
+    // $endereco = $linha['endereco'];
+    // $telefone = $linha['telefone'];
+    // $cnpj = $linha['cnpj_empresa'];
+  // }
 
   $botao = "Atualizar";
   $acao = "editar";
-}
-else {
-  // Caso não haja id, trata-se de um novo cadastro
+} else {
   $id_cliente = 0;
-  $nome = '';
-  $endereco = '';
-  $telefone = '';
-  $cpf = '';
-
-  $botao = "Cadastrar";
-  $acao = "adicionar";
+  echo "Nenhum cliente encontrado";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -176,10 +159,9 @@ else {
     </div>
   </nav>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Editar</h2>
     <form id="formPessoa" action="cad_submit.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
       <div class="mb-3">
-      <h1><?php echo ($acao == 'editar') ? 'Editar Cliente' : 'Cadastro de Cliente'; ?></h1>
+        <h2 class="text-center mb-4"><?php echo ($acao == 'editar') ? 'Editar Cliente' : 'Cadastro de Cliente'; ?></h2>
         <label for="nome" class="form-label">Nome:</label>
         <input
           type="text"
@@ -198,7 +180,7 @@ else {
           id="endereco"
           name="endereco"
           class="form-control"
-          value="<?php echo $endereco; ?>" 
+          value="<?php echo $endereco; ?>"
           placeholder="Digite o endereço completo"
           required />
       </div>
@@ -210,7 +192,7 @@ else {
           id="telefone"
           name="telefone"
           class="form-control"
-          value="<?php echo $telefone; ?>" 
+          value="<?php echo $telefone; ?>"
           maxlength="14"
           placeholder="(00)00000-0000"
           required />
@@ -231,22 +213,21 @@ else {
       </div>
 
       <div class="mb-3">
-        <label for="cnpjConfirm" class="form-label">Confirme o CNPJ:</label>
+        <label for="cnpj" class="form-label">CNPJ:</label>
         <input
           type="text"
-          id="cnpjConfirm"
-          name="cnpjConfirm"
+          id="cnpj"
+          name="cnpj"
           value="<?php echo ($tipo == 'e') ? $cnpj : ''; ?>"
           maxlength="18"
           class="form-control"
-          placeholder="Digite novamente o CNPJ"
-          required 
+          placeholder="00.000.000/0001-00"
           <?php echo ($tipo == 'e') ? '' : 'disabled'; ?>
-          />
+          required />
       </div>
 
       <div class="text-center">
-        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+        <input type="submit" value="Atualizar" class="btn btn-primary" />
       </div>
     </form>
     <div class="text-center">
@@ -280,6 +261,11 @@ else {
             minlength: 14,
             maxlength: 14,
           },
+          cnpj: {
+            required: true,
+            minlength: 18,
+            maxlength: 18,
+          },
         },
         messages: {
           nome: {
@@ -299,6 +285,11 @@ else {
             required: "O CPF é obrigatório.",
             minlength: "Insira o CPF no formato adequado.",
             maxlength: "Insira o CPF no formato adequado.",
+          },
+          cnpj: {
+            required: "CNPJ é necessário.",
+            minlength: "Insira o CNPJ no formato adequado.",
+            maxlength: "Insira o CNPJ no formato adequado.",
           },
         },
       });

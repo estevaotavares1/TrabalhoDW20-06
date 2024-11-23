@@ -3,7 +3,7 @@ require_once 'conexao.php';
 require_once "operacoes.php";
 $tipo = $_POST['tipo'];
 
-if ($tipo == 'p'){
+if ($tipo == 'p') {
     $nome = $_POST['nome'];
     $endereco = $_POST['endereco'];
     $telefone = $_POST['telefone'];
@@ -18,12 +18,12 @@ if ($tipo == 'p'){
     }
 }
 
-if ($tipo == 'e'){
+if ($tipo == 'e') {
     $nome = $_POST['nome'];
     $endereco = $_POST['endereco'];
     $telefone = $_POST['telefone'];
     $cnpj = $_POST['cnpj'];
-    
+
     if (!empty($nome) && !empty($endereco) && !empty($telefone) && !empty($cnpj)) {
         cadastro_empresa($conexao, $nome, $endereco, $telefone, $cnpj);
         header('Location: atividades.php');
@@ -32,4 +32,3 @@ if ($tipo == 'e'){
         echo "Por favor, preencha todos os campos.";
     }
 }
-?>

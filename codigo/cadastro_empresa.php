@@ -119,10 +119,10 @@ require_once 'testalogin.php';
 
   <div class="container mt-5">
     <h2 class="text-center mb-4">Cadastro de Empresa</h2>
-    <form id="formEmpresa" action="cad_empresa.php" method="POST">
+    <form id="formEmpresa" action="cad_submit.php" method="POST">
 
-      <input type='hidden' name='tipo' value='e'/>
-      
+      <input type='hidden' name='tipo' value='e' />
+
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
         <input
@@ -169,17 +169,6 @@ require_once 'testalogin.php';
           required />
       </div>
 
-      <div class="mb-3">
-        <label for="cnpjConfirm" class="form-label">Confirme o CNPJ:</label>
-        <input
-          type="text"
-          id="cnpjConfirm"
-          name="cnpjConfirm"
-          maxlength="18"
-          class="form-control"
-          placeholder="Digite novamente o CNPJ"
-          required />
-      </div>
       <div class="text-center">
         <input type="submit" value="Cadastrar" class="btn btn-primary" />
       </div>
@@ -215,10 +204,6 @@ require_once 'testalogin.php';
             minlength: 18,
             maxlength: 18,
           },
-          cnpjConfirm: {
-            required: true,
-            equalTo: "#cnpj",
-          },
         },
         messages: {
           nome: {
@@ -239,14 +224,9 @@ require_once 'testalogin.php';
             minlength: "Insira o CNPJ no formato adequado.",
             maxlength: "Insira o CNPJ no formato adequado.",
           },
-          cnpjConfirm: {
-            required: "Confirme o CNPJ.",
-            equalTo: "Os CNPJs não correspondem.",
-          },
         },
       });
       $("#cnpj").mask("00.000.000/0001-00");
-      $("#cnpjConfirm").mask("00.000.000/0001-00");
       $("#telefone").mask("(00)00000-0000");
     });
   </script>
