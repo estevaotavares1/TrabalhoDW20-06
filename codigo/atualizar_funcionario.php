@@ -3,36 +3,16 @@ require_once 'conexao.php';
 require_once "operacoes.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_cliente = $_GET['id_cliente'];
-    $tipo = $_POST['tipo'];
-    $nome = $_POST['nome'];
-    $endereco = $_POST['endereco'];
-    $telefone = $_POST['telefone'];
+    $id_funcionario = $_GET['id_funcionario'];
+    $nome_funcionario = $_POST['nome_funcionario'];
+    $cpf_funcionario = $_POST['cpf_funcionario'];
+    $email_funcionario = $_POST['email_funcionario'];
+    $telefone_funcionario = $_POST['telefone_funcionario'];
+    $senha_funcionario = $_POST['senha_funcionario'];
 
-    if (!empty($nome) && !empty($endereco) && !empty($telefone)) {
-        atualizar_cliente($conexao, $id_cliente, $nome, $endereco, $telefone);
-
-        if ($tipo == 'p') {
-            $cpf = $_POST['cpf'];
-            if (!empty($cpf)) {
-                atualizar_pessoafisica($conexao, $id_cliente, $cpf);
-            } else {
-                echo "Por favor, preencha o CPF.";
-                exit;
-            }
-        }
-
-        if ($tipo == 'e') {
-            $cnpj = $_POST['cnpj'];
-            if (!empty($cnpj)) {
-                atualizar_empresa($conexao, $id_cliente, $cnpj);
-            } else {
-                echo "Por favor, preencha o CNPJ.";
-                exit;
-            }
-        }
-
-        header('Location: listar_clientes.php');
+    if (!empty($nome_funcionario) && !empty($nome_funcionario) && !empty($cpf_funcionario) && !empty($email_funcionario) && !empty($telefone_funcionario) && !empty($senha_funcionario)) {
+        atualizar_funcionario($conexao, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario);
+        header('Location: listar_funcionarios.php');
         exit;
     } else {
         echo "Por favor, preencha todos os campos obrigatórios.";

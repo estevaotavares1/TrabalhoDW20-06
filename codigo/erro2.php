@@ -23,11 +23,11 @@ require_once 'testalogin.php';
       <div class="col-md-6">
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title">O cliente não pode ser apagado!</h5>
+            <h5 class="card-title">Essa ação não pode ser executada!</h5>
             <p class="card-text">
-              O cliente não pode ser apagado pois está em um aluguel.
+              O elemento selecionado não pode ser apagado pois está registrado em um aluguel.
             </p>
-            <a href="listar_clientes.php" class="btn btn-primary mt-3">Voltar a Tela de Cadastro</a>
+            <a href="listagens.php" class="btn btn-primary mt-3">Voltar aos Registros</a>
           </div>
         </div>
       </div>
