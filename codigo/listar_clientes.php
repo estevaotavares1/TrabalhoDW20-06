@@ -146,7 +146,6 @@ require_once 'testalogin.php';
                             $cpf_pessoa = $cliente['cpf_pessoa'];
                             $cnpj_empresa = $cliente['cnpj_empresa'];
 
-                            // Verifica se o cliente é pessoa física ou empresa
                             $documento = $cpf_pessoa ? $cpf_pessoa : $cnpj_empresa;
                             $tipo = $cpf_pessoa ? 'p' : 'e';
 
@@ -158,7 +157,7 @@ require_once 'testalogin.php';
                             echo "<td>$documento</td>";
                             echo "<td>
                                     <a href=\"editar_cliente.php?tipo=$tipo&id_cliente=$id_cliente\" class=\"btn btn-warning btn-sm\">Editar</a>
-                                    <a id='excluir' href='#' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>
+                                    <a id='excluir' href=\"excluir_cliente.php?tipo=$tipo&id_cliente=$id_cliente\" class=\"btn btn-danger btn-sm\" onclick='return confirm(\"Tem certeza que deseja excluir?\");'>Excluir</a>
                                   </td>";
                             echo "</tr>";
                         }
