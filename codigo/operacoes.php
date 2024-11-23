@@ -135,7 +135,6 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidad
 
 function atualizar_cliente($conexao, $id_cliente, $nome, $endereco, $telefone)
 {
-    // Atualiza os dados na tabela tb_cliente
     $sql = "UPDATE tb_cliente SET nome = ?, endereco = ?, telefone = ? WHERE id_cliente = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "sssi", $nome, $endereco, $telefone, $id_cliente);
@@ -145,7 +144,6 @@ function atualizar_cliente($conexao, $id_cliente, $nome, $endereco, $telefone)
 
 function atualizar_pessoafisica($conexao, $id_cliente, $cpf)
 {
-    // Atualiza os dados na tabela tb_pessoafisica
     $sql = "UPDATE tb_pessoafisica SET cpf_pessoa = ? WHERE tb_cliente_id_cliente = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "si", $cpf, $id_cliente);
@@ -155,10 +153,96 @@ function atualizar_pessoafisica($conexao, $id_cliente, $cpf)
 
 function atualizar_empresa($conexao, $id_cliente, $cnpj)
 {
-    // Atualiza os dados na tabela tb_empresa
     $sql = "UPDATE tb_empresa SET cnpj_empresa = ? WHERE tb_cliente_id_cliente = ?";
     $stmt = mysqli_prepare($conexao, $sql);
     mysqli_stmt_bind_param($stmt, "si", $cnpj, $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function atualizar_funcionario($conexao, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario)
+{
+    $sql = "UPDATE tb_funcionario SET nome_funcionario = ?, cpf_funcionario = ?, email_funcionario = ?, telefone_funcionario = ?, senha_funcionario = ? WHERE id_funcionario = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "sssssi", $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario, $id_funcionario);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function atualizar_veiculo($conexao, $id_veiculo, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo)
+{
+    $sql = "UPDATE tb_veiculo SET nome = ?, marca = ?, ano = ?, placa_veiculo = ?, capacidade_veiculo = ?, vidroeletrico_veiculo = ?, airbag_veiculo = ?, capacidaportamala_veiculo = ?, arcondicionado_veiculo = ?, automatico_veiculo = ?, km_veiculo = ? WHERE id_veiculo = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "ssissiiisssi", $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo, $id_veiculo);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+// As funções de Excluir ------------------------------------------------------------------------------------------------------------
+
+function excluir_cliente($conexao, $id_cliente, $tipo)
+{
+    if ($tipo == 'p') {
+        excluir_pessoafisica($conexao, $id_cliente);
+    }
+
+    if ($tipo == 'e') {
+        excluir_empresa($conexao, $id_cliente);
+    }
+
+    $sql = "DELETE FROM tb_cliente WHERE id_cliente = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function excluir_pessoafisica($conexao, $id_cliente)
+{
+    $sql = "DELETE FROM tb_pessoafisica WHERE tb_cliente_id_cliente = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function excluir_empresa($conexao, $id_cliente)
+{
+    $sql = "DELETE FROM tb_empresa WHERE tb_cliente_id_cliente = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function excluir_funcionario($conexao, $id_funcionario)
+{
+    $sql = "DELETE FROM tb_funcionario WHERE id_funcionario = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_funcionario);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function excluir_veiculo($conexao, $id_veiculo)
+{
+    $sql = "DELETE FROM tb_veiculo WHERE id_veiculo = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_veiculo);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 }
