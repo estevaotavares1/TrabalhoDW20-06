@@ -117,6 +117,51 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidad
     return $id;
 }
 
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+// As funções de Editar ------------------------------------------------------------------------------------------------------------
+
+function atualizar_cliente($conexao, $id_cliente, $nome, $endereco, $telefone)
+{
+    // Atualiza os dados na tabela tb_cliente
+    $sql = "UPDATE tb_cliente SET nome = ?, endereco = ?, telefone = ? WHERE id_cliente = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "sssi", $nome, $endereco, $telefone, $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function atualizar_pessoafisica($conexao, $id_cliente, $cpf)
+{
+    // Atualiza os dados na tabela tb_pessoafisica
+    $sql = "UPDATE tb_pessoafisica SET cpf_pessoa = ? WHERE tb_cliente_id_cliente = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "si", $cpf, $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function atualizar_empresa($conexao, $id_cliente, $cnpj)
+{
+    // Atualiza os dados na tabela tb_empresa
+    $sql = "UPDATE tb_empresa SET cnpj_empresa = ? WHERE tb_cliente_id_cliente = ?";
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "si", $cnpj, $id_cliente);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
 
 // As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
 // As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
@@ -133,7 +178,6 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidad
 // As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
 // As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
 // As funções de Empréstimo ------------------------------------------------------------------------------------------------------------
-
 
 /**
  * Obtém o KM inicial de um veículo.

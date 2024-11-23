@@ -25,7 +25,6 @@ if (isset($_GET['id_cliente'])) {
     $telefone = $linha['telefone'];
     $cnpj = $linha['cnpj_empresa'];
   }
-
 } else {
   $id_cliente = 0;
   echo "Nenhum cliente encontrado";
@@ -47,7 +46,7 @@ if (isset($_GET['id_cliente'])) {
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="estilos/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -149,7 +148,9 @@ if (isset($_GET['id_cliente'])) {
 
   <div class="container mt-5">
     <h2 class="text-center mb-4">Editar Cliente</h2>
-    <form id="atualizarCliente" action="cad_submit.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
+    <form id="atualizarCliente" action="atualizar_cliente.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
+
+      <input type="hidden" name="tipo" value="<?php echo $tipo; ?>" />
 
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
@@ -221,6 +222,7 @@ if (isset($_GET['id_cliente'])) {
       </div>
     </form>
     <div class="text-center">
+      <a href="listar_clientes.php" class="btn btn-primary mt-3">Voltar</a>
       <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
     </div>
   </div>

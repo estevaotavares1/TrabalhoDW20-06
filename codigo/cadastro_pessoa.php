@@ -17,7 +17,7 @@ require_once 'testalogin.php';
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="estilos/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
