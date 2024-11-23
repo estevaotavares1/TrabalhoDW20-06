@@ -25,19 +25,7 @@ if (isset($_GET['id_cliente'])) {
     $telefone = $linha['telefone'];
     $cnpj = $linha['cnpj_empresa'];
   }
-  
-  // else {
-    // $sql = "SELECT * FROM tb_cliente as c, tb_empresa as p WHERE p. tb_cliente_id_cliente = c.id_cliente and c.id_cliente = $id_cliente";
-    // $resultado = mysqli_query($conexao, $sql);
-    // $linha = mysqli_fetch_array($resultado);
-    // $nome = $linha['nome'];
-    // $endereco = $linha['endereco'];
-    // $telefone = $linha['telefone'];
-    // $cnpj = $linha['cnpj_empresa'];
-  // }
 
-  $botao = "Atualizar";
-  $acao = "editar";
 } else {
   $id_cliente = 0;
   echo "Nenhum cliente encontrado";
@@ -158,10 +146,12 @@ if (isset($_GET['id_cliente'])) {
       </div>
     </div>
   </nav>
+
   <div class="container mt-5">
-    <form id="formPessoa" action="cad_submit.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
+    <h2 class="text-center mb-4">Editar Cliente</h2>
+    <form id="atualizarCliente" action="cad_submit.php?id_cliente=<?php echo $id_cliente ?>" method="POST">
+
       <div class="mb-3">
-        <h2 class="text-center mb-4"><?php echo ($acao == 'editar') ? 'Editar Cliente' : 'Cadastro de Cliente'; ?></h2>
         <label for="nome" class="form-label">Nome:</label>
         <input
           type="text"
@@ -241,7 +231,7 @@ if (isset($_GET['id_cliente'])) {
 
   <script>
     $(document).ready(function() {
-      $("#formPessoa").validate({
+      $("#atualizarCliente").validate({
         rules: {
           nome: {
             required: true,
@@ -257,12 +247,16 @@ if (isset($_GET['id_cliente'])) {
             maxlength: 14,
           },
           cpf: {
-            required: true,
+            required: function() {
+              return $("#cpf").is(":enabled");
+            },
             minlength: 14,
             maxlength: 14,
           },
           cnpj: {
-            required: true,
+            required: function() {
+              return $("#cnpj").is(":enabled");
+            },
             minlength: 18,
             maxlength: 18,
           },
@@ -294,6 +288,7 @@ if (isset($_GET['id_cliente'])) {
         },
       });
       $("#cpf").mask("000.000.000-00");
+      $("#cnpj").mask("00.000.000/0001-00");
       $("#telefone").mask("(00)00000-0000");
     });
   </script>
