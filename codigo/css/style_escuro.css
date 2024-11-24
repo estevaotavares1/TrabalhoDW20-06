@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap");
+
+body {
+  font-family: 'Share Tech Mono', monospace !important;
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+  padding-bottom: 50px !important;
+}
+
+header {
+  background-color: #1e1e1e !important;
+  color: #33669e !important;
+  text-align: center !important;
+}
+
+header .logo h2 {
+  font-weight: bold !important;
+}
+
+header .user-info a,
+header .user-info p {
+  color: #e0e0e0 !important;
+}
+
+nav.navbar {
+  background-color: #2b4f78 !important;
+}
+
+nav .navbar-nav {
+  margin: 0 auto !important;
+}
+
+nav.navbar .nav-link {
+  color: #e0e0e0 !important;
+  padding: 1px 10px !important;
+  text-transform: uppercase !important;
+}
+
+nav.navbar .active {
+  color: white !important;
+}
+
+nav.navbar .nav-link:hover {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333333 !important;
+}
+
+.dropdown-item {
+  color: #e0e0e0 !important;
+}
+
+.dropdown-item:hover {
+  background-color: #33669e !important;
+  color: white !important;
+}
+
+table th {
+  background-color: #2b4f78 !important;
+  color: #e0e0e0 !important;
+}
+
+table td {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+table td:hover {
+  background-color: #2b4f78 !important;
+}
+
+#success {
+  background-color: #4b9e7f !important;
+  color: white !important;
+}
+
+#danger {
+  background-color: #b74e52 !important;
+  color: white !important;
+}
+
+li.list-group-item {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+li.list-group-item a {
+  color: #e0e0e0 !important;
+}
+
+li.list-group-item:hover {
+  background-color: #2b4f78 !important;
+}
+
+button,
+.btn {
+  background-color: #33669e !important;
+  color: white !important;
+  border: 2px solid #2b4f78 !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #2b4f78 !important;
+}
+
+button:active,
+.btn:active {
+  background-color: #1f3c5a !important;
+  transform: translateY(2px) !important;
+}
+
+#excluir {
+  background-color: #b74e52 !important;
+}
+
+#excluir:hover {
+  background-color: #9e3d3d !important;
+}
+
+#excluir:active {
+  background-color: #8f2e2a !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  border: 2px solid #2b4f78 !important;
+  padding: 4px !important;
+  background-color: #333333 !important;
+  color: #e0e0e0 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="date"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+  color: #8a8a8a !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 2px solid #2b4f78 !important;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  border-color: #1f3c5a !important;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: #33669e !important;
+  border-color: #1f3c5a !important;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card-header {
+  background-color: #2b4f78 !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+#login_lucas .card {
+  max-width: 350px !important;
+  width: 100% !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #33669e !important;
+  box-shadow: 0 0 8px rgba(51, 102, 158, 0.5) !important;
+}
+
+label.error {
+  color: #b74e52 !important;
+  font-weight: bold !important;
+}
+
+input.error,
+select.error,
+textarea.error {
+  border-color: #b74e52 !important;
+  box-shadow: 0 0 10px rgba(183, 78, 82, 0.5) !important;
+}
+
+label.error:before {
+  content: "⚠ " !important;
+}
+
+input.valid,
+select.valid,
+textarea.valid {
+  border-color: #4b9e7f !important;
+  box-shadow: 0 0 10px rgba(75, 158, 127, 0.5) !important;
+}
+
+footer {
+  background-color: #2b4f78 !important;
+  color: white !important;
+  text-align: center !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 4px !important;
+}
