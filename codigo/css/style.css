@@ -3,9 +3,12 @@
 /* font-family: 'Share Tech Mono', monospace */
 /* font-family: 'VT323', monospace */
 
+/* #e4eaf0 azul */
+/* #f4f4f4 cinza */
+
 body {
-  font-family: 'VT323', monospace !important;
-  background-color: #e4eaf0 !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  background-color: #f4f4f4 !important;
   color: black !important;
   padding-bottom: 50px !important;
 }
@@ -36,6 +39,7 @@ nav .navbar-nav {
 nav.navbar .nav-link {
   color: #d0d0d0 !important;
   padding: 1px 10px !important;
+  text-transform: uppercase !important;
 }
 
 nav.navbar .active {
@@ -99,7 +103,7 @@ button,
 .btn {
   background-color: #33669e !important;
   color: white !important;
-  border: none !important;
+  border: 2px solid #2b4f78 !important;
   cursor: pointer !important;
   padding: 4px 8px !important;
 }
@@ -134,11 +138,29 @@ input[type="date"],
 input[type="number"],
 textarea,
 select {
-  border: 1px solid #d0d0d0 !important;
+  border: 2px solid #d0d0d0 !important;
+  padding: 4px !important;
+  background-color: #f0f0f0 !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 2px solid #2b4f78 !important;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  border-color: #1f3c5a !important;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: #33669e !important;
+  border-color: #1f3c5a !important;
 }
 
 .card {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) !important;
 }
 
 .card-header {
@@ -150,6 +172,13 @@ select {
 #login_lucas .card {
   max-width: 350px !important;
   width: 100% !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #33669e !important;
+  box-shadow: 0 0 8px rgba(51, 102, 158, 0.5) !important;
 }
 
 label.error {
