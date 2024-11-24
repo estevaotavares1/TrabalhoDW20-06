@@ -66,7 +66,7 @@ if (isset($_GET['id_funcionario'])) {
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="atividades.php">Todas as Ações</a>
+                            href="atividades.php">Ações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
@@ -126,7 +126,7 @@ if (isset($_GET['id_funcionario'])) {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a id="deslogar" class="nav-link" href="deslogar.php">Fazer Logout</a>
+                        <a id="deslogar" class="nav-link" href="deslogar.php">Logout</a>
                     </li>
                 </ul>
             </div>

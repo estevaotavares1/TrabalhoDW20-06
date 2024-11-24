@@ -44,7 +44,7 @@ require_once 'testalogin.php';
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="atividades.php">Todas as Ações</a>
+                            href="atividades.php">Ações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
@@ -104,7 +104,7 @@ require_once 'testalogin.php';
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a id="deslogar" class="nav-link" href="deslogar.php">Fazer Logout</a>
+                        <a id="deslogar" class="nav-link" href="deslogar.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -177,14 +177,14 @@ require_once 'testalogin.php';
                     }
 
                     if (!empty($veiculosDisponiveis)) {
-                        echo "<tr class='table-success'><td colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
+                        echo "<tr class='table'><td id='success' colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosDisponiveis, 'Disponível');
                     } else {
                         echo "<tr><td colspan='14'>Nenhum veículo disponível encontrado.</td></tr>";
                     }
 
                     if (!empty($veiculosIndisponiveis)) {
-                        echo "<tr class='table-danger'><td colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
+                        echo "<tr class='table'><td id='danger' colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosIndisponiveis, 'Indisponível');
                     } else {
                         echo "<tr><td colspan='14'>Nenhum veículo indisponível encontrado.</td></tr>";

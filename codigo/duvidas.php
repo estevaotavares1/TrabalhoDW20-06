@@ -39,7 +39,7 @@
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="atividades.php">Todas as Ações</a>
+                            href="atividades.php">Ações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
@@ -99,7 +99,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a id="deslogar" class="nav-link" href="deslogar.php">Fazer Logout</a>
+                        <a id="deslogar" class="nav-link" href="deslogar.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -115,7 +115,7 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">Desenvolvido para funcionários de uma locadora de veículos.</li>
-                                <li class="list-group-item">Os aluguéis são realizados exclusivamente de forma presencial.</li>
+                                <li class="list-group-item">Os aluguéis sempre são realizados de forma presencial.</li>
                                 <li class="list-group-item">Apenas carros estão disponíveis para aluguel.</li>
                                 <li class="list-group-item">O sistema apenas registra todas essas informações.</li>
                             </ul>
@@ -128,7 +128,7 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">Os clientes podem ser pessoas físicas ou empresas.</li>
-                                <li class="list-group-item">Cada cliente tem uma ficha com seus dados detalhados.</li>
+                                <li class="list-group-item">Clientes tem uma ficha com dados detalhados.</li>
                                 <li class="list-group-item">Um cliente pode alugar mais de um veículo simultaneamente.</li>
                                 <li class="list-group-item">É obrigatório devolver o veículo com o tanque cheio.</li>
                             </ul>
@@ -154,7 +154,7 @@
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">Cadastro de clientes, veículos e funcionários.</li>
-                                <li class="list-group-item">Registro do veículo alugado e do funcionário o realizou.</li>
+                                <li class="list-group-item">Registro do aluguel e do funcionário que o realizou.</li>
                                 <li class="list-group-item">Consulta de veículos disponíveis e alugados.</li>
                                 <li class="list-group-item">Visualização da duração dos aluguéis ativos.</li>
                             </ul>

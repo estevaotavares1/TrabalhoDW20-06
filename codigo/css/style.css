@@ -1,168 +1,132 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap");
 
-/* Fonte principal (estilo de sistema antigo) */
+/* font-family: 'Share Tech Mono', monospace */
+/* font-family: 'VT323', monospace */
+
 body {
-  font-family: 'Lucida Console', 'Courier New', monospace !important;
-  background-color: #f0f0f0;
-  padding-bottom: 65px;
-  font-size: 0.65rem !important;
+  font-family: "Share Tech Mono", monospace !important;
+  background-color: #e4eaf0 !important;
+  color: black !important;
+  padding-bottom: 50px !important;
 }
 
-h1, h2, h3, h4, h5 {
-  font-size: 1.2rem !important;
-}
-
-a, p {
-  font-size: 0.65rem !important;
-}
-
-/* Cabeçalho */
 header {
-  background-color: white;
-  color: #33669e;
-  text-align: center;
-  padding: 6px;
+  background-color: white !important;
+  color: #33669e !important;
+  text-align: center !important;
 }
 
 header .logo h2 {
-  margin: 0;
-  font-weight: bold;
-  font-size: 1.2rem !important;
+  font-weight: bold !important;
 }
 
 header .user-info a,
 header .user-info p {
-  margin: 0;
   color: black !important;
 }
 
-/* Navegação */
 nav.navbar {
   background-color: #33669e !important;
 }
 
 nav .navbar-nav {
-  margin: 0 auto;
-}
-
-nav.container-fluid {
-  align-items: center !important;
+  margin: 0 auto !important;
 }
 
 nav.navbar .nav-link {
-  color: white !important;
-  padding: 1px 4px;
+  color: #d0d0d0 !important;
+  padding: 1px 10px !important;
 }
 
-/* Dropdown no menu */
+nav.navbar .active {
+  color: white !important;
+}
+
+nav.navbar .nav-link:hover {
+  color: white !important;
+}
+
 .dropdown-menu {
-  background-color: #d0d0d0;
-  border: none;
+  background-color: #d0d0d0 !important;
 }
 
 .dropdown-item {
-  color: black;
+  color: black !important;
 }
 
 .dropdown-item:hover {
-  background-color: #33669e;
-  color: white;
-}
-
-/* Tabelas */
-table th, table td {
-  border: 1px solid #ccc;
-  text-align: left;
-  font-size: 0.65rem !important;
-  padding: 6px;
+  background-color: #33669e !important;
+  color: white !important;
 }
 
 table th {
   background-color: #33669e !important;
-  color: white;
+  color: white !important;
 }
 
-table tr h5 {
-  font-size: 0.85rem !important;
+#success {
+  background-color: #4b9e7f !important;
+  color: white !important;
 }
 
-table tr:nth-child(even) {
-  background-color: #e0e0e0 !important;
+#danger {
+  background-color: #b74e52 !important;
+  color: white !important;
 }
 
-table tr:hover {
-  background-color: #d0d0d0; /* Hover sobre as linhas */
+table td {
+  background-color: #f0f0f0 !important;
 }
 
-/* Listas (ul e li com classes list-group) */
-ul.list-group {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+table td:hover {
+  background-color: #d0d0d0 !important;
 }
 
-ul.list-group-item {
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
-  padding: 8px 12px;
-  margin-bottom: 4px;
-  transition: background-color 0.3s ease;
+li.list-group-item {
+  background-color: #f0f0f0 !important;
+  color: black !important;
 }
 
-ul.list-group-item:hover {
-  background-color: #e0e0e0;
+li.list-group-item a {
+  color: black !important;
 }
 
-ul.list-group-item.active {
-  background-color: #bdbdbd;
-  color: white;
+li.list-group-item:hover {
+  background-color: #d0d0d0 !important;
 }
 
-/* Botões */
 button,
 .btn {
-  background-color: #33669e;
+  background-color: #33669e !important;
   color: white !important;
-  border: none;
-  cursor: pointer;
-  font-size: 0.65rem !important;
-  padding: 4px 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
 }
 
 button:hover,
 .btn:hover {
-  background-color: #003366;
+  background-color: #2b4f78 !important;
 }
 
 button:active,
 .btn:active {
-  background-color: #001f4d !important;
-  transform: translateY(2px); /* Efeito de pressionar */
+  background-color: #1f3c5a !important;
+  transform: translateY(2px) !important;
 }
 
-/* Botões de Excluir */
 #excluir {
-  background-color: #f44336;
-  color: white !important;
-  border: none;
-  cursor: pointer;
+  background-color: #b74e52 !important;
 }
 
 #excluir:hover {
-  background-color: #b71c1c;
+  background-color: #9e3d3d !important;
 }
 
 #excluir:active {
-  background-color: #8a1010;
+  background-color: #8f2e2a !important;
 }
 
-/* Inputs e selects */
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -170,78 +134,54 @@ input[type="date"],
 input[type="number"],
 textarea,
 select {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-size: 0.65rem !important;
-  padding: 6px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #d0d0d0 !important;
 }
 
-select {
-  background-color: #f9f9f9;
-}
-
-select:focus,
-input:focus,
-textarea:focus {
-  border-color: #33669e;
-  box-shadow: 0 0 5px rgba(0, 85, 165, 0.5);
-}
-
-/* Estilo para o Index */
-#login_lucas .card {
-  max-width: 350px;
-  width: 100%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos dos cards */
 .card {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .card-header {
-  background-color: #33669e;
-  color: white;
-  text-align: center;
+  background-color: #33669e !important;
+  color: white !important;
+  text-align: center !important;
 }
 
-/* Estilo para mensagens de erro */
+#login_lucas .card {
+  max-width: 350px !important;
+  width: 100% !important;
+}
+
 label.error {
-  color: #f44336;
-  font-weight: bold;
+  color: #b74e52 !important;
+  font-weight: bold !important;
 }
 
 input.error,
 select.error,
 textarea.error {
-  border-color: #f44336;
-  box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+  border-color: #b74e52 !important;
+  box-shadow: 0 0 10px rgba(183, 78, 82, 0.5) !important;
 }
 
 label.error:before {
-  content: "⚠ ";
+  content: "⚠ " !important;
 }
 
-/* Sucesso para validação correta */
 input.valid,
 select.valid,
 textarea.valid {
-  border-color: #4caf50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  border-color: #4b9e7f !important;
+  box-shadow: 0 0 10px rgba(75, 158, 127, 0.5) !important;
 }
 
-/* Rodapé */
 footer {
-  background-color: #33669e;
-  color: white;
-  padding: 6px;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  height: 35px;
-  font-size: 0.65rem !important;
-  box-sizing: border-box;
+  background-color: #33669e !important;
+  color: white !important;
+  text-align: center !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 4px !important;
 }
