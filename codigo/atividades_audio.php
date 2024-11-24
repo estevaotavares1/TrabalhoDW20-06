@@ -14,17 +14,22 @@ require_once 'testalogin.php';
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style_retro.css" />
 </head>
 
 <body>
+  <audio id="audio-background" autoplay loop>
+    <source src="musica/supermario64.mp3" type="audio/mp3">
+    Seu navegador não suporta o formato de áudio.
+  </audio>
+
   <header
     class="container-fluid d-flex justify-content-between align-items-center">
     <div class="logo">
       <h2>Vrum Vrum Aluguéis</h2>
     </div>
     <div class="user-info text-end">
-      <a href="atividades_audio.php" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
+      <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
       <p>Data: 28/11/2024 - 13:55</p>
     </div>
   </header>
