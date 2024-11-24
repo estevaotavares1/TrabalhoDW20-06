@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $telefone_funcionario = $_POST['telefone_funcionario'];
     $senha_funcionario = $_POST['senha_funcionario'];
 
-    if (!empty($nome_funcionario) && !empty($nome_funcionario) && !empty($cpf_funcionario) && !empty($email_funcionario) && !empty($telefone_funcionario) && !empty($senha_funcionario)) {
+    if (!empty($nome_funcionario) && !empty($cpf_funcionario) && !empty($email_funcionario) && !empty($telefone_funcionario) && !empty($senha_funcionario)) {
         atualizar_funcionario($conexao, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario);
         header('Location: listar_funcionarios.php');
         exit;

@@ -61,7 +61,7 @@ if (isset($_GET['id_cliente'])) {
     </div>
   </header>
 
-  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -158,6 +158,7 @@ if (isset($_GET['id_cliente'])) {
           type="text"
           id="nome"
           name="nome"
+          maxlength="100"
           class="form-control"
           value="<?php echo $nome; ?>"
           placeholder="Digite o nome completo"
@@ -170,6 +171,7 @@ if (isset($_GET['id_cliente'])) {
           type="text"
           id="endereco"
           name="endereco"
+          maxlength="45"
           class="form-control"
           value="<?php echo $endereco; ?>"
           placeholder="Digite o endereço completo"

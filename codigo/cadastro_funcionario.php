@@ -32,7 +32,7 @@ require_once 'testalogin.php';
     </div>
   </header>
 
-  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -125,6 +125,7 @@ require_once 'testalogin.php';
           type="text"
           id="nome_funcionario"
           name="nome_funcionario"
+          maxlength="100"
           class="form-control"
           placeholder="Digite o nome completo"
           required />
@@ -148,6 +149,7 @@ require_once 'testalogin.php';
           type="email"
           id="email_funcionario"
           name="email_funcionario"
+          maxlength="100"
           class="form-control"
           placeholder="papaula@gmail.com"
           required />
@@ -171,6 +173,7 @@ require_once 'testalogin.php';
           type="text"
           id="senha_funcionario"
           name="senha_funcionario"
+          maxlength="45"
           class="form-control"
           placeholder="Digite sua senha"
           required />
@@ -182,6 +185,7 @@ require_once 'testalogin.php';
           type="text"
           id="senhaConfirm"
           name="senhaConfirm"
+          maxlength="45"
           class="form-control"
           placeholder="Digite novamente sua senha"
           required />

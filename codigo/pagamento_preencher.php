@@ -28,7 +28,7 @@ require_once 'testalogin.php';
         </div>
     </header>
 
-    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
             <button
                 class="navbar-toggler"
@@ -178,7 +178,6 @@ require_once 'testalogin.php';
             </div>
         </form>
         <div class="text-center">
-            <a href="pagamento_emprestimoSelect.php" class="btn btn-primary mt-3">Voltar</a>
             <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
         </div>
     </div>

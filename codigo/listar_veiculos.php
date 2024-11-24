@@ -26,7 +26,7 @@ require_once 'testalogin.php';
         </div>
     </header>
 
-    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
             <button
                 class="navbar-toggler"
@@ -176,7 +176,6 @@ require_once 'testalogin.php';
                         }
                     }
 
-                    // Exibir veículos disponíveis
                     if (!empty($veiculosDisponiveis)) {
                         echo "<tr class='table-success'><td colspan='14'><h5>Veículos Disponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosDisponiveis, 'Disponível');
@@ -184,7 +183,6 @@ require_once 'testalogin.php';
                         echo "<tr><td colspan='14'>Nenhum veículo disponível encontrado.</td></tr>";
                     }
 
-                    // Exibir veículos indisponíveis
                     if (!empty($veiculosIndisponiveis)) {
                         echo "<tr class='table-danger'><td colspan='14'><h5>Veículos Indisponíveis</h5></td></tr>";
                         exibirTabelaVeiculos($veiculosIndisponiveis, 'Indisponível');

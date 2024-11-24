@@ -48,7 +48,7 @@ if (isset($_GET['id_funcionario'])) {
         </div>
     </header>
 
-    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
             <button
                 class="navbar-toggler"
@@ -134,7 +134,7 @@ if (isset($_GET['id_funcionario'])) {
     </nav>
 
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Cadastro de Funcionário</h2>
+        <h2 class="text-center mb-4">Editar um Funcionário</h2>
         <form id="atualizarFuncionario" action="atualizar_funcionario.php?id_funcionario=<?php echo $id_funcionario ?>" method="POST">
 
             <div class="mb-3">
@@ -143,6 +143,7 @@ if (isset($_GET['id_funcionario'])) {
                     type="text"
                     id="nome_funcionario"
                     name="nome_funcionario"
+                    maxlength="100"
                     class="form-control"
                     value="<?php echo $nome_funcionario; ?>"
                     placeholder="Digite o nome completo"
@@ -168,6 +169,7 @@ if (isset($_GET['id_funcionario'])) {
                     type="email"
                     id="email_funcionario"
                     name="email_funcionario"
+                    maxlength="100"
                     class="form-control"
                     value="<?php echo $email_funcionario; ?>"
                     placeholder="papaula@gmail.com"
@@ -193,6 +195,7 @@ if (isset($_GET['id_funcionario'])) {
                     type="text"
                     id="senha_funcionario"
                     name="senha_funcionario"
+                    maxlength="45"
                     class="form-control"
                     value="<?php echo $senha_funcionario; ?>"
                     placeholder="Digite sua senha"
@@ -205,6 +208,7 @@ if (isset($_GET['id_funcionario'])) {
                     type="text"
                     id="senhaConfirm"
                     name="senhaConfirm"
+                    maxlength="45"
                     class="form-control"
                     value="<?php echo $senha_funcionario; ?>"
                     placeholder="Digite novamente sua senha"
@@ -216,7 +220,7 @@ if (isset($_GET['id_funcionario'])) {
             </div>
         </form>
         <div class="text-center">
-            <a href="listar_clientes.php" class="btn btn-primary mt-3">Voltar</a>
+            <a href="listar_funcionarios.php" class="btn btn-primary mt-3">Voltar</a>
             <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
         </div>
     </div>

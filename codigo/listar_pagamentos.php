@@ -25,7 +25,7 @@ require_once 'testalogin.php';
         </div>
     </header>
 
-    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
             <button
                 class="navbar-toggler"
@@ -109,6 +109,7 @@ require_once 'testalogin.php';
             </div>
         </div>
     </nav>
+    
     <div class="container my-5">
         <h2 class="text-center mb-4">Lista de Pagamentos</h2>
         <div class="table-responsive">
@@ -166,6 +167,11 @@ require_once 'testalogin.php';
             <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

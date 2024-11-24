@@ -32,7 +32,7 @@ require_once 'testalogin.php';
     </div>
   </header>
 
-  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -125,6 +125,7 @@ require_once 'testalogin.php';
           type="text"
           id="nome"
           name="nome"
+          maxlength="45"
           class="form-control"
           placeholder="Digite o nome do veículo"
           required />
@@ -136,6 +137,7 @@ require_once 'testalogin.php';
           type="text"
           id="marca"
           name="marca"
+          maxlength="45"
           class="form-control"
           placeholder="Digite a marca do veículo"
           required />
@@ -158,6 +160,7 @@ require_once 'testalogin.php';
           type="text"
           id="placa_veiculo"
           name="placa_veiculo"
+          maxlength="8"
           class="form-control"
           placeholder="AAA-9999"
           required />

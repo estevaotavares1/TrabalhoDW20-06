@@ -31,5 +31,5 @@ if (!empty($nome_funcionario) && !empty($nome_funcionario) && !empty($cpf_funcio
     header('Location: listar_funcionarios.php');
     exit;
 } else {
-    echo "Funcionario não encontrado.";
+    echo "Funcionário não encontrado.";
 }

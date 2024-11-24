@@ -29,7 +29,7 @@ require_once 'testalogin.php';
     </div>
   </header>
 
-  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -114,7 +114,7 @@ require_once 'testalogin.php';
     </div>
   </nav>
   <div class="container mt-5">
-    <h2 class="text-center mb-4">Todas as Ações do Sistema</h2>
+    <h2 class="text-center mb-3">Todas as Ações do Sistema</h2>
     <ul class="list-group">
       <li class="list-group-item">
         <a href="cadastro_pessoa.php" class="text-decoration-none">Cadastro de Pessoas</a>

@@ -26,7 +26,7 @@ require_once 'testalogin.php';
         </div>
     </header>
 
-    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
             <button
                 class="navbar-toggler"

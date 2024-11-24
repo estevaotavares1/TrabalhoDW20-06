@@ -10,6 +10,19 @@ body {
   font-family: Arial, sans-serif !important;
   background-color: #f0f0f0;
   padding-bottom: 65px;
+  font-size: 0.55rem !important; /* Reduzir tamanho da fonte */
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 1rem !important; /* Ajusta o tamanho dos títulos */
+}
+
+a {
+  font-size: 0.55rem !important;
+}
+
+p {
+  font-size: 0.55rem !important;
 }
 
 /* Cabeçalho */
@@ -17,12 +30,13 @@ header {
   background-color: #003366;
   color: white;
   text-align: center;
-  padding: 5px;
+  padding: 6px; /* Reduzir padding */
 }
 
 header .logo h2 {
   margin: 0;
   font-weight: bold;
+  font-size: 1rem !important; /* Ajusta o tamanho do logo */
 }
 
 header .user-info a {
@@ -49,19 +63,7 @@ nav.container-fluid {
 
 nav.navbar .nav-link {
   color: white !important;
-  padding: 8px;
-}
-
-nav .active:hover {
-  background-color: #003366;
-  color: white;
-  margin: 8px;
-}
-
-nav .active:active {
-  background-color: #001f4d !important;
-  color: white !important;
-  margin: 8px;
+  padding: 1px 4px; /* Reduzir padding */
 }
 
 /* Dropdown no menu */
@@ -84,11 +86,17 @@ table th,
 table td {
   border: 1px solid #ccc;
   text-align: left;
+  font-size: 0.55rem !important; /* Reduzir o tamanho da fonte */
+  padding: 4px; /* Reduzir padding */
 }
 
 table th {
   background-color: #0055a5 !important;
   color: white;
+}
+
+table tr h5 {
+  font-size: 0.85rem !important; /* Ajustar tamanho do h5 nas tabelas */
 }
 
 table tr:nth-child(even) {
@@ -106,6 +114,8 @@ button,
   color: white !important;
   border: none;
   cursor: pointer;
+  font-size: 0.55rem !important; /* Reduzir tamanho da fonte */
+  padding: 4px 8px; /* Reduzir padding */
 }
 
 button:hover,
@@ -143,11 +153,14 @@ button:active,
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="date"],
+input[type="number"],
 textarea,
 select {
   background-color: #fff;
   border: 1px solid #ccc;
   width: 100%;
+  font-size: 0.55rem !important; /* Reduzir o tamanho da fonte */
 }
 
 select {
@@ -165,14 +178,14 @@ select:focus {
 
 /* Estilo para o Index */
 #login_lucas .card {
-  max-width: 400px;
+  max-width: 350px; /* Reduzir o tamanho do card */
   width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos dos cards */
 .card {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
@@ -187,7 +200,6 @@ label.error {
   font-weight: bold;
 }
 
-/* Destaque ao campo com erro */
 input.error,
 select.error,
 textarea.error {
@@ -198,15 +210,6 @@ textarea.error {
 /* Mensagem de erro com ícone */
 label.error:before {
   content: "⚠ ";
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 /* Sucesso para validação correta */
@@ -221,11 +224,12 @@ textarea.valid {
 footer {
   background-color: #003366;
   color: white;
-  padding: 10px;
+  padding: 6px; /* Reduzir padding */
   text-align: center;
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 50px;
+  height: 35px; /* Ajustar altura do rodapé */
+  font-size: 0.55rem !important; /* Reduzir tamanho da fonte */
   box-sizing: border-box;
 }

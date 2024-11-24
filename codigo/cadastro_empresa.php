@@ -32,7 +32,7 @@ require_once 'testalogin.php';
     </div>
   </header>
 
-  <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -129,6 +129,7 @@ require_once 'testalogin.php';
           type="text"
           id="nome"
           name="nome"
+          maxlength="100"
           class="form-control"
           placeholder="Digite o nome da empresa"
           required />
@@ -140,6 +141,7 @@ require_once 'testalogin.php';
           type="text"
           id="endereco"
           name="endereco"
+          maxlength="45"
           class="form-control"
           placeholder="Digite o endereço completo"
           required />
