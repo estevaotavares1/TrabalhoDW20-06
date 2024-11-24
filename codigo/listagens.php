@@ -21,7 +21,7 @@ require_once 'testalogin.php';
   <header
     class="container-fluid d-flex justify-content-between align-items-center">
     <div class="logo">
-      <h2>Sistema de Aluguéis de Veículos</h2>
+      <h2>Vrum Vrum Aluguéis</h2>
     </div>
     <div class="user-info text-end">
       <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
