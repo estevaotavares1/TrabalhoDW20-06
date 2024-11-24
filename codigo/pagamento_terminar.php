@@ -49,4 +49,4 @@ mysqli_stmt_execute($stmtDeleteVeiculoAlugado);
 
 mysqli_stmt_close($stmt);
 mysqli_close($conexao);
-header('Location: success.php');
+header('Location: atividades.php');

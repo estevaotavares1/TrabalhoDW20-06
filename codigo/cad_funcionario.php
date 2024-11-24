@@ -18,7 +18,7 @@ if (!empty($nome_funcionario) && !empty($cpf_funcionario) && !empty($email_funci
     $stmt->close();
 
     if ($count > 0) {
-        header('Location: error.php');
+        header('Location: erro.php');
         exit;
     }
 

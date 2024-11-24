@@ -29,5 +29,5 @@ foreach ($veiculos as $veiculo) {
     mysqli_stmt_close($stmtUpdateVeiculo);
 }
 
-header("Location: success.php");
+header("Location: atividades.php");
 exit();
