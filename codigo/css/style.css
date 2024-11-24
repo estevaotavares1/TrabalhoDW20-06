@@ -5,52 +5,45 @@
   box-sizing: border-box;
 }
 
-/* Estilo geral do corpo */
+/* Fonte principal (estilo de sistema antigo) */
 body {
-  font-family: Arial, sans-serif !important;
+  font-family: 'Lucida Console', 'Courier New', monospace !important;
   background-color: #f0f0f0;
   padding-bottom: 65px;
-  font-size: 0.55rem !important; /* Reduzir tamanho da fonte */
+  font-size: 0.65rem !important;
 }
 
 h1, h2, h3, h4, h5 {
-  font-size: 1rem !important; /* Ajusta o tamanho dos títulos */
+  font-size: 1.2rem !important;
 }
 
-a {
-  font-size: 0.55rem !important;
-}
-
-p {
-  font-size: 0.55rem !important;
+a, p {
+  font-size: 0.65rem !important;
 }
 
 /* Cabeçalho */
 header {
-  background-color: #003366;
-  color: white;
+  background-color: white;
+  color: #33669e;
   text-align: center;
-  padding: 6px; /* Reduzir padding */
+  padding: 6px;
 }
 
 header .logo h2 {
   margin: 0;
   font-weight: bold;
-  font-size: 1rem !important; /* Ajusta o tamanho do logo */
+  font-size: 1.2rem !important;
 }
 
-header .user-info a {
-  margin: 0;
-  color: white !important;
-}
-
+header .user-info a,
 header .user-info p {
   margin: 0;
+  color: black !important;
 }
 
 /* Navegação */
 nav.navbar {
-  background-color: #0055a5 !important;
+  background-color: #33669e !important;
 }
 
 nav .navbar-nav {
@@ -63,71 +56,94 @@ nav.container-fluid {
 
 nav.navbar .nav-link {
   color: white !important;
-  padding: 1px 4px; /* Reduzir padding */
+  padding: 1px 4px;
 }
 
 /* Dropdown no menu */
 .dropdown-menu {
-  background-color: #003366;
+  background-color: #d0d0d0;
   border: none;
 }
 
 .dropdown-item {
-  color: white;
+  color: black;
 }
 
 .dropdown-item:hover {
-  background-color: #0055a5;
+  background-color: #33669e;
   color: white;
 }
 
 /* Tabelas */
-table th,
-table td {
+table th, table td {
   border: 1px solid #ccc;
   text-align: left;
-  font-size: 0.55rem !important; /* Reduzir o tamanho da fonte */
-  padding: 4px; /* Reduzir padding */
+  font-size: 0.65rem !important;
+  padding: 6px;
 }
 
 table th {
-  background-color: #0055a5 !important;
+  background-color: #33669e !important;
   color: white;
 }
 
 table tr h5 {
-  font-size: 0.85rem !important; /* Ajustar tamanho do h5 nas tabelas */
+  font-size: 0.85rem !important;
 }
 
 table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #e0e0e0 !important;
 }
 
 table tr:hover {
+  background-color: #d0d0d0; /* Hover sobre as linhas */
+}
+
+/* Listas (ul e li com classes list-group) */
+ul.list-group {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+ul.list-group-item {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  transition: background-color 0.3s ease;
+}
+
+ul.list-group-item:hover {
   background-color: #e0e0e0;
+}
+
+ul.list-group-item.active {
+  background-color: #bdbdbd;
+  color: white;
 }
 
 /* Botões */
 button,
 .btn {
-  background-color: #0055a5;
+  background-color: #33669e;
   color: white !important;
   border: none;
   cursor: pointer;
-  font-size: 0.55rem !important; /* Reduzir tamanho da fonte */
-  padding: 4px 8px; /* Reduzir padding */
+  font-size: 0.65rem !important;
+  padding: 4px 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover,
 .btn:hover {
   background-color: #003366;
-  color: white !important;
 }
 
 button:active,
 .btn:active {
   background-color: #001f4d !important;
-  color: white !important;
+  transform: translateY(2px); /* Efeito de pressionar */
 }
 
 /* Botões de Excluir */
@@ -140,13 +156,10 @@ button:active,
 
 #excluir:hover {
   background-color: #b71c1c;
-  color: white !important;
 }
 
-button:active,
 #excluir:active {
-  background-color: #8a1010 !important;
-  color: white !important;
+  background-color: #8a1010;
 }
 
 /* Inputs e selects */
@@ -160,25 +173,25 @@ select {
   background-color: #fff;
   border: 1px solid #ccc;
   width: 100%;
-  font-size: 0.55rem !important; /* Reduzir o tamanho da fonte */
+  font-size: 0.65rem !important;
+  padding: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 select {
   background-color: #f9f9f9;
 }
 
-select:focus {
-  border-color: #0055a5;
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: #33669e;
   box-shadow: 0 0 5px rgba(0, 85, 165, 0.5);
-}
-
-::placeholder {
-  font-style: italic;
 }
 
 /* Estilo para o Index */
 #login_lucas .card {
-  max-width: 350px; /* Reduzir o tamanho do card */
+  max-width: 350px;
   width: 100%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
@@ -189,7 +202,7 @@ select:focus {
 }
 
 .card-header {
-  background-color: #0055a5;
+  background-color: #33669e;
   color: white;
   text-align: center;
 }
@@ -207,7 +220,6 @@ textarea.error {
   box-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
 }
 
-/* Mensagem de erro com ícone */
 label.error:before {
   content: "⚠ ";
 }
@@ -222,14 +234,14 @@ textarea.valid {
 
 /* Rodapé */
 footer {
-  background-color: #003366;
+  background-color: #33669e;
   color: white;
-  padding: 6px; /* Reduzir padding */
+  padding: 6px;
   text-align: center;
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 35px; /* Ajustar altura do rodapé */
-  font-size: 0.55rem !important; /* Reduzir tamanho da fonte */
+  height: 35px;
+  font-size: 0.65rem !important;
   box-sizing: border-box;
 }
