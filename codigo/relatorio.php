@@ -28,7 +28,7 @@ if (isset($_GET['id_pagamento'])) {
             LEFT JOIN tb_pessoafisica pf ON c.id_cliente = pf.tb_cliente_id_cliente
             LEFT JOIN tb_empresa e ON c.id_cliente = e.tb_cliente_id_cliente
             WHERE p.id_pagamento = $id_pagamento";
-    
+
     $resultado = mysqli_query($conexao, $sql);
 
     if (mysqli_num_rows($resultado) == 1) {
@@ -73,10 +73,10 @@ if (isset($_GET['id_pagamento'])) {
 
         $pdf->Cell(40, 10, 'Endereço:', 1, 0, 'L');
         $pdf->Cell(150, 10, $linha['endereco'], 1, 1, 'L');
-        
+
         $pdf->Cell(40, 10, 'Telefone:', 1, 0, 'L');
         $pdf->Cell(150, 10, $linha['telefone'], 1, 1, 'L');
-        
+
         if ($linha['cpf_pessoa']) {
             $pdf->Cell(40, 10, 'CPF:', 1, 0, 'L');
             $pdf->Cell(150, 10, $linha['cpf_pessoa'], 1, 1, 'L');
@@ -90,13 +90,13 @@ if (isset($_GET['id_pagamento'])) {
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->Cell(0, 10, 'Dados do Aluguel:', 0, 1, 'L');
         $pdf->SetFont('helvetica', '', 12);
-        
+
         $pdf->Cell(40, 10, 'Início:', 1, 0, 'L');
         $pdf->Cell(60, 10, date('d/m/Y', strtotime($linha['datainicial_aluguel'])), 1, 1, 'L');
-        
+
         $pdf->Cell(40, 10, 'Fim:', 1, 0, 'L');
         $pdf->Cell(60, 10, date('d/m/Y', strtotime($linha['datafinal_aluguel'])), 1, 1, 'L');
-        
+
         $pdf->Cell(40, 10, 'Status:', 1, 0, 'L');
         $pdf->Cell(60, 10, $linha['status_aluguel'], 1, 1, 'L');
         $pdf->Ln(10);
@@ -105,16 +105,16 @@ if (isset($_GET['id_pagamento'])) {
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->Cell(0, 10, 'Informações do Pagamento:', 0, 1, 'L');
         $pdf->SetFont('helvetica', '', 12);
-        
+
         $pdf->Cell(40, 10, 'Valor:', 1, 0, 'L');
         $pdf->Cell(60, 10, 'R$ ' . number_format($linha['valor'], 2, ',', '.'), 1, 1, 'L');
-        
+
         $pdf->Cell(40, 10, 'Preço por KM:', 1, 0, 'L');
         $pdf->Cell(60, 10, 'R$ ' . number_format($linha['preco_por_km'], 2, ',', '.'), 1, 1, 'L');
-        
+
         $pdf->Cell(40, 10, 'Data Pagamento:', 1, 0, 'L');
         $pdf->Cell(60, 10, date('d/m/Y', strtotime($linha['data_pagamento'])), 1, 1, 'L');
-        
+
         $pdf->Cell(40, 10, 'Método:', 1, 0, 'L');
         $pdf->Cell(60, 10, $linha['metodo'], 1, 1, 'L');
         $pdf->Ln(10);
@@ -135,4 +135,3 @@ if (isset($_GET['id_pagamento'])) {
 
     mysqli_close($conexao);
 }
-?>

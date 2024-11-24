@@ -1,5 +1,15 @@
 <?php
 require_once 'testalogin.php';
+require_once "conexao.php";
+
+$id_aluguel = $_GET['id_aluguel'];
+$sql = "SELECT datafinal_aluguel FROM tb_aluguel WHERE id_aluguel = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i", $id_aluguel);
+$stmt->execute();
+$stmt->bind_result($datafinal_aluguel);
+$stmt->fetch();
+$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -188,6 +198,23 @@ require_once 'testalogin.php';
 
     <script>
         $(document).ready(function() {
+
+            var dataFinalAluguel = "<?php echo $datafinal_aluguel; ?>";
+
+            jQuery.validator.addMethod(
+                "dataPagamentoMaiorQueFinal",
+                function(value, element) {
+                    var dataPagamento = new Date(value);
+                    var dataFinal = new Date(dataFinalAluguel);
+
+                    return (
+                        this.optional(element) ||
+                        dataPagamento >= dataFinal
+                    );
+                },
+                "A data do pagamento não pode ser anterior à data final do aluguel."
+            );
+
             $(".kmpercorrido").on("input", function() {
                 const kmAtual = parseFloat($(this).closest(".mb-3").find(".km-atual").text());
                 const kmPercorrido = parseFloat($(this).val()) || 0;
@@ -222,6 +249,8 @@ require_once 'testalogin.php';
                     },
                     data_pagamento: {
                         required: true,
+                        date: true,
+                        dataPagamentoMaiorQueFinal: true,
                     },
                 },
                 messages: {
@@ -232,6 +261,8 @@ require_once 'testalogin.php';
                     },
                     data_pagamento: {
                         required: "Informe a data em que o pagamento foi feito.",
+                        date: "Por favor, insira uma data válida.",
+                        dataPagamentoMaiorQueFinal: "A data do pagamento não pode ser anterior à data final do aluguel.",
                     },
                 },
             });
