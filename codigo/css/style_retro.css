@@ -1,15 +1,27 @@
 /* 
-<audio id="audio-background" autoplay loop>
-  <source src="musica/supermario64.mp3" type="audio/mp3">
-  Seu navegador não suporta o formato de áudio.
-</audio>
+Áudio de fundo
+  <audio id="audio-background" autoplay loop>
+    <source src="musica/supermario64.mp3" type="audio/mp3">
+    Seu navegador não suporta o formato de áudio.
+  </audio>
+
+Vídeo de fundo
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="seu-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+Luzes verdes descendo
+  <div class="green-light">0101010101</div>
+  <div class="green-light">1010101010</div>
+  <div class="green-light">1111000011</div>
+  <div class="green-light">0101101010</div>
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 /* font-family: 'Quantico', monospace */
-/* font-family: 'Share Tech Mono', monospace */
-/* font-family: 'VT323', monospace */
 /* font-family: 'Press Start 2P', monospace */
 
 body {
@@ -22,6 +34,21 @@ body {
 
 #audio-background {
   display: none; /* Esconde o player de áudio */
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Faz o vídeo ficar atrás do conteúdo */
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz o vídeo cobrir toda a tela sem distorção */
 }
 
 header {
@@ -284,4 +311,37 @@ footer {
   100% {
     text-shadow: 1px 0 3px #00ff00, -1px 0 3px #ff00ff;
   }
+}
+
+.green-light {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00ff00;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.2em;
+  animation: green-lights 2s infinite linear;
+}
+
+@keyframes green-lights {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Aplicar múltiplas linhas de luzes */
+.green-light:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.green-light:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.green-light:nth-child(3) {
+  animation-delay: 1s;
 }
