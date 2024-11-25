@@ -88,7 +88,7 @@ require_once 'testalogin.php';
         ?>
 
         <div class="text-center mt-4">
-            <a href="listar_alugueis.php" class="btn btn-primary">Voltar à lista de aluguéis</a>
+            <a href="listar_alugueis.php" class="btn btn-primary">Voltar</a>
             <a href="atividades.php" class="btn btn-primary">Voltar à Página de Atividades</a>
         </div>
     </div>

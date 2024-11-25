@@ -34,6 +34,14 @@ if (isset($_GET['id_pagamento'])) {
     if (mysqli_num_rows($resultado) == 1) {
         $linha = mysqli_fetch_assoc($resultado);
 
+        // Consulta para buscar os veículos relacionados ao aluguel
+        $sql_veiculos = "SELECT v.id_veiculo, v.nome, v.placa_veiculo, av.km_inicial
+                         FROM tb_aluguel_has_tb_veiculo av
+                         JOIN tb_veiculo v ON av.tb_veiculo_id_veiculo = v.id_veiculo
+                         WHERE av.tb_aluguel_id_aluguel = {$linha['id_aluguel']}";
+
+        $resultado_veiculos = mysqli_query($conexao, $sql_veiculos);
+
         // Inicializando o PDF
         $pdf = new TCPDF();
         $pdf->setPrintHeader(false);
@@ -101,6 +109,23 @@ if (isset($_GET['id_pagamento'])) {
         $pdf->Cell(60, 10, $linha['status_aluguel'], 1, 1, 'L');
         $pdf->Ln(10);
 
+        // Adicionando os veículos ao PDF
+        $pdf->SetFont('helvetica', 'B', 12);
+        $pdf->Cell(0, 10, 'Veículos Alugados:', 0, 1, 'L');
+        $pdf->SetFont('helvetica', '', 12);
+
+        while ($veiculo = mysqli_fetch_assoc($resultado_veiculos)) {
+            $pdf->Cell(40, 10, 'Nome:', 1, 0, 'L');
+            $pdf->Cell(150, 10, $veiculo['nome'], 1, 1, 'L');
+
+            $pdf->Cell(40, 10, 'Placa:', 1, 0, 'L');
+            $pdf->Cell(150, 10, $veiculo['placa_veiculo'], 1, 1, 'L');
+
+            $pdf->Cell(40, 10, 'KM Inicial:', 1, 0, 'L');
+            $pdf->Cell(150, 10, $veiculo['km_inicial'], 1, 1, 'L');
+            $pdf->Ln(5);
+        }
+
         // Informações do Pagamento
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->Cell(0, 10, 'Informações do Pagamento:', 0, 1, 'L');
@@ -123,9 +148,6 @@ if (isset($_GET['id_pagamento'])) {
         $pdf->SetFont('helvetica', 'I', 8);
         $pdf->Cell(0, 10, 'Número do Pedido: 12345', 0, 1, 'L');
         $pdf->Cell(0, 10, 'Observações: Obrigado pela preferência!', 0, 1, 'C');
-
-        // Gerando QR code ou código de barras (opcional)
-        // $pdf->write2DBarcode('QRCodeData', 'QRCODE,H', 150, 250, 40, 40);
 
         // Gerar o PDF
         $pdf->Output();
