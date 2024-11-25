@@ -140,7 +140,7 @@ require_once 'testalogin.php';
                 echo "<input type='submit' value='Preencher dados do pagamento' class='btn btn-primary'>";
                 echo "</div>";
             } else {
-                echo "<div class='alert alert-warning' role='alert'>Não há empréstimos para esse cliente.</div>";
+                echo "<div id='warning' class='alert' role='alert'>Não há empréstimos para esse cliente.</div>";
             }
             ?>
         </form>

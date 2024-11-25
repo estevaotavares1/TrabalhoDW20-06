@@ -162,7 +162,7 @@ require_once 'testalogin.php';
                         <input type='submit' value='Gravar Empréstimo' class='btn btn-primary mt-3'>
                     </div>";
                 } else {
-                    echo "<div class='alert alert-warning' role='alert'>Não há veículos disponíveis.</div>";
+                    echo "<div id='warning' class='alert' role='alert'>Não há veículos disponíveis.</div>";
                 }
                 ?>
             </div>

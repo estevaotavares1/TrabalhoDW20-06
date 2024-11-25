@@ -155,7 +155,7 @@ require_once 'testalogin.php';
                             echo "<td>$nome_funcionario</td>";
                             echo "<td>$status</td>";
                             echo "<td>
-                                <a href='listar_NpraN.php?id_aluguel=$id_aluguel' class='btn btn-warning btn-sm'>Detalhar</a>
+                                <a href='detalhar_aluguel.php?id_aluguel=$id_aluguel' class='btn btn-warning btn-sm'>Detalhar</a>
                             </td>";
                             echo "</tr>";
                         }

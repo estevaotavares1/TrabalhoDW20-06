@@ -662,7 +662,7 @@ function imprimirAlugueis($conexao)
                 a.datainicial_aluguel, 
                 a.datafinal_aluguel, 
                 c.nome AS nome_cliente, 
-                f.nome_funcionario AS nome_funcionario,
+                f.nome_funcionario AS nome_funcionario, 
                 a.status
             FROM tb_aluguel a
             JOIN tb_cliente c ON a.tb_cliente_id_cliente = c.id_cliente
@@ -737,4 +737,35 @@ function imprimirPagamentos($conexao)
     mysqli_stmt_close($stmt);
 
     return $lista;
+}
+
+function imprimirVeiculosPorAluguel($conexao, $id_aluguel)
+{
+    $sql = "SELECT 
+                v.id_veiculo, 
+                v.nome
+            FROM tb_aluguel_has_tb_veiculo av
+            JOIN tb_veiculo v ON av.tb_veiculo_id_veiculo = v.id_veiculo
+            WHERE av.tb_aluguel_id_aluguel = ?";
+
+    $stmt = mysqli_prepare($conexao, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_aluguel);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id_veiculo, $nome);
+    mysqli_stmt_store_result($stmt);
+
+    $veiculos = [];
+
+    if (mysqli_stmt_num_rows($stmt) > 0) {
+        while (mysqli_stmt_fetch($stmt)) {
+            $veiculos[] = [
+                'id_veiculo' => $id_veiculo,
+                'nome' => $nome
+            ];
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
+    return $veiculos;
 }
