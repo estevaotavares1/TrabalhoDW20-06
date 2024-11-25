@@ -41,12 +41,6 @@ foreach ($_POST['id_veiculo'] as $index => $idVeiculo) {
     mysqli_stmt_close($stmtUpdateKmVeiculo);
 }
 
-// Exclui o registro da tabela tb_aluguel_has_tb_veiculo
-$sqlDeleteVeiculoAlugado = "DELETE FROM tb_aluguel_has_tb_veiculo WHERE tb_aluguel_id_aluguel = ?";
-$stmtDeleteVeiculoAlugado = mysqli_prepare($conexao, $sqlDeleteVeiculoAlugado);
-mysqli_stmt_bind_param($stmtDeleteVeiculoAlugado, "i", $id_aluguel);
-mysqli_stmt_execute($stmtDeleteVeiculoAlugado);
-
 mysqli_stmt_close($stmt);
 mysqli_close($conexao);
 header('Location: atividades.php');
