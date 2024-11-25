@@ -24,8 +24,8 @@ require_once 'testalogin.php';
       <h2>Vrum Vrum Aluguéis</h2>
     </div>
     <div class="user-info text-end">
-      <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
-      <p>Data: 28/11/2024 - 13:55</p>
+      <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Funcionário: <?php echo $nomeFuncionario; ?></a>
+      <p>Data: <?php echo $dataAtual; ?></p>
     </div>
   </header>
 
