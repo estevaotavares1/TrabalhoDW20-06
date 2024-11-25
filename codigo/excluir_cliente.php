@@ -8,7 +8,7 @@ if (isset($_GET['id_cliente'])) {
 
     $sql_verificar_aluguel = "SELECT * FROM tb_aluguel WHERE tb_cliente_id_cliente = $id_cliente";
     $resultado_aluguel = mysqli_query($conexao, $sql_verificar_aluguel);
-    
+
     if (mysqli_num_rows($resultado_aluguel) > 0) {
         header('Location: erro2.php');
         exit;

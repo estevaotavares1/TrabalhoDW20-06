@@ -22,41 +22,33 @@ $stmt->close();
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <header
-        class="container-fluid d-flex justify-content-between align-items-center">
+    <header class="container-fluid d-flex justify-content-between align-items-center">
         <div class="logo">
             <h2>Vrum Vrum Aluguéis</h2>
         </div>
         <div class="user-info text-end">
-            <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
-            <p>Data: 28/11/2024 - 13:55</p>
+            <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Funcionário:
+                <?php echo $nomeFuncionario; ?></a>
+            <p>Data: <?php echo $dataAtual; ?></p>
         </div>
     </header>
 
     <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a
-                            class="nav-link active"
-                            aria-current="page"
-                            href="atividades.php">Ações</a>
+                        <a class="nav-link active" aria-current="page" href="atividades.php">Ações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
@@ -65,11 +57,7 @@ $stmt->close();
                         <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Registros
                         </a>
@@ -92,11 +80,7 @@ $stmt->close();
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Cadastros
                         </a>
@@ -197,13 +181,13 @@ $stmt->close();
     </footer>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var dataFinalAluguel = "<?php echo $datafinal_aluguel; ?>";
 
             jQuery.validator.addMethod(
                 "dataPagamentoMaiorQueFinal",
-                function(value, element) {
+                function (value, element) {
                     var dataPagamento = new Date(value);
                     var dataFinal = new Date(dataFinalAluguel);
 
@@ -215,7 +199,7 @@ $stmt->close();
                 "A data do pagamento não pode ser anterior à data final do aluguel."
             );
 
-            $(".kmpercorrido").on("input", function() {
+            $(".kmpercorrido").on("input", function () {
                 const kmAtual = parseFloat($(this).closest(".mb-3").find(".km-atual").text());
                 const kmPercorrido = parseFloat($(this).val()) || 0;
                 const novaKm = kmAtual + kmPercorrido;
@@ -225,7 +209,7 @@ $stmt->close();
             function calcularValor() {
                 let totalKmPercorrido = 0;
 
-                $(".kmpercorrido").each(function() {
+                $(".kmpercorrido").each(function () {
                     totalKmPercorrido += parseFloat($(this).val()) || 0;
                 });
 
@@ -269,8 +253,7 @@ $stmt->close();
         });
     </script>
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>

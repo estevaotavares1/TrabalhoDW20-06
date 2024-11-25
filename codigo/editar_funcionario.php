@@ -28,45 +28,33 @@ if (isset($_GET['id_funcionario'])) {
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <header
-        class="container-fluid d-flex justify-content-between align-items-center">
+    <header class="container-fluid d-flex justify-content-between align-items-center">
         <div class="logo">
             <h2>Vrum Vrum Aluguéis</h2>
         </div>
         <div class="user-info text-end">
-            <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
-            <p>Data: 28/11/2024 - 13:55</p>
+            <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Funcionário:
+                <?php echo $nomeFuncionario; ?></a>
+            <p>Data: <?php echo $dataAtual; ?></p>
         </div>
     </header>
 
     <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a
-                            class="nav-link active"
-                            aria-current="page"
-                            href="atividades.php">Ações</a>
+                        <a class="nav-link active" aria-current="page" href="atividades.php">Ações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
@@ -75,11 +63,7 @@ if (isset($_GET['id_funcionario'])) {
                         <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Registros
                         </a>
@@ -102,11 +86,7 @@ if (isset($_GET['id_funcionario'])) {
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Cadastros
                         </a>
@@ -135,84 +115,43 @@ if (isset($_GET['id_funcionario'])) {
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Editar um Funcionário</h2>
-        <form id="atualizarFuncionario" action="atualizar_funcionario.php?id_funcionario=<?php echo $id_funcionario ?>" method="POST">
+        <form id="atualizarFuncionario" action="atualizar_funcionario.php?id_funcionario=<?php echo $id_funcionario ?>"
+            method="POST">
 
             <div class="mb-3">
                 <label for="nome_funcionario" class="form-label">Nome:</label>
-                <input
-                    type="text"
-                    id="nome_funcionario"
-                    name="nome_funcionario"
-                    maxlength="100"
-                    class="form-control"
-                    value="<?php echo $nome_funcionario; ?>"
-                    placeholder="Digite o nome completo"
-                    required />
+                <input type="text" id="nome_funcionario" name="nome_funcionario" maxlength="100" class="form-control"
+                    value="<?php echo $nome_funcionario; ?>" placeholder="Digite o nome completo" required />
             </div>
 
             <div class="mb-3">
                 <label for="cpf_funcionario" class="form-label">CPF:</label>
-                <input
-                    type="text"
-                    id="cpf_funcionario"
-                    name="cpf_funcionario"
-                    maxlength="14"
-                    class="form-control"
-                    value="<?php echo $cpf_funcionario; ?>"
-                    placeholder="000.000.000-00"
-                    required />
+                <input type="text" id="cpf_funcionario" name="cpf_funcionario" maxlength="14" class="form-control"
+                    value="<?php echo $cpf_funcionario; ?>" placeholder="000.000.000-00" required />
             </div>
 
             <div class="mb-3">
                 <label for="email_funcionario" class="form-label">Email:</label>
-                <input
-                    type="email"
-                    id="email_funcionario"
-                    name="email_funcionario"
-                    maxlength="100"
-                    class="form-control"
-                    value="<?php echo $email_funcionario; ?>"
-                    placeholder="papaula@gmail.com"
-                    required />
+                <input type="email" id="email_funcionario" name="email_funcionario" maxlength="100" class="form-control"
+                    value="<?php echo $email_funcionario; ?>" placeholder="papaula@gmail.com" required />
             </div>
 
             <div class="mb-3">
                 <label for="telefone_funcionario" class="form-label">Telefone:</label>
-                <input
-                    type="text"
-                    id="telefone_funcionario"
-                    name="telefone_funcionario"
-                    class="form-control"
-                    maxlength="14"
-                    value="<?php echo $telefone_funcionario; ?>"
-                    placeholder="(00)00000-0000"
-                    required />
+                <input type="text" id="telefone_funcionario" name="telefone_funcionario" class="form-control"
+                    maxlength="14" value="<?php echo $telefone_funcionario; ?>" placeholder="(00)00000-0000" required />
             </div>
 
             <div class="mb-3">
                 <label for="senha_funcionario" class="form-label">Senha:</label>
-                <input
-                    type="text"
-                    id="senha_funcionario"
-                    name="senha_funcionario"
-                    maxlength="45"
-                    class="form-control"
-                    value="<?php echo $senha_funcionario; ?>"
-                    placeholder="Digite sua senha"
-                    required />
+                <input type="text" id="senha_funcionario" name="senha_funcionario" maxlength="45" class="form-control"
+                    value="<?php echo $senha_funcionario; ?>" placeholder="Digite sua senha" required />
             </div>
 
             <div class="mb-3">
                 <label for="senhaConfirm" class="form-label">Confirme sua Senha:</label>
-                <input
-                    type="text"
-                    id="senhaConfirm"
-                    name="senhaConfirm"
-                    maxlength="45"
-                    class="form-control"
-                    value="<?php echo $senha_funcionario; ?>"
-                    placeholder="Digite novamente sua senha"
-                    required />
+                <input type="text" id="senhaConfirm" name="senhaConfirm" maxlength="45" class="form-control"
+                    value="<?php echo $senha_funcionario; ?>" placeholder="Digite novamente sua senha" required />
             </div>
 
             <div class="text-center">
@@ -230,7 +169,7 @@ if (isset($_GET['id_funcionario'])) {
     </footer>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#atualizarFuncionario").validate({
                 rules: {
                     nome_funcionario: {
@@ -294,8 +233,7 @@ if (isset($_GET['id_funcionario'])) {
         });
     </script>
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>

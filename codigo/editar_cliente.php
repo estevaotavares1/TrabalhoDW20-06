@@ -41,45 +41,33 @@ if (isset($_GET['id_cliente'])) {
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/jquery.validate.min.js"></script>
   <script src="js/jquery.mask.min.js"></script>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <header
-    class="container-fluid d-flex justify-content-between align-items-center">
+  <header class="container-fluid d-flex justify-content-between align-items-center">
     <div class="logo">
       <h2>Vrum Vrum Aluguéis</h2>
     </div>
     <div class="user-info text-end">
-      <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
-      <p>Data: 28/11/2024 - 13:55</p>
+      <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Funcionário:
+        <?php echo $nomeFuncionario; ?></a>
+      <p>Data: <?php echo $dataAtual; ?></p>
     </div>
   </header>
 
   <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="atividades.php">Ações</a>
+            <a class="nav-link active" aria-current="page" href="atividades.php">Ações</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="formEmprestimo.php">Alugar</a>
@@ -88,12 +76,7 @@ if (isset($_GET['id_cliente'])) {
             <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
           </li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Registros
             </a>
             <ul class="dropdown-menu">
@@ -115,12 +98,7 @@ if (isset($_GET['id_cliente'])) {
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Cadastros
             </a>
             <ul class="dropdown-menu">
@@ -154,68 +132,32 @@ if (isset($_GET['id_cliente'])) {
 
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
-          maxlength="100"
-          class="form-control"
-          value="<?php echo $nome; ?>"
-          placeholder="Digite o nome completo"
-          required />
+        <input type="text" id="nome" name="nome" maxlength="100" class="form-control" value="<?php echo $nome; ?>"
+          placeholder="Digite o nome completo" required />
       </div>
 
       <div class="mb-3">
         <label for="endereco" class="form-label">Endereço:</label>
-        <input
-          type="text"
-          id="endereco"
-          name="endereco"
-          maxlength="45"
-          class="form-control"
-          value="<?php echo $endereco; ?>"
-          placeholder="Digite o endereço completo"
-          required />
+        <input type="text" id="endereco" name="endereco" maxlength="45" class="form-control"
+          value="<?php echo $endereco; ?>" placeholder="Digite o endereço completo" required />
       </div>
 
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone:</label>
-        <input
-          type="text"
-          id="telefone"
-          name="telefone"
-          class="form-control"
-          value="<?php echo $telefone; ?>"
-          maxlength="14"
-          placeholder="(00)00000-0000"
-          required />
+        <input type="text" id="telefone" name="telefone" class="form-control" value="<?php echo $telefone; ?>"
+          maxlength="14" placeholder="(00)00000-0000" required />
       </div>
 
       <div class="mb-3">
         <label for="cpf" class="form-label">CPF:</label>
-        <input
-          type="text"
-          id="cpf"
-          name="cpf"
-          class="form-control"
-          value="<?php echo ($tipo == 'p') ? $cpf : ''; ?>"
-          maxlength="14"
-          placeholder="000.000.000-00"
-          <?php echo ($tipo == 'p') ? '' : 'disabled'; ?>
-          required />
+        <input type="text" id="cpf" name="cpf" class="form-control" value="<?php echo ($tipo == 'p') ? $cpf : ''; ?>"
+          maxlength="14" placeholder="000.000.000-00" <?php echo ($tipo == 'p') ? '' : 'disabled'; ?> required />
       </div>
 
       <div class="mb-3">
         <label for="cnpj" class="form-label">CNPJ:</label>
-        <input
-          type="text"
-          id="cnpj"
-          name="cnpj"
-          value="<?php echo ($tipo == 'e') ? $cnpj : ''; ?>"
-          maxlength="18"
-          class="form-control"
-          placeholder="00.000.000/0001-00"
-          <?php echo ($tipo == 'e') ? '' : 'disabled'; ?>
+        <input type="text" id="cnpj" name="cnpj" value="<?php echo ($tipo == 'e') ? $cnpj : ''; ?>" maxlength="18"
+          class="form-control" placeholder="00.000.000/0001-00" <?php echo ($tipo == 'e') ? '' : 'disabled'; ?>
           required />
       </div>
 
@@ -234,7 +176,7 @@ if (isset($_GET['id_cliente'])) {
   </footer>
 
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       $("#atualizarCliente").validate({
         rules: {
           nome: {
@@ -251,14 +193,14 @@ if (isset($_GET['id_cliente'])) {
             maxlength: 14,
           },
           cpf: {
-            required: function() {
+            required: function () {
               return $("#cpf").is(":enabled");
             },
             minlength: 14,
             maxlength: 14,
           },
           cnpj: {
-            required: function() {
+            required: function () {
               return $("#cnpj").is(":enabled");
             },
             minlength: 18,
@@ -297,8 +239,7 @@ if (isset($_GET['id_cliente'])) {
     });
   </script>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 </body>

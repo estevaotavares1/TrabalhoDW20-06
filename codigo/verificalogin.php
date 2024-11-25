@@ -9,10 +9,10 @@ $resultadoFuncionario = mysqli_query($conexao, $sqlFuncionario);
 
 if (mysqli_num_rows($resultadoFuncionario) > 0) {
     session_start();
-    // Captura o nome do funcionário
+
     $funcionario = mysqli_fetch_assoc($resultadoFuncionario);
     $_SESSION['logado'] = true;
-    $_SESSION['nome_funcionario'] = $funcionario['nome_funcionario'];  // Salva o nome do funcionário na sessão
+    $_SESSION['nome_funcionario'] = $funcionario['nome_funcionario'];
     header('Location: atividades.php');
     exit();
 } else {
