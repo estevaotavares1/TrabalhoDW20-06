@@ -128,6 +128,7 @@ require_once 'testalogin.php';
                         <th>Cliente</th>
                         <th>Funcionário</th>
                         <th>Status</th>
+                        <th>Detalhar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -153,6 +154,9 @@ require_once 'testalogin.php';
                             echo "<td>$nome_cliente</td>";
                             echo "<td>$nome_funcionario</td>";
                             echo "<td>$status</td>";
+                            echo "<td>
+                                <a href='listar_NpraN.php?id_aluguel=$id_aluguel' class='btn btn-warning btn-sm'>Detalhar</a>
+                            </td>";
                             echo "</tr>";
                         }
                     } else {
