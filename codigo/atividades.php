@@ -24,7 +24,7 @@ require_once 'testalogin.php';
       <h2>Vrum Vrum Aluguéis</h2>
     </div>
     <div class="user-info text-end">
-      <a href="atividades_audio.php" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
+      <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Proprietário: Lucas Faria</a>
       <p>Data: 28/11/2024 - 13:55</p>
     </div>
   </header>

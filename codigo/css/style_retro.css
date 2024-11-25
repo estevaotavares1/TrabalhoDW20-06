@@ -1,4 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+/* 
+<audio id="audio-background" autoplay loop>
+  <source src="musica/supermario64.mp3" type="audio/mp3">
+  Seu navegador não suporta o formato de áudio.
+</audio>
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=VT323&display=swap');
+
+/* font-family: 'Quantico', monospace */
+/* font-family: 'Share Tech Mono', monospace */
+/* font-family: 'VT323', monospace */
+/* font-family: 'Press Start 2P', monospace */
 
 body {
   font-family: "Press Start 2P", monospace !important;
