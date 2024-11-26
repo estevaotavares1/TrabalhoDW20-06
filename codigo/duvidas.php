@@ -16,6 +16,11 @@ require_once 'testalogin.php';
 </head>
 
 <body>
+    <audio id="audio-background" autoplay loop>
+        <source src="music/eleve_minha_nota.mp3" type="audio/mp3">
+        Seu navegador não suporta o formato de áudio.
+    </audio>
+
     <header class="container-fluid d-flex justify-content-between align-items-center">
         <div class="logo d-flex align-items-center">
             <img src="img/logo.png" alt="Logo" class="logo-img me-2">
