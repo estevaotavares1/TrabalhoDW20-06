@@ -17,7 +17,8 @@ require_once 'testalogin.php';
 
 <body>
     <header class="container-fluid d-flex justify-content-between align-items-center">
-        <div class="logo">
+        <div class="logo d-flex align-items-center">
+            <img src="img/logo.png" alt="Logo" class="logo-img me-2">
             <h2>Vrum Vrum Aluguéis</h2>
         </div>
         <div class="user-info text-end">
@@ -36,13 +37,13 @@ require_once 'testalogin.php';
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="atividades.php">Ações</a>
+                        <a class="nav-link" aria-current="page" href="atividades.php">Ações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
+                        <a class="nav-link active" href="pagamento_clienteSelect.php">Pagar</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
