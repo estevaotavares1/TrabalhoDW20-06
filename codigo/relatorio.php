@@ -1,6 +1,6 @@
 <?php
 require_once 'testalogin.php';
-require_once './tcpdf/tcpdf.php';
+require_once './pdf/tcpdf.php';
 require_once 'conexao.php';
 
 if (isset($_GET['id_pagamento'])) {
