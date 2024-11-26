@@ -231,24 +231,38 @@ $stmt->close();
                     preco_por_km: {
                         required: true,
                         number: true,
-                        min: 0,
+                        min: 1,
+                        max: 10,
                     },
                     data_pagamento: {
                         required: true,
                         date: true,
                         dataPagamentoMaiorQueFinal: true,
                     },
+                    "kmpercorrido[]": {
+                        required: true,
+                        number: true,
+                        min: 0,
+                        max: 100000,
+                    },
                 },
                 messages: {
                     preco_por_km: {
                         required: "O preço do km rodado do é obrigatório.",
                         number: "O preço do km deve ser um número válido.",
-                        min: "O preço não pode ser um valor negativo",
+                        min: "O preço não pode ser um valor negativo ou de graça.",
+                        max: "O preço não pode ser um valor exorbitante.",
                     },
                     data_pagamento: {
                         required: "Informe a data em que o pagamento foi feito.",
                         date: "Por favor, insira uma data válida.",
                         dataPagamentoMaiorQueFinal: "A data do pagamento não pode ser anterior à data final do aluguel.",
+                    },
+                    "kmpercorrido[]": {
+                        required: "O km percorrido é obrigatório.",
+                        number: "O km percorrido deve ser um número válido.",
+                        min: "O km percorrido não pode ser negativo.",
+                        max: "O valor do km percorrido não pode ser tão alto.",
                     },
                 },
             });
