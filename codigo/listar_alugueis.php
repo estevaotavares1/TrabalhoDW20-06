@@ -114,7 +114,8 @@ require_once 'testalogin.php';
                         <th>Cliente</th>
                         <th>Funcionário</th>
                         <th>Status</th>
-                        <th>Detalhar</th>
+                        <th>Detalhes</th>
+                        <th>Pagamento</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -143,10 +144,13 @@ require_once 'testalogin.php';
                             echo "<td>
                                 <a href='detalhar_aluguel.php?id_aluguel=$id_aluguel' class='btn btn-warning btn-sm'>Detalhar</a>
                             </td>";
+                            echo "<td>
+                                <a id='excluir' href='pagamento_preencher.php?id_aluguel=$id_aluguel' class='btn btn-warning btn-sm'>Pagar</a>
+                            </td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='7' class='text-center'>Nenhum aluguel encontrado.</td></tr>";
+                        echo "<tr><td colspan='8' class='text-center'>Nenhum aluguel encontrado.</td></tr>";
                     }
 
                     mysqli_close($conexao);
