@@ -22,11 +22,13 @@ header .logo-img {
 
 header .logo h2 {
   font-weight: bold !important;
+  margin: 0 !important;
 }
 
 header .user-info a,
 header .user-info p {
   color: black !important;
+  margin: 0;
 }
 
 nav.navbar {
