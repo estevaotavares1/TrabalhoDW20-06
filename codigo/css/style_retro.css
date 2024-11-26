@@ -32,24 +32,24 @@ body {
   line-height: 1.6 !important;
 }
 
+/*
 #audio-background {
-  display: none; /* Esconde o player de áudio */
+  display: none;
 }
-
 .video-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Faz o vídeo ficar atrás do conteúdo */
+  z-index: -1;
 }
-
 .video-background video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Faz o vídeo cobrir toda a tela sem distorção */
+  object-fit: cover;
 }
+*/
 
 header {
   background-color: #222222 !important;
