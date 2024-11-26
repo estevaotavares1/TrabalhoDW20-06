@@ -17,7 +17,7 @@ header {
 }
 
 header .logo-img {
-  max-width: 40px;
+  max-width: 40px !important;
 }
 
 header .logo h2 {
