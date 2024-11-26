@@ -3,13 +3,19 @@ require_once 'testalogin.php';
 require_once "conexao.php";
 
 $id_aluguel = $_GET['id_aluguel'];
-$sql = "SELECT datafinal_aluguel FROM tb_aluguel WHERE id_aluguel = ?";
+
+$sql = "SELECT status, datafinal_aluguel FROM tb_aluguel WHERE id_aluguel = ?";
 $stmt = $conexao->prepare($sql);
 $stmt->bind_param("i", $id_aluguel);
 $stmt->execute();
-$stmt->bind_result($datafinal_aluguel);
+$stmt->bind_result($status, $datafinal_aluguel);
 $stmt->fetch();
 $stmt->close();
+
+if ($status == 'Pago') {
+    header('Location: erro3.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

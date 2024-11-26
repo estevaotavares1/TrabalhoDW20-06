@@ -289,7 +289,7 @@ ALTER TABLE tb_veiculo
 ADD COLUMN status ENUM('Disponível', 'Indisponível') NOT NULL DEFAULT 'Disponível';
 
 ALTER TABLE tb_aluguel 
-ADD COLUMN status ENUM('Pendente', 'Pago', 'Cancelado') NOT NULL DEFAULT 'Pendente';
+ADD COLUMN status ENUM('Pendente', 'Pago') NOT NULL DEFAULT 'Pendente';
 
 INSERT INTO tb_veiculo (nome, marca, ano, placa_veiculo, capacidade_veiculo, vidroeletrico_veiculo, airbag_veiculo, capacidaportamala_veiculo, arcondicionado_veiculo, automatico_veiculo, km_veiculo, status) VALUES
 ('Civic', 'Honda', 2020, 'ABC-1234', '5', 1, 1, '500', 1, 1, 10000.00, 'Disponível'),
