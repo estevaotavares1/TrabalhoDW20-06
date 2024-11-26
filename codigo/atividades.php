@@ -17,7 +17,8 @@ require_once 'testalogin.php';
 
 <body>
   <header class="container-fluid d-flex justify-content-between align-items-center">
-    <div class="logo">
+    <div class="logo d-flex align-items-center">
+      <img src="img/logo.png" alt="Logo" class="logo-img me-2">
       <h2>Vrum Vrum Aluguéis</h2>
     </div>
     <div class="user-info text-end">

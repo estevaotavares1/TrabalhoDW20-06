@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 /* #e4eaf0 azul */
 /* #f4f4f4 cinza */
@@ -14,6 +14,10 @@ header {
   background-color: white !important;
   color: #33669e !important;
   text-align: center !important;
+}
+
+header .logo-img {
+  max-width: 40px;
 }
 
 header .logo h2 {
