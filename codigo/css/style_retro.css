@@ -1,17 +1,10 @@
 /* 
-Áudio de fundo
-  <audio id="audio-background" autoplay loop>
-    <source src="music/supermario64.mp3" type="audio/mp3">
-    Seu navegador não suporta o formato de áudio.
-  </audio>
-
 Vídeo de fundo
   <div class="video-background">
     <video autoplay loop muted>
       <source src="seu-video.mp4" type="video/mp4">
     </video>
   </div>
-
 Luzes verdes descendo
   <div class="green-light">0101010101</div>
   <div class="green-light">1010101010</div>
