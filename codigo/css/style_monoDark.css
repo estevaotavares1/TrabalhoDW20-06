@@ -99,10 +99,12 @@ table th {
 
 table td {
   background-color: #1c1c1c !important; /* Preto médio */
+  color: #fff !important;
 }
 
 table td:hover {
   background-color: #2a2a2a !important; /* Preto mais claro */
+  color: #fff !important;
 }
 
 li.list-group-item {
