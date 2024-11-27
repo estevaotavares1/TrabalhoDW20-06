@@ -17,4 +17,4 @@ Proposta do Professor:
 15. O pagamento só é realizado e registrado na devolução, onde o cálculo por km rodado é feito.
 
 Data de Entrega: 27/11/2024 - 23:59
-Colaboradores: Anna Paula, Davi Abner, Déborah Nathalia, Estevão Tavares
+Colaboradores: Anna Paula, Davi Abner, Déborah Natália, Estevão Tavares
