@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* Monocromático Escuro */
+
+body {
+  font-family: "Quantico", monospace !important;
+  background-color: #121212 !important; /* Preto suave */
+  color: #e0e0e0 !important; /* Cinza claro */
+  padding-bottom: 50px !important;
+}
+
+header {
+  background-color: #1c1c1c !important; /* Preto médio */
+  color: #e0e0e0 !important; /* Cinza claro */
+  text-align: center !important;
+}
+
+header .logo-img {
+  max-width: 40px !important;
+}
+
+header .logo h2 {
+  font-weight: bold !important;
+  margin: 0 !important;
+}
+
+header .user-info a,
+header .user-info p {
+  color: #e0e0e0 !important; /* Cinza claro */
+  margin: 0;
+}
+
+nav.navbar {
+  background-color: #1c1c1c !important; /* Preto médio */
+}
+
+nav .navbar-nav {
+  margin: 0 auto !important;
+}
+
+nav.navbar .nav-link {
+  color: #b0b0b0 !important; /* Cinza médio */
+  padding: 1px 10px !important;
+  text-transform: uppercase !important;
+}
+
+nav.navbar .active,
+nav.navbar .nav-link:hover {
+  color: #fff !important; /* Branco */
+}
+
+.dropdown-menu {
+  background-color: #2a2a2a !important; /* Preto mais claro */
+}
+
+.dropdown-item {
+  color: #e0e0e0 !important; /* Cinza claro */
+}
+
+.navbar-toggler {
+  border: 2px solid #b0b0b0 !important; /* Cinza médio */
+  background-color: #1c1c1c !important; /* Preto médio */
+}
+
+.navbar-toggler:hover {
+  border: 2px solid #e0e0e0 !important; /* Cinza claro */
+  background-color: #2a2a2a !important; /* Preto mais claro */
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  border: 2px solid #e0e0e0 !important;
+  background-color: #333 !important; /* Preto muito claro */
+  box-shadow: none !important;
+}
+
+.dropdown-item:hover {
+  background-color: #333 !important; /* Preto muito claro */
+  color: #fff !important; /* Branco */
+}
+
+table th {
+  background-color: #2a2a2a !important; /* Preto mais claro */
+  color: #e0e0e0 !important; /* Cinza claro */
+}
+
+#success {
+  background-color: #3a3a3a !important; /* Preto médio claro */
+  color: #e0e0e0 !important; /* Cinza claro */
+}
+
+#danger {
+  background-color: #4a4a4a !important; /* Preto médio */
+  color: #fff !important; /* Branco */
+}
+
+#warning {
+  background-color: #3a3a3a !important; /* Preto médio claro */
+  color: #fff !important; /* Branco */
+}
+
+table td {
+  background-color: #1c1c1c !important; /* Preto médio */
+}
+
+table td:hover {
+  background-color: #2a2a2a !important; /* Preto mais claro */
+}
+
+li.list-group-item {
+  background-color: #1c1c1c !important; /* Preto médio */
+  color: #e0e0e0 !important; /* Cinza claro */
+}
+
+li.list-group-item a {
+  color: #e0e0e0 !important; /* Cinza claro */
+}
+
+li.list-group-item:hover {
+  background-color: #2a2a2a !important; /* Preto mais claro */
+}
+
+button,
+.btn {
+  background-color: #333 !important; /* Preto muito claro */
+  color: #fff !important; /* Branco */
+  border: 2px solid #444 !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #444 !important; /* Preto médio claro */
+}
+
+button:active,
+.btn:active {
+  background-color: #555 !important; /* Preto mais claro */
+  transform: translateY(2px) !important;
+}
+
+#excluir {
+  background-color: #4a4a4a !important; /* Preto médio */
+}
+
+#excluir:hover {
+  background-color: #3a3a3a !important; /* Preto médio claro */
+}
+
+#excluir:active {
+  background-color: #2a2a2a !important; /* Preto mais claro */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  border: 2px solid #2a2a2a !important; /* Preto mais claro */
+  padding: 4px !important;
+  background-color: #1c1c1c !important; /* Preto médio */
+  color: #e0e0e0 !important; /* Cinza claro */
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 2px solid #e0e0e0 !important; /* Cinza claro */
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  border-color: #b0b0b0 !important; /* Cinza médio */
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: #333 !important; /* Preto muito claro */
+  border-color: #444 !important; /* Preto médio claro */
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
+}
+
+.card-header {
+  background-color: #2a2a2a !important; /* Preto mais claro */
+  color: #e0e0e0 !important; /* Cinza claro */
+  text-align: center !important;
+}
+
+footer {
+  background-color: #1c1c1c !important; /* Preto médio */
+  color: #e0e0e0 !important; /* Cinza claro */
+  text-align: center !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 4px !important;
+}
