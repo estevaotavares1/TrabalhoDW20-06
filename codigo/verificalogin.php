@@ -13,6 +13,7 @@ if (mysqli_num_rows($resultadoFuncionario) > 0) {
     $funcionario = mysqli_fetch_assoc($resultadoFuncionario);
     $_SESSION['logado'] = true;
     $_SESSION['nome_funcionario'] = $funcionario['nome_funcionario'];
+    $_SESSION['id_funcionario'] = $funcionario['id_funcionario'];
     header('Location: atividades.php');
     exit();
 } else {

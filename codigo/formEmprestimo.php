@@ -112,27 +112,19 @@ require_once 'testalogin.php';
             </div>
 
             <div class="mb-3">
-                <label for="id_funcionario" class="form-label">Funcionário</label>
-                <select name="id_funcionario" id="id_funcionario" class="form-select" required>
-                    <?php
-                    require_once "conexao.php";
-                    require_once "operacoes.php";
-
-                    $funcionarios = listarFuncionarios($conexao);
-
-                    foreach ($funcionarios as $funcionario) {
-                        $id_funcionario = $funcionario['id_funcionario'];
-                        $nome_funcionario = $funcionario['nome_funcionario'];
-                        echo "<option value='$id_funcionario'>$nome_funcionario</option>";
-                    }
-                    ?>
-                </select>
+                <label for="nome_funcionario" class="form-label">Funcionário</label>
+                <input type="text" id="nome_funcionario" name="nome_funcionario" class="form-control"
+                    value="<?php echo $nomeFuncionario; ?>" readonly required>
+                <input type="hidden" name="id_funcionario" value="<?php echo $_SESSION['id_funcionario']; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="id_cliente" class="form-label">Cliente</label>
                 <select name="id_cliente" id="id_cliente" class="form-select" required>
                     <?php
+                    require_once "conexao.php";
+                    require_once "operacoes.php";
+
                     $clientes = listarClientes($conexao);
 
                     foreach ($clientes as $cliente) {

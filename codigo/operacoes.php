@@ -334,37 +334,6 @@ function salvarVeiculoEmprestimo($conexao, $tb_aluguel_id_aluguel, $tb_veiculo_i
 }
 
 /**
- * Retorna uma lista de funcionários com ID e nome.
- *
- * @param object $conexao Conexão com o banco de dados.
- * @return array Lista de funcionários (ID e nome).
- */
-function listarFuncionarios($conexao)
-{
-    $sql = "SELECT id_funcionario, nome_funcionario FROM tb_funcionario";
-    $stmt = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_funcionario, $nome_funcionario);
-    mysqli_stmt_store_result($stmt);
-
-    $lista = [];
-
-    if (mysqli_stmt_num_rows($stmt) > 0) {
-        while (mysqli_stmt_fetch($stmt)) {
-            $lista[] = [
-                'id_funcionario' => $id_funcionario,
-                'nome_funcionario' => $nome_funcionario
-            ];
-        }
-    }
-
-    mysqli_stmt_close($stmt);
-
-    return $lista;
-}
-
-/**
  * Lista todos os clientes com detalhes de contato.
  *
  * @param object $conexao Conexão com o banco de dados.

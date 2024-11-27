@@ -7,5 +7,6 @@ if (isset($_SESSION['logado']) == false) {
 
 date_default_timezone_set('America/Sao_Paulo');
 $nomeFuncionario = $_SESSION['nome_funcionario'];
+$idFuncionario = $_SESSION['id_funcionario'];
 $dataAtual = date('d/m/Y - H:i');
 ?>
