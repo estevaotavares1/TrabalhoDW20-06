@@ -130,9 +130,9 @@ require_once 'testalogin.php';
                 </div>
             </div>
         </div>
-
         <div class="text-center mt-4">
-            <a id="excluir" href="deslogar.php" class="btn btn-danger">Sair</a>
+            <a id="excluir" href="deslogar.php" class="btn btn-primary mt-3">Sair</a>
+            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
         </div>
     </div>
 
