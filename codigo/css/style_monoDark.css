@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-/* Monocromático Escuro */
-
 body {
   font-family: "Quantico", monospace !important;
   background-color: #121212 !important; /* Preto suave */
@@ -181,6 +179,21 @@ input[type="radio"]:checked {
   border-color: #444 !important; /* Preto médio claro */
 }
 
+#kmtotaldoaluguel {
+  color: wheat !important;
+  background-color: #444 !important;
+  border: 2px solid #333 !important;
+  border-radius: 5px !important;
+}
+
+#kmtotaldoaluguel-container {
+  margin: 5px 0 !important;
+}
+
+#kmtotaldoaluguel-container span {
+  margin-right: 8px !important;
+}
+
 .card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
 }
@@ -189,6 +202,19 @@ input[type="radio"]:checked {
   background-color: #2a2a2a !important; /* Preto mais claro */
   color: #e0e0e0 !important; /* Cinza claro */
   text-align: center !important;
+}
+
+#login_lucas .card {
+  max-width: 350px !important;
+  width: 100% !important;
+}
+
+label.error {
+  font-weight: bold !important;
+}
+
+label.error:before {
+  content: "⚠ " !important;
 }
 
 footer {
