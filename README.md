@@ -1,4 +1,5 @@
 Proposta do Professor:
+
 1. Um sistema para os funcionários de uma loja de aluguel de veículos;
 2. Os aluguéis são feitos para pessoas e empresas;
 3. Existe uma ficha com todos os dados do cliente que aluga o veículo;
@@ -14,3 +15,6 @@ Proposta do Professor:
 13. Também há um sistema de cadastro de funcionários, veículos e clientes;
 14. Fora a opção de ver quais veículos estão disponíveis e quais estão alugados;
 15. O pagamento só é realizado e registrado na devolução, onde o cálculo por km rodado é feito.
+
+Data de Entrega: 27/11/2024 - 23:59
+Colaboradores: Anna Paula, Davi Abner, Déborah Nathalia, Estevão Tavares
