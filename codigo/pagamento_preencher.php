@@ -117,11 +117,6 @@ if ($status == 'Pago') {
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Lançar Pagamento</h2>
-
-        <div class="text-center mb-4">
-            <img src="img/cartoes_credito.png" alt="Imagens de Cartões de Crédito" class="img-fluid">
-        </div>
-
         <form id="formPagamento" action="pagamento_terminar.php" method="POST">
             <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
 
