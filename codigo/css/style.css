@@ -47,6 +47,10 @@ nav.navbar .nav-link:hover {
   color: #fff !important;
 }
 
+.nav-link i {
+  margin-right: 3px !important;
+}
+
 .dropdown-menu {
   background-color: #ddd !important;
 }

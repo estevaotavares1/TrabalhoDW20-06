@@ -37,33 +37,64 @@ require_once 'testalogin.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="atividades.php">Ações</a>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="atividades.php"><i
+                                class="fa-solid fa-hand"></i>Ações</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="formEmprestimo.php">Alugar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formEmprestimo.php"><i class="fa-solid fa-car"></i>Alugar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pagamento_clienteSelect.php"><i
+                                class="fa-solid fa-credit-card"></i>Pagar</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Registros</a>
+                            aria-expanded="false">
+                            <i class="fa-solid fa-list"></i>Registros
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="listar_alugueis.php">Listar Aluguéis</a></li>
-                            <li><a class="dropdown-item" href="listar_clientes.php">Listar Clientes</a></li>
-                            <li><a class="dropdown-item" href="listar_funcionarios.php">Listar Funcionários</a></li>
-                            <li><a class="dropdown-item" href="listar_pagamentos.php">Listar Pagamentos</a></li>
-                            <li><a class="dropdown-item" href="listar_veiculos.php">Listar Veículos</a></li>
+                            <li>
+                                <a class="dropdown-item" href="listar_alugueis.php">Listar Aluguéis</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_clientes.php">Listar Clientes</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_funcionarios.php">Listar Funcionários</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_pagamentos.php">Listar Pagamentos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="listar_veiculos.php">Listar Veículos</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Cadastros</a>
+                            aria-expanded="false">
+                            <i class="fa-solid fa-pencil"></i>Cadastros
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="cadastro_empresa.php">Cadastrar uma Empresa</a></li>
-                            <li><a class="dropdown-item" href="cadastro_funcionario.php">Cadastrar um Funcionário</a>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_empresa.php">Cadastrar uma Empresa</a>
                             </li>
-                            <li><a class="dropdown-item" href="cadastro_pessoa.php">Cadastrar uma Pessoa</a></li>
-                            <li><a class="dropdown-item" href="cadastro_veiculo.php">Cadastrar um Veículo</a></li>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_funcionario.php">Cadastrar um Funcionário</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_pessoa.php">Cadastrar uma Pessoa</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="cadastro_veiculo.php">Cadastrar um Veículo</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a id="deslogar" class="nav-link" href="deslogar.php">Logout</a></li>
+                    <li class="nav-item">
+                        <a id="deslogar" class="nav-link" href="deslogar.php"><i
+                                class="fa-solid fa-circle-left"></i>Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>

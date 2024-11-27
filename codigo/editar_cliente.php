@@ -69,17 +69,18 @@ if (isset($_GET['id_cliente'])) {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="atividades.php">Ações</a>
+            <a class="nav-link" aria-current="page" href="atividades.php"><i class="fa-solid fa-hand"></i>Ações</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="formEmprestimo.php">Alugar</a>
+            <a class="nav-link" href="formEmprestimo.php"><i class="fa-solid fa-car"></i>Alugar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
+            <a class="nav-link" href="pagamento_clienteSelect.php"><i class="fa-solid fa-credit-card"></i>Pagar</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Registros
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="fa-solid fa-list"></i>Registros
             </a>
             <ul class="dropdown-menu">
               <li>
@@ -101,7 +102,7 @@ if (isset($_GET['id_cliente'])) {
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Cadastros
+              <i class="fa-solid fa-pencil"></i>Cadastros
             </a>
             <ul class="dropdown-menu">
               <li>
@@ -119,7 +120,7 @@ if (isset($_GET['id_cliente'])) {
             </ul>
           </li>
           <li class="nav-item">
-            <a id="deslogar" class="nav-link" href="deslogar.php">Logout</a>
+            <a id="deslogar" class="nav-link" href="deslogar.php"><i class="fa-solid fa-circle-left"></i>Logout</a>
           </li>
         </ul>
       </div>
@@ -174,18 +175,18 @@ if (isset($_GET['id_cliente'])) {
   </div>
 
   <footer>
-        <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.<br>
-            <a href="#">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="#">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-        </p>
-    </footer>
+    <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.<br>
+      <a href="#">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="#">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="#">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </p>
+  </footer>
 
   <script>
     $(document).ready(function () {

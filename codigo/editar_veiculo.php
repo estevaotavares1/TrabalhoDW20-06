@@ -90,13 +90,13 @@ if (isset($_GET['id_veiculo'])) {
                         <a
                             class="nav-link"
                             aria-current="page"
-                            href="atividades.php">Ações</a>
+                            href="atividades.php"><i class="fa-solid fa-hand"></i>Ações</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formEmprestimo.php">Alugar</a>
+                        <a class="nav-link" href="formEmprestimo.php"><i class="fa-solid fa-car"></i>Alugar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
+                        <a class="nav-link" href="pagamento_clienteSelect.php"><i class="fa-solid fa-credit-card"></i>Pagar</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a
@@ -105,7 +105,7 @@ if (isset($_GET['id_veiculo'])) {
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Registros
+                            <i class="fa-solid fa-list"></i>Registros
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -132,7 +132,7 @@ if (isset($_GET['id_veiculo'])) {
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Cadastros
+                            <i class="fa-solid fa-pencil"></i>Cadastros
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -150,7 +150,7 @@ if (isset($_GET['id_veiculo'])) {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a id="deslogar" class="nav-link" href="deslogar.php">Logout</a>
+                        <a id="deslogar" class="nav-link" href="deslogar.php"><i class="fa-solid fa-circle-left"></i>Logout</a>
                     </li>
                 </ul>
             </div>
