@@ -117,30 +117,37 @@ if ($status == 'Pago') {
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Lançar Pagamento</h2>
+
+        <div class="text-center mb-4">
+            <img src="img/cartoes_credito.png" alt="Imagens de Cartões de Crédito" class="img-fluid">
+        </div>
+
         <form id="formPagamento" action="pagamento_terminar.php" method="POST">
             <input type="hidden" name="id_aluguel" value="<?php echo $_GET['id_aluguel']; ?>">
 
-            <div class="mb-3">
-                <label for="data_pagamento" class="form-label">Data Atual:</label>
-                <input type="date" name="data_pagamento" class="form-control" required>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="data_pagamento" class="form-label">Data Atual:</label>
+                    <input type="date" name="data_pagamento" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="metodo" class="form-label">Método de Pagamento:</label>
+                    <select name="metodo" class="form-select" required>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão">Cartão</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="metodo" class="form-label">Método de Pagamento:</label>
-                <select name="metodo" class="form-select" required>
-                    <option value="Dinheiro">Dinheiro</option>
-                    <option value="Cartão">Cartão</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="preco_por_km" class="form-label">Preço por KM:</label>
-                <input type="number" name="preco_por_km" step="0.01" min="0" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="kmtotaldoaluguel" class="form-label">Total de KM do Aluguel:</label>
-                <span id="kmtotaldoaluguel">0.00</span> KM
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="preco_por_km" class="form-label">Preço por KM:</label>
+                    <input type="number" name="preco_por_km" step="0.01" min="0" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="kmtotaldoaluguel" class="form-label">Total de KM do Aluguel:</label>
+                    <span id="kmtotaldoaluguel">0.00</span> KM
+                </div>
             </div>
 
             <div class="mb-3">

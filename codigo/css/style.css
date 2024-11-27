@@ -71,7 +71,8 @@ nav.navbar .nav-link:hover {
   background-color: #2b4f78 !important;
 }
 
-.navbar-toggler:focus, .navbar-toggler:active {
+.navbar-toggler:focus,
+.navbar-toggler:active {
   border: 2px solid #d0d0d0 !important;
   background-color: #1f3c5a !important;
   box-shadow: none !important;
@@ -196,6 +197,10 @@ input[type="radio"]:checked {
 #login_lucas .card {
   max-width: 350px !important;
   width: 100% !important;
+}
+
+.text-center img {
+  max-width: 40% !important;
 }
 
 input:focus,
