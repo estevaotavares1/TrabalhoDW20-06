@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-/* #e4eaf0 azul */
-/* #f4f4f4 cinza */
-
 body {
   font-family: "Quantico", monospace !important;
   background-color: #e4eaf0 !important;
@@ -141,11 +138,13 @@ button:hover,
 button:active,
 .btn:active {
   background-color: #1f3c5a !important;
+  border: 2px solid #1f3c5a !important;
   transform: translateY(2px) !important;
 }
 
 #excluir {
   background-color: #b74e52 !important;
+  border: 2px solid #9e3d3d !important;
 }
 
 #excluir:hover {
@@ -154,6 +153,7 @@ button:active,
 
 #excluir:active {
   background-color: #8f2e2a !important;
+  border: 2px solid #8f2e2a !important;
 }
 
 input[type="text"],

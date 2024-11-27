@@ -2,14 +2,14 @@
 
 body {
   font-family: "Quantico", monospace !important;
-  background-color: #f4f4f4 !important; /* Cinza claro */
-  color: #000 !important; /* Preto */
+  background-color: #f4f4f4 !important;
+  color: #000 !important;
   padding-bottom: 50px !important;
 }
 
 header {
-  background-color: #fff !important; /* Branco */
-  color: #333 !important; /* Cinza escuro */
+  background-color: #fff !important;
+  color: #333 !important;
   text-align: center !important;
 }
 
@@ -24,12 +24,12 @@ header .logo h2 {
 
 header .user-info a,
 header .user-info p {
-  color: #000 !important; /* Preto */
+  color: #000 !important;
   margin: 0;
 }
 
 nav.navbar {
-  background-color: #555 !important; /* Cinza médio */
+  background-color: #555 !important;
 }
 
 nav .navbar-nav {
@@ -37,91 +37,91 @@ nav .navbar-nav {
 }
 
 nav.navbar .nav-link {
-  color: #bbb !important; /* Cinza claro */
+  color: #bbb !important;
   padding: 1px 10px !important;
   text-transform: uppercase !important;
 }
 
 nav.navbar .active,
 nav.navbar .nav-link:hover {
-  color: #fff !important; /* Branco */
+  color: #fff !important;
 }
 
 .dropdown-menu {
-  background-color: #ddd !important; /* Cinza claro */
+  background-color: #ddd !important;
 }
 
 .dropdown-item {
-  color: #000 !important; /* Preto */
+  color: #000 !important;
 }
 
 .navbar-toggler {
   border: 2px solid #bbb !important;
-  background-color: #555 !important; /* Cinza médio */
+  background-color: #555 !important;
 }
 
 .navbar-toggler:hover {
   border: 2px solid #aaa !important;
-  background-color: #444 !important; /* Cinza escuro */
+  background-color: #444 !important;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
   border: 2px solid #aaa !important;
-  background-color: #333 !important; /* Cinza muito escuro */
+  background-color: #333 !important;
   box-shadow: none !important;
 }
 
 .dropdown-item:hover {
-  background-color: #555 !important; /* Cinza médio */
-  color: #fff !important; /* Branco */
+  background-color: #555 !important;
+  color: #fff !important;
 }
 
 table th {
-  background-color: #444 !important; /* Cinza escuro */
-  color: #fff !important; /* Branco */
+  background-color: #444 !important;
+  color: #fff !important;
 }
 
 #success {
-  background-color: #888 !important; /* Cinza médio */
-  color: #fff !important; /* Branco */
+  background-color: #888 !important;
+  color: #fff !important;
 }
 
 #danger {
-  background-color: #666 !important; /* Cinza médio */
-  color: #fff !important; /* Branco */
+  background-color: #666 !important;
+  color: #fff !important;
 }
 
 #warning {
-  background-color: #bbb !important; /* Cinza claro */
-  color: #000 !important; /* Preto */
+  background-color: #bbb !important;
+  color: #000 !important;
 }
 
 table td {
-  background-color: #eee !important; /* Cinza claro */
+  background-color: #eee !important;
 }
 
 table td:hover {
-  background-color: #ddd !important; /* Cinza claro */
+  background-color: #ddd !important;
 }
 
 li.list-group-item {
-  background-color: #f4f4f4 !important; /* Cinza muito claro */
-  color: #000 !important; /* Preto */
+  background-color: #f4f4f4 !important;
+  color: #000 !important;
 }
 
 li.list-group-item a {
-  color: #000 !important; /* Preto */
+  color: #000 !important;
 }
 
 li.list-group-item:hover {
-  background-color: #ddd !important; /* Cinza claro */
+  background-color: #ddd !important;
 }
 
 button,
 .btn {
-  background-color: #444 !important; /* Cinza escuro */
-  color: #fff !important; /* Branco */
+  background-color: #444 !important;
+  color: #fff !important;
   border: 2px solid #333 !important;
   cursor: pointer !important;
   padding: 4px 8px !important;
@@ -129,25 +129,28 @@ button,
 
 button:hover,
 .btn:hover {
-  background-color: #333 !important; /* Cinza muito escuro */
+  background-color: #333 !important;
 }
 
 button:active,
 .btn:active {
-  background-color: #222 !important; /* Preto */
+  background-color: #222 !important;
+  border: 2px solid #222 !important;
   transform: translateY(2px) !important;
 }
 
 #excluir {
-  background-color: #666 !important; /* Cinza médio */
+  background-color: #666 !important;
+  border: 2px solid #555 !important;
 }
 
 #excluir:hover {
-  background-color: #555 !important; /* Cinza médio */
+  background-color: #555 !important;
 }
 
 #excluir:active {
-  background-color: #444 !important; /* Cinza escuro */
+  background-color: #444 !important;
+  border: 2px solid #444 !important;
 }
 
 input[type="text"],
@@ -157,25 +160,25 @@ input[type="date"],
 input[type="number"],
 textarea,
 select {
-  border: 2px solid #bbb !important; /* Cinza claro */
+  border: 2px solid #bbb !important;
   padding: 4px !important;
-  background-color: #f4f4f4 !important; /* Cinza muito claro */
+  background-color: #f4f4f4 !important;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-  border: 2px solid #555 !important; /* Cinza médio */
+  border: 2px solid #555 !important;
 }
 
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  border-color: #444 !important; /* Cinza escuro */
+  border-color: #444 !important;
 }
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-  background-color: #444 !important; /* Cinza escuro */
-  border-color: #333 !important; /* Cinza muito escuro */
+  background-color: #444 !important;
+  border-color: #333 !important;
 }
 
 #kmtotaldoaluguel {
@@ -198,8 +201,8 @@ input[type="radio"]:checked {
 }
 
 .card-header {
-  background-color: #444 !important; /* Cinza escuro */
-  color: #fff !important; /* Branco */
+  background-color: #444 !important;
+  color: #fff !important;
   text-align: center !important;
 }
 
@@ -217,8 +220,8 @@ label.error:before {
 }
 
 footer {
-  background-color: #555 !important; /* Cinza médio */
-  color: #fff !important; /* Branco */
+  background-color: #555 !important;
+  color: #fff !important;
   text-align: center !important;
   position: fixed !important;
   bottom: 0 !important;

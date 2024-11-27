@@ -98,15 +98,15 @@ require_once 'testalogin.php';
 
     <div class="container mt-5">
         <div class="text-center">
-            <h1 class="display-4">Bem-vindo, <?php echo $nomeFuncionario; ?>!</h1>
+            <h1>Bem-vindo, <?php echo $nomeFuncionario; ?>!</h>
             <p class="lead">Data e Hora de Acesso: <?php echo $dataAtual; ?></p>
         </div>
 
         <div class="row mt-4">
             <div class="col-md-6 offset-md-3">
                 <div class="card shadow-lg">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h3>Dados do Funcionário</h3>
+                    <div class="card-header">
+                        <h4>Dados do Funcionário</h4>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
