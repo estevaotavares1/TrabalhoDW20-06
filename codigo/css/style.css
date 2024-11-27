@@ -331,37 +331,37 @@ footer {
 
   button,
   .btn {
-    background-color: #333 !important;
+    background-color: #444 !important;
     color: #fff !important;
-    border: 2px solid #444 !important;
+    border: 2px solid #555 !important;
     cursor: pointer !important;
     padding: 4px 8px !important;
   }
 
   button:hover,
   .btn:hover {
-    background-color: #444 !important;
+    background-color: #555 !important;
   }
 
   button:active,
   .btn:active {
-    background-color: #555 !important;
-    border: 2px solid #555 !important;
+    background-color: #666 !important;
+    border: 2px solid #666 !important;
     transform: translateY(2px) !important;
   }
 
   #excluir {
-    background-color: #444 !important;
-    border: 2px solid #555 !important;
+    background-color: #333 !important;
+    border: 2px solid #444 !important;
   }
 
   #excluir:hover {
-    background-color: #555 !important;
+    background-color: #444 !important;
   }
 
   #excluir:active {
-    background-color: #666 !important;
-    border: 2px solid #666 !important;
+    background-color: #555 !important;
+    border: 2px solid #555 !important;
   }
 
   input[type="text"],
@@ -410,11 +410,13 @@ footer {
 
   .card {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
+    background-color: #333 !important;
+    color: #fff !important;
   }
 
   .card-header {
-    background-color: #444 !important;
-    color: #fff !important;
+    background-color: #fff !important;
+    color: #000 !important;
     text-align: center !important;
   }
 
