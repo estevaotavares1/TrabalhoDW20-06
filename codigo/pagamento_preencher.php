@@ -146,7 +146,9 @@ if ($status == 'Pago') {
                 </div>
                 <div class="col-md-6">
                     <label for="kmtotaldoaluguel" class="form-label">Total de KM do Aluguel:</label>
-                    <span id="kmtotaldoaluguel">0.00</span> KM
+                    <div id="kmtotaldoaluguel-container">
+                        <span id="kmtotaldoaluguel">0.00</span> KM
+                    </div>
                 </div>
             </div>
 

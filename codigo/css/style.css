@@ -184,6 +184,21 @@ input[type="radio"]:checked {
   border-color: #1f3c5a !important;
 }
 
+#kmtotaldoaluguel {
+  color: black !important;
+  background-color: #f0f0f0 !important;
+  border: 2px solid #d0d0d0 !important;
+  border-radius: 5px !important;
+}
+
+#kmtotaldoaluguel-container {
+  margin: 5px 0 !important;
+}
+
+#kmtotaldoaluguel-container span {
+  margin-right: 8px !important;
+}
+
 .card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) !important;
 }
