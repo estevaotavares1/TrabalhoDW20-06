@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+body {
+  font-family: "Quantico", monospace !important;
+  background-color: #e4eaf0 !important;
+  color: black !important;
+  padding-bottom: 50px !important;
+}
+
+header {
+  background-color: white !important;
+  color: #33669e !important;
+  text-align: center !important;
+}
+
+header .logo-img {
+  max-width: 40px !important;
+}
+
+header .logo h2 {
+  font-weight: bold !important;
+  margin: 0 !important;
+}
+
+header .user-info a,
+header .user-info p {
+  color: black !important;
+  margin: 0;
+}
+
+nav.navbar {
+  background-color: #33669e !important;
+}
+
+nav .navbar-nav {
+  margin: 0 auto !important;
+}
+
+nav.navbar .nav-link {
+  color: #d0d0d0 !important;
+  padding: 1px 10px !important;
+  text-transform: uppercase !important;
+}
+
+nav.navbar .active {
+  color: white !important;
+}
+
+nav.navbar .nav-link:hover {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #d0d0d0 !important;
+}
+
+.dropdown-item {
+  color: black !important;
+}
+
+.navbar-toggler {
+  border: 2px solid #d0d0d0 !important;
+  background-color: #33669e !important;
+}
+
+.navbar-toggler:hover {
+  border: 2px solid #d0d0d0 !important;
+  background-color: #2b4f78 !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  border: 2px solid #d0d0d0 !important;
+  background-color: #1f3c5a !important;
+  box-shadow: none !important;
+}
+
+.dropdown-item:hover {
+  background-color: #33669e !important;
+  color: white !important;
+}
+
+table th {
+  background-color: #33669e !important;
+  color: white !important;
+}
+
+#success {
+  background-color: #4b9e7f !important;
+  color: white !important;
+}
+
+#danger {
+  background-color: #b74e52 !important;
+  color: white !important;
+}
+
+#warning {
+  background-color: #f1c84c !important;
+  color: black !important;
+}
+
+table td {
+  background-color: #f0f0f0 !important;
+}
+
+table td:hover {
+  background-color: #d0d0d0 !important;
+}
+
+li.list-group-item {
+  background-color: #f0f0f0 !important;
+  color: black !important;
+}
+
+li.list-group-item a {
+  color: black !important;
+}
+
+li.list-group-item:hover {
+  background-color: #d0d0d0 !important;
+}
+
+button,
+.btn {
+  background-color: #33669e !important;
+  color: white !important;
+  border: 2px solid #2b4f78 !important;
+  cursor: pointer !important;
+  padding: 4px 8px !important;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #2b4f78 !important;
+}
+
+button:active,
+.btn:active {
+  background-color: #1f3c5a !important;
+  border: 2px solid #1f3c5a !important;
+  transform: translateY(2px) !important;
+}
+
+#excluir {
+  background-color: #b74e52 !important;
+  border: 2px solid #9e3d3d !important;
+}
+
+#excluir:hover {
+  background-color: #9e3d3d !important;
+}
+
+#excluir:active {
+  background-color: #8f2e2a !important;
+  border: 2px solid #8f2e2a !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  border: 2px solid #d0d0d0 !important;
+  padding: 4px !important;
+  background-color: #f0f0f0 !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 2px solid #2b4f78 !important;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  border-color: #1f3c5a !important;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: #33669e !important;
+  border-color: #1f3c5a !important;
+}
+
+#kmtotaldoaluguel {
+  color: black !important;
+  background-color: #f0f0f0 !important;
+  border: 2px solid #d0d0d0 !important;
+  border-radius: 5px !important;
+}
+
+#kmtotaldoaluguel-container {
+  margin: 5px 0 !important;
+}
+
+#kmtotaldoaluguel-container span {
+  margin-right: 8px !important;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-header {
+  background-color: #33669e !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+#login_lucas .card {
+  max-width: 350px !important;
+  width: 100% !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #33669e !important;
+  box-shadow: 0 0 8px rgba(51, 102, 158, 0.5) !important;
+}
+
+label.error {
+  color: #b74e52 !important;
+  font-weight: bold !important;
+}
+
+input.error,
+select.error,
+textarea.error {
+  border-color: #b74e52 !important;
+  box-shadow: 0 0 10px rgba(183, 78, 82, 0.5) !important;
+}
+
+label.error:before {
+  content: "⚠ " !important;
+}
+
+input.valid,
+select.valid,
+textarea.valid {
+  border-color: #4b9e7f !important;
+  box-shadow: 0 0 10px rgba(75, 158, 127, 0.5) !important;
+}
+
+footer {
+  background-color: #33669e !important;
+  color: white !important;
+  text-align: center !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 35px !important;
+  padding: 4px !important;
+}

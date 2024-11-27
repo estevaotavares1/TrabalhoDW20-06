@@ -2,14 +2,14 @@
 
 body {
   font-family: "Quantico", monospace !important;
-  background-color: #e4eaf0 !important;
-  color: black !important;
+  background-color: #f4f4f4 !important;
+  color: #000 !important;
   padding-bottom: 50px !important;
 }
 
 header {
-  background-color: white !important;
-  color: #33669e !important;
+  background-color: #fff !important;
+  color: #333 !important;
   text-align: center !important;
 }
 
@@ -24,12 +24,12 @@ header .logo h2 {
 
 header .user-info a,
 header .user-info p {
-  color: black !important;
+  color: #000 !important;
   margin: 0;
 }
 
 nav.navbar {
-  background-color: #33669e !important;
+  background-color: #555 !important;
 }
 
 nav .navbar-nav {
@@ -37,123 +37,120 @@ nav .navbar-nav {
 }
 
 nav.navbar .nav-link {
-  color: #d0d0d0 !important;
+  color: #bbb !important;
   padding: 1px 10px !important;
   text-transform: uppercase !important;
 }
 
-nav.navbar .active {
-  color: white !important;
-}
-
+nav.navbar .active,
 nav.navbar .nav-link:hover {
-  color: white !important;
+  color: #fff !important;
 }
 
 .dropdown-menu {
-  background-color: #d0d0d0 !important;
+  background-color: #ddd !important;
 }
 
 .dropdown-item {
-  color: black !important;
+  color: #000 !important;
 }
 
 .navbar-toggler {
-  border: 2px solid #d0d0d0 !important;
-  background-color: #33669e !important;
+  border: 2px solid #bbb !important;
+  background-color: #555 !important;
 }
 
 .navbar-toggler:hover {
-  border: 2px solid #d0d0d0 !important;
-  background-color: #2b4f78 !important;
+  border: 2px solid #aaa !important;
+  background-color: #444 !important;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-  border: 2px solid #d0d0d0 !important;
-  background-color: #1f3c5a !important;
+  border: 2px solid #aaa !important;
+  background-color: #333 !important;
   box-shadow: none !important;
 }
 
 .dropdown-item:hover {
-  background-color: #33669e !important;
-  color: white !important;
+  background-color: #555 !important;
+  color: #fff !important;
 }
 
 table th {
-  background-color: #33669e !important;
-  color: white !important;
+  background-color: #444 !important;
+  color: #fff !important;
 }
 
 #success {
-  background-color: #4b9e7f !important;
-  color: white !important;
+  background-color: #888 !important;
+  color: #fff !important;
 }
 
 #danger {
-  background-color: #b74e52 !important;
-  color: white !important;
+  background-color: #666 !important;
+  color: #fff !important;
 }
 
 #warning {
-  background-color: #f1c84c !important;
-  color: black !important;
+  background-color: #bbb !important;
+  color: #000 !important;
 }
 
 table td {
-  background-color: #f0f0f0 !important;
+  background-color: #eee !important;
 }
 
 table td:hover {
-  background-color: #d0d0d0 !important;
+  background-color: #ddd !important;
 }
 
 li.list-group-item {
-  background-color: #f0f0f0 !important;
-  color: black !important;
+  background-color: #f4f4f4 !important;
+  color: #000 !important;
 }
 
 li.list-group-item a {
-  color: black !important;
+  color: #000 !important;
 }
 
 li.list-group-item:hover {
-  background-color: #d0d0d0 !important;
+  background-color: #ddd !important;
 }
 
 button,
 .btn {
-  background-color: #33669e !important;
-  color: white !important;
-  border: 2px solid #2b4f78 !important;
+  background-color: #444 !important;
+  color: #fff !important;
+  border: 2px solid #333 !important;
   cursor: pointer !important;
   padding: 4px 8px !important;
 }
 
 button:hover,
 .btn:hover {
-  background-color: #2b4f78 !important;
+  background-color: #333 !important;
 }
 
 button:active,
 .btn:active {
-  background-color: #1f3c5a !important;
-  border: 2px solid #1f3c5a !important;
+  background-color: #222 !important;
+  border: 2px solid #222 !important;
   transform: translateY(2px) !important;
 }
 
 #excluir {
-  background-color: #b74e52 !important;
-  border: 2px solid #9e3d3d !important;
+  background-color: #666 !important;
+  border: 2px solid #555 !important;
 }
 
 #excluir:hover {
-  background-color: #9e3d3d !important;
+  background-color: #555 !important;
 }
 
 #excluir:active {
-  background-color: #8f2e2a !important;
-  border: 2px solid #8f2e2a !important;
+  background-color: #444 !important;
+  border: 2px solid #444 !important;
 }
 
 input[type="text"],
@@ -163,31 +160,31 @@ input[type="date"],
 input[type="number"],
 textarea,
 select {
-  border: 2px solid #d0d0d0 !important;
+  border: 2px solid #bbb !important;
   padding: 4px !important;
-  background-color: #f0f0f0 !important;
+  background-color: #f4f4f4 !important;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-  border: 2px solid #2b4f78 !important;
+  border: 2px solid #555 !important;
 }
 
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  border-color: #1f3c5a !important;
+  border-color: #444 !important;
 }
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-  background-color: #33669e !important;
-  border-color: #1f3c5a !important;
+  background-color: #444 !important;
+  border-color: #333 !important;
 }
 
 #kmtotaldoaluguel {
   color: black !important;
-  background-color: #f0f0f0 !important;
-  border: 2px solid #d0d0d0 !important;
+  background-color: #f4f4f4 !important;
+  border: 2px solid #bbb !important;
   border-radius: 5px !important;
 }
 
@@ -204,8 +201,8 @@ input[type="radio"]:checked {
 }
 
 .card-header {
-  background-color: #33669e !important;
-  color: white !important;
+  background-color: #444 !important;
+  color: #fff !important;
   text-align: center !important;
 }
 
@@ -214,43 +211,234 @@ input[type="radio"]:checked {
   width: 100% !important;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #33669e !important;
-  box-shadow: 0 0 8px rgba(51, 102, 158, 0.5) !important;
-}
-
 label.error {
-  color: #b74e52 !important;
   font-weight: bold !important;
-}
-
-input.error,
-select.error,
-textarea.error {
-  border-color: #b74e52 !important;
-  box-shadow: 0 0 10px rgba(183, 78, 82, 0.5) !important;
 }
 
 label.error:before {
   content: "⚠ " !important;
 }
 
-input.valid,
-select.valid,
-textarea.valid {
-  border-color: #4b9e7f !important;
-  box-shadow: 0 0 10px rgba(75, 158, 127, 0.5) !important;
-}
-
 footer {
-  background-color: #33669e !important;
-  color: white !important;
+  background-color: #555 !important;
+  color: #fff !important;
   text-align: center !important;
   position: fixed !important;
   bottom: 0 !important;
   width: 100% !important;
   height: 35px !important;
   padding: 4px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    font-family: "Quantico", monospace !important;
+    background-color: #121212 !important;
+    color: #fff !important;
+    padding-bottom: 50px !important;
+  }
+
+  nav.navbar {
+    background-color: #222 !important;
+  }
+
+  nav .navbar-nav {
+    margin: 0 auto !important;
+  }
+
+  nav.navbar .nav-link {
+    color: #bbb !important;
+    padding: 1px 10px !important;
+    text-transform: uppercase !important;
+  }
+
+  nav.navbar .active,
+  nav.navbar .nav-link:hover {
+    color: #fff !important;
+  }
+
+  .dropdown-menu {
+    background-color: #444 !important;
+  }
+
+  .dropdown-item {
+    color: #fff !important;
+  }
+
+  .navbar-toggler {
+    border: 2px solid #bbb !important;
+    background-color: #222 !important;
+  }
+
+  .navbar-toggler:hover {
+    border: 2px solid #aaa !important;
+    background-color: #333 !important;
+  }
+
+  .navbar-toggler:focus,
+  .navbar-toggler:active {
+    border: 2px solid #aaa !important;
+    background-color: #444 !important;
+    box-shadow: none !important;
+  }
+
+  .dropdown-item:hover {
+    background-color: #555 !important;
+    color: #fff !important;
+  }
+
+  table th {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+
+  #success {
+    background-color: #444 !important;
+    color: #fff !important;
+  }
+
+  #danger {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+
+  #warning {
+    background-color: #888 !important;
+    color: #000 !important;
+  }
+
+  table td {
+    background-color: #222 !important;
+    color: #fff !important;
+  }
+
+  table td:hover {
+    background-color: #333 !important;
+  }
+
+  li.list-group-item {
+    background-color: #222 !important;
+    color: #fff !important;
+  }
+
+  li.list-group-item a {
+    color: #fff !important;
+  }
+
+  li.list-group-item:hover {
+    background-color: #444 !important;
+  }
+
+  button,
+  .btn {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 2px solid #444 !important;
+    cursor: pointer !important;
+    padding: 4px 8px !important;
+  }
+
+  button:hover,
+  .btn:hover {
+    background-color: #444 !important;
+  }
+
+  button:active,
+  .btn:active {
+    background-color: #555 !important;
+    border: 2px solid #555 !important;
+    transform: translateY(2px) !important;
+  }
+
+  #excluir {
+    background-color: #444 !important;
+    border: 2px solid #555 !important;
+  }
+
+  #excluir:hover {
+    background-color: #555 !important;
+  }
+
+  #excluir:active {
+    background-color: #666 !important;
+    border: 2px solid #666 !important;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  textarea,
+  select {
+    border: 2px solid #555 !important;
+    padding: 4px !important;
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 2px solid #777 !important;
+  }
+
+  input[type="checkbox"]:hover,
+  input[type="radio"]:hover {
+    border-color: #666 !important;
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background-color: #444 !important;
+    border-color: #333 !important;
+  }
+
+  #kmtotaldoaluguel {
+    color: white !important;
+    background-color: #333 !important;
+    border: 2px solid #555 !important;
+    border-radius: 5px !important;
+  }
+
+  #kmtotaldoaluguel-container {
+    margin: 5px 0 !important;
+  }
+
+  #kmtotaldoaluguel-container span {
+    margin-right: 8px !important;
+  }
+
+  .card {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .card-header {
+    background-color: #444 !important;
+    color: #fff !important;
+    text-align: center !important;
+  }
+
+  #login_lucas .card {
+    max-width: 350px !important;
+    width: 100% !important;
+  }
+
+  label.error {
+    font-weight: bold !important;
+  }
+
+  label.error:before {
+    content: "⚠ " !important;
+  }
+
+  footer {
+    background-color: #222 !important;
+    color: #fff !important;
+    text-align: center !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 35px !important;
+    padding: 4px !important;
+  }
 }
