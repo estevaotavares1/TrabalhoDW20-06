@@ -61,6 +61,22 @@ nav.navbar .nav-link:hover {
   color: black !important;
 }
 
+.navbar-toggler {
+  border: 2px solid #d0d0d0 !important;
+  background-color: #33669e !important;
+}
+
+.navbar-toggler:hover {
+  border: 2px solid #d0d0d0 !important;
+  background-color: #2b4f78 !important;
+}
+
+.navbar-toggler:focus, .navbar-toggler:active {
+  border: 2px solid #d0d0d0 !important;
+  background-color: #1f3c5a !important;
+  box-shadow: none !important;
+}
+
 .dropdown-item:hover {
   background-color: #33669e !important;
   color: white !important;

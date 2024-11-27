@@ -14,6 +14,9 @@ if (mysqli_num_rows($resultadoFuncionario) > 0) {
     $_SESSION['logado'] = true;
     $_SESSION['nome_funcionario'] = $funcionario['nome_funcionario'];
     $_SESSION['id_funcionario'] = $funcionario['id_funcionario'];
+    $_SESSION['cpf_funcionario'] = $funcionario['cpf_funcionario'];
+    $_SESSION['email_funcionario'] = $funcionario['email_funcionario'];
+    $_SESSION['telefone_funcionario'] = $funcionario['telefone_funcionario'];
     header('Location: atividades.php');
     exit();
 } else {

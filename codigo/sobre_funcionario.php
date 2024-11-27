@@ -3,13 +3,13 @@ require_once 'testalogin.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="icon/icone.ico" type="image/x-icon">
-    <title>Selecionar Cliente para Pagar</title>
+    <title>Dados do Funcionário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
@@ -43,10 +43,10 @@ require_once 'testalogin.php';
                         <a class="nav-link" href="formEmprestimo.php">Alugar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="pagamento_clienteSelect.php">Pagar</a>
+                        <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Registros
                         </a>
@@ -95,35 +95,47 @@ require_once 'testalogin.php';
             </div>
         </div>
     </nav>
+
     <div class="container mt-5">
-        <h3 class="text-center mb-4">Selecionar Cliente</h3>
-
-        <form action="pagamento_emprestimoSelect.php" method="GET">
-            <div class="mb-3">
-                <label for="id_cliente" class="form-label">Cliente:</label>
-                <select name="id_cliente" id="id_cliente" class="form-select" required>
-                    <?php
-                    require_once "conexao.php";
-                    require_once "operacoes.php";
-
-                    $clientes = listarClientes($conexao);
-
-                    foreach ($clientes as $cliente) {
-                        $id_cliente = $cliente['id_cliente'];
-                        $nome = $cliente['nome'];
-                        echo "<option value='$id_cliente'>$nome</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="text-center">
-                <input type="submit" value="Selecionar Cliente" class="btn btn-primary">
-            </div>
-        </form>
         <div class="text-center">
-            <a href="atividades.php" class="btn btn-primary mt-3">Voltar a Página de Atividades</a>
+            <h1 class="display-4">Bem-vindo, <?php echo $nomeFuncionario; ?>!</h1>
+            <p class="lead">Data e Hora de Acesso: <?php echo $dataAtual; ?></p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>Dados do Funcionário</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>ID:</strong> <?php echo $idFuncionario; ?>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Nome:</strong> <?php echo $nomeFuncionario; ?>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>CPF:</strong> <?php echo $_SESSION['cpf_funcionario']; ?>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Email:</strong> <?php echo $_SESSION['email_funcionario']; ?>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Telefone:</strong> <?php echo $_SESSION['telefone_funcionario']; ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a id="excluir" href="deslogar.php" class="btn btn-danger">Sair</a>
         </div>
     </div>
+
 
     <footer>
         <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>

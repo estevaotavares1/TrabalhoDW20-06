@@ -66,7 +66,7 @@ if (isset($_GET['id_veiculo'])) {
             <h2>Vrum Vrum Aluguéis</h2>
         </div>
         <div class="user-info text-end">
-            <a href="http://lattes.cnpq.br/3766134688368012" target="_blank" class="text-decoration-none">Funcionário:
+            <a href="sobre_funcionario.php" class="text-decoration-none">Funcionário:
                 <?php echo $nomeFuncionario; ?></a>
             <p>Data: <?php echo $dataAtual; ?></p>
         </div>
