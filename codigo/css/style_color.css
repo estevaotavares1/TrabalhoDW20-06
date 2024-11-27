@@ -251,6 +251,10 @@ footer {
   position: fixed !important;
   bottom: 0 !important;
   width: 100% !important;
-  height: 35px !important;
-  padding: 4px !important;
+  height: 50px !important;
+}
+
+footer a {
+  margin-left: 10px !important;
+  color: white !important;
 }

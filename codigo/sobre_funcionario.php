@@ -16,6 +16,11 @@ require_once 'testalogin.php';
 </head>
 
 <body>
+    <audio id="audio-background" autoplay loop>
+        <source src="music/eleve_minha_nota.mp3" type="audio/mp3">
+        Seu navegador não suporta o formato de áudio.
+    </audio>
+
     <header class="container-fluid d-flex justify-content-between align-items-center">
         <div class="logo d-flex align-items-center">
             <img src="img/logo.png" alt="Logo" class="logo-img me-2">
@@ -99,7 +104,7 @@ require_once 'testalogin.php';
     <div class="container mt-5">
         <div class="text-center">
             <h1>Bem-vindo, <?php echo $nomeFuncionario; ?>!</h>
-            <p class="lead">Data e Hora de Acesso: <?php echo $dataAtual; ?></p>
+                <p class="lead">Data e Hora de Acesso: <?php echo $dataAtual; ?></p>
         </div>
 
         <div class="row mt-4">
@@ -138,9 +143,20 @@ require_once 'testalogin.php';
 
 
     <footer>
-        <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.<br>
+            <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </p>
     </footer>
 
+    <script src="https://kit.fontawesome.com/e3594800e9.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

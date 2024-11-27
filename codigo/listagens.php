@@ -46,7 +46,8 @@ require_once 'testalogin.php';
             <a class="nav-link" href="pagamento_clienteSelect.php">Pagar</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Registros
             </a>
             <ul class="dropdown-menu">
@@ -118,9 +119,20 @@ require_once 'testalogin.php';
   </div>
 
   <footer>
-    <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.</p>
+    <p>&copy; 2024 Instituto Federal Goiano. Todos os direitos reservados.<br>
+      <a href="#">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="#">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <a href="#">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </p>
   </footer>
 
+  <script src="https://kit.fontawesome.com/e3594800e9.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
