@@ -60,7 +60,7 @@ if (isset($_GET['id_cliente'])) {
     </div>
   </header>
 
-  <nav class="navbar navbar-dark navbar-expand-sm bg-body-tertiary">
+  <nav class="navbar navbar-dark navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
