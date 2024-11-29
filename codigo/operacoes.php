@@ -133,6 +133,15 @@ function salvarVeiculo($conexao, $nome, $marca, $ano, $placa_veiculo, $capacidad
 // As funções de Editar ------------------------------------------------------------------------------------------------------------
 // As funções de Editar ------------------------------------------------------------------------------------------------------------
 
+/**
+ * Atualiza as informações de um cliente na tabela `tb_cliente`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente que será atualizado.
+ * @param string $nome Novo nome do cliente.
+ * @param string $endereco Novo endereço do cliente.
+ * @param string $telefone Novo telefone do cliente.
+ */
 function atualizar_cliente($conexao, $id_cliente, $nome, $endereco, $telefone)
 {
     $sql = "UPDATE tb_cliente SET nome = ?, endereco = ?, telefone = ? WHERE id_cliente = ?";
@@ -142,6 +151,13 @@ function atualizar_cliente($conexao, $id_cliente, $nome, $endereco, $telefone)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Atualiza o CPF de uma pessoa física na tabela `tb_pessoafisica`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente relacionado.
+ * @param string $cpf Novo CPF da pessoa física.
+ */
 function atualizar_pessoafisica($conexao, $id_cliente, $cpf)
 {
     $sql = "UPDATE tb_pessoafisica SET cpf_pessoa = ? WHERE tb_cliente_id_cliente = ?";
@@ -151,6 +167,13 @@ function atualizar_pessoafisica($conexao, $id_cliente, $cpf)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Atualiza o CNPJ de uma empresa na tabela `tb_empresa`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente relacionado.
+ * @param string $cnpj Novo CNPJ da empresa.
+ */
 function atualizar_empresa($conexao, $id_cliente, $cnpj)
 {
     $sql = "UPDATE tb_empresa SET cnpj_empresa = ? WHERE tb_cliente_id_cliente = ?";
@@ -160,6 +183,17 @@ function atualizar_empresa($conexao, $id_cliente, $cnpj)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Atualiza os dados de um funcionário na tabela `tb_funcionario`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_funcionario ID do funcionário que será atualizado.
+ * @param string $nome_funcionario Novo nome do funcionário.
+ * @param string $cpf_funcionario Novo CPF do funcionário.
+ * @param string $email_funcionario Novo email do funcionário.
+ * @param string $telefone_funcionario Novo telefone do funcionário.
+ * @param string $senha_funcionario Nova senha do funcionário.
+ */
 function atualizar_funcionario($conexao, $id_funcionario, $nome_funcionario, $cpf_funcionario, $email_funcionario, $telefone_funcionario, $senha_funcionario)
 {
     $sql = "UPDATE tb_funcionario SET nome_funcionario = ?, cpf_funcionario = ?, email_funcionario = ?, telefone_funcionario = ?, senha_funcionario = ? WHERE id_funcionario = ?";
@@ -168,7 +202,23 @@ function atualizar_funcionario($conexao, $id_funcionario, $nome_funcionario, $cp
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 }
-
+/**
+ * Atualiza as informações de um veículo na tabela `tb_veiculo`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_veiculo ID do veículo que será atualizado.
+ * @param string $nome Nome do veículo.
+ * @param string $marca Marca do veículo.
+ * @param int $ano Ano de fabricação do veículo.
+ * @param string $placa_veiculo Placa do veículo.
+ * @param int $capacidade_veiculo Capacidade do veículo (em número de passageiros).
+ * @param int $vidroeletrico_veiculo Indica se o veículo possui vidro elétrico (1 = sim, 0 = não).
+ * @param int $airbag_veiculo Indica se o veículo possui airbag (1 = sim, 0 = não).
+ * @param int $capacidaportamala_veiculo Capacidade do porta-malas do veículo.
+ * @param int $arcondicionado_veiculo Indica se o veículo possui ar condicionado (1 = sim, 0 = não).
+ * @param int $automatico_veiculo Indica se o veículo é automático (1 = sim, 0 = não).
+ * @param int $km_veiculo Quilometragem atual do veículo.
+ */
 function atualizar_veiculo($conexao, $id_veiculo, $nome, $marca, $ano, $placa_veiculo, $capacidade_veiculo, $vidroeletrico_veiculo, $airbag_veiculo, $capacidaportamala_veiculo, $arcondicionado_veiculo, $automatico_veiculo, $km_veiculo)
 {
     $sql = "UPDATE tb_veiculo SET nome = ?, marca = ?, ano = ?, placa_veiculo = ?, capacidade_veiculo = ?, vidroeletrico_veiculo = ?, airbag_veiculo = ?, capacidaportamala_veiculo = ?, arcondicionado_veiculo = ?, automatico_veiculo = ?, km_veiculo = ? WHERE id_veiculo = ?";
@@ -194,6 +244,13 @@ function atualizar_veiculo($conexao, $id_veiculo, $nome, $marca, $ano, $placa_ve
 // As funções de Excluir ------------------------------------------------------------------------------------------------------------
 // As funções de Excluir ------------------------------------------------------------------------------------------------------------
 
+/**
+ * Exclui um cliente da tabela `tb_cliente` e, dependendo do tipo, exclui dados adicionais.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente que será excluído.
+ * @param string $tipo Tipo de cliente: 'p' para pessoa física e 'e' para empresa.
+ */
 function excluir_cliente($conexao, $id_cliente, $tipo)
 {
     if ($tipo == 'p') {
@@ -211,6 +268,12 @@ function excluir_cliente($conexao, $id_cliente, $tipo)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Exclui os dados de pessoa física de um cliente da tabela `tb_pessoafisica`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente cujos dados de pessoa física serão excluídos.
+ */
 function excluir_pessoafisica($conexao, $id_cliente)
 {
     $sql = "DELETE FROM tb_pessoafisica WHERE tb_cliente_id_cliente = ?";
@@ -220,6 +283,12 @@ function excluir_pessoafisica($conexao, $id_cliente)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Exclui os dados de empresa de um cliente da tabela `tb_empresa`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_cliente ID do cliente cujos dados de empresa serão excluídos.
+ */
 function excluir_empresa($conexao, $id_cliente)
 {
     $sql = "DELETE FROM tb_empresa WHERE tb_cliente_id_cliente = ?";
@@ -229,6 +298,12 @@ function excluir_empresa($conexao, $id_cliente)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Exclui os dados de um funcionário da tabela `tb_funcionario`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_funcionario ID do funcionário que será excluído.
+ */
 function excluir_funcionario($conexao, $id_funcionario)
 {
     $sql = "DELETE FROM tb_funcionario WHERE id_funcionario = ?";
@@ -238,6 +313,12 @@ function excluir_funcionario($conexao, $id_funcionario)
     mysqli_stmt_close($stmt);
 }
 
+/**
+ * Exclui os dados de um veículo da tabela `tb_veiculo`.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_veiculo ID do veículo que será excluído.
+ */
 function excluir_veiculo($conexao, $id_veiculo)
 {
     $sql = "DELETE FROM tb_veiculo WHERE id_veiculo = ?";
@@ -708,6 +789,13 @@ function imprimirPagamentos($conexao)
     return $lista;
 }
 
+/**
+ * Obtém a lista de veículos associados a um aluguel específico.
+ *
+ * @param mysqli $conexao Conexão com o banco de dados.
+ * @param int $id_aluguel ID do aluguel para o qual os veículos serão recuperados.
+ * @return array Lista de veículos (id_veiculo e nome) associados ao aluguel.
+ */
 function imprimirVeiculosPorAluguel($conexao, $id_aluguel)
 {
     $sql = "SELECT 
