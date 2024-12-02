@@ -1,162 +1,161 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* ===============================
+  Definições globais e variáveis
+================================= */
+:root {
+  --primary-bg: #ffffff; /* Fundo principal claro */
+  --primary-text: #2c3e50; /* Texto principal */
+  --secondary-bg: #1abc9c; /* Cor secundária vibrante */
+  --secondary-text: #ffffff; /* Texto secundário claro */
+  --hover-bg: #16a085; /* Cor de hover em botões e links */
+  --hover-text: #ffffff; /* Texto de hover */
+  --border-color: #bdc3c7; /* Bordas suaves */
+  --error-color: #e74c3c; /* Alerta ou erro */
+}
 
+/* ===============================
+  Estilo Global
+================================= */
 body {
-  font-family: "Quantico", monospace !important;
-  background-color: #f4f4f4 !important;
-  color: #000 !important;
-  padding-bottom: 50px !important;
+  font-family: "Quantico", monospace;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  padding-bottom: 50px;
+  margin: 0;
+  line-height: 1.6;
 }
 
 header {
-  background-color: #fff !important;
-  color: #333 !important;
-  text-align: center !important;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  padding: 10px 0;
 }
 
 header .logo-img {
-  max-width: 40px !important;
+  max-width: 40px;
 }
 
 header .logo h2 {
-  font-weight: bold !important;
-  margin: 0 !important;
+  font-weight: bold;
+  margin: 0;
 }
 
 header .user-info a,
 header .user-info p {
-  color: #000 !important;
+  color: var(--primary-text);
   margin: 0;
+  font-size: 14px;
 }
 
+/* ===============================
+  Barra de navegação
+================================= */
 nav.navbar {
-  background-color: #555 !important;
+  background-color: var(--secondary-bg);
 }
 
 nav .navbar-nav {
-  margin: 0 auto !important;
+  margin: 0 auto;
 }
 
 nav.navbar .nav-link {
-  color: #bbb !important;
-  padding: 1px 10px !important;
-  text-transform: uppercase !important;
+  color: #bbb;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 nav.navbar .active,
 nav.navbar .nav-link:hover {
-  color: #fff !important;
+  color: var(--hover-text);
 }
 
 .nav-link i {
-  margin-right: 3px !important;
-}
-
-.dropdown-menu {
-  background-color: #ddd !important;
-}
-
-.dropdown-item {
-  color: #000 !important;
+  margin-right: 5px;
 }
 
 .navbar-toggler {
-  border: 2px solid #bbb !important;
-  background-color: #555 !important;
+  border: 2px solid var(--border-color);
+  background-color: var(--secondary-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar-toggler:hover {
-  border: 2px solid #aaa !important;
-  background-color: #444 !important;
+  border-color: var(--hover-bg);
+  background-color: var(--hover-bg);
 }
 
-.navbar-toggler:focus,
-.navbar-toggler:active {
-  border: 2px solid #aaa !important;
-  background-color: #333 !important;
-  box-shadow: none !important;
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: #ddd;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  color: var(--primary-text);
 }
 
 .dropdown-item:hover {
-  background-color: #555 !important;
-  color: #fff !important;
+  background-color: var(--secondary-bg);
+  color: var(--hover-text);
 }
 
+/* ===============================
+  Tabelas
+================================= */
 table th {
-  background-color: #444 !important;
-  color: #fff !important;
-}
-
-#success {
-  background-color: #888 !important;
-  color: #fff !important;
-}
-
-#danger {
-  background-color: #666 !important;
-  color: #fff !important;
-}
-
-#warning {
-  background-color: #bbb !important;
-  color: #000 !important;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+  padding: 10px;
 }
 
 table td {
-  background-color: #eee !important;
+  background-color: #eee;
+  padding: 10px;
+  transition: background-color 0.3s ease;
 }
 
 table td:hover {
-  background-color: #ddd !important;
+  background-color: #ddd;
 }
 
-li.list-group-item {
-  background-color: #f4f4f4 !important;
-  color: #000 !important;
-}
-
-li.list-group-item a {
-  color: #000 !important;
-}
-
-li.list-group-item:hover {
-  background-color: #ddd !important;
-}
-
+/* ===============================
+  Botões
+================================= */
 button,
 .btn {
-  background-color: #444 !important;
-  color: #fff !important;
-  border: 2px solid #333 !important;
-  cursor: pointer !important;
-  padding: 4px 8px !important;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+  border: 2px solid var(--hover-bg);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover,
 .btn:hover {
-  background-color: #333 !important;
+  background-color: var(--hover-bg);
 }
 
 button:active,
 .btn:active {
-  background-color: #222 !important;
-  border: 2px solid #222 !important;
-  transform: translateY(2px) !important;
+  background-color: var(--hover-bg);
+  transform: translateY(2px);
 }
 
+/* Botão Excluir */
 #excluir {
-  background-color: #666 !important;
-  border: 2px solid #555 !important;
+  background-color: #666;
+  border: 2px solid #555;
 }
 
 #excluir:hover {
-  background-color: #555 !important;
+  background-color: #555;
 }
 
-#excluir:active {
-  background-color: #444 !important;
-  border: 2px solid #444 !important;
-}
-
+/* ===============================
+  Inputs e Formulários
+================================= */
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -164,290 +163,63 @@ input[type="date"],
 input[type="number"],
 textarea,
 select {
-  border: 2px solid #bbb !important;
-  padding: 4px !important;
-  background-color: #f4f4f4 !important;
+  border: 2px solid var(--border-color);
+  padding: 6px;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  border: 2px solid #555 !important;
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--hover-bg);
+  outline: none;
 }
 
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
-  border-color: #444 !important;
-}
-
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  background-color: #444 !important;
-  border-color: #333 !important;
-}
-
-#kmtotaldoaluguel {
-  color: black !important;
-  background-color: #f4f4f4 !important;
-  border: 2px solid #bbb !important;
-  border-radius: 5px !important;
-}
-
-#kmtotaldoaluguel-container {
-  margin: 5px 0 !important;
-}
-
-#kmtotaldoaluguel-container span {
-  margin-right: 8px !important;
-}
-
+/* ===============================
+  Cards
+================================= */
 .card {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
 }
 
 .card-header {
-  background-color: #444 !important;
-  color: #fff !important;
-  text-align: center !important;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+  text-align: center;
+  padding: 15px;
 }
 
-#login_lucas .card {
-  max-width: 350px !important;
-  width: 100% !important;
-}
-
-label.error {
-  font-weight: bold !important;
-}
-
-label.error:before {
-  content: "⚠ " !important;
-}
-
+/* ===============================
+  Footer
+================================= */
 footer {
-  background-color: #555 !important;
-  color: #fff !important;
-  text-align: center !important;
-  position: fixed !important;
-  bottom: 0 !important;
-  width: 100% !important;
-  height: 50px !important;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  padding-top: 15px;
 }
 
-footer a {
-  margin-left: 10px !important;
-  color: #fff !important;
-}
-
+/* ===============================
+  Tema Escuro
+================================= */
 @media (prefers-color-scheme: dark) {
-  body {
-    font-family: "Quantico", monospace !important;
-    background-color: #121212 !important;
-    color: #fff !important;
-    padding-bottom: 50px !important;
-  }
-
-  nav.navbar {
-    background-color: #222 !important;
-  }
-
-  nav .navbar-nav {
-    margin: 0 auto !important;
-  }
-
-  nav.navbar .nav-link {
-    color: #bbb !important;
-    padding: 1px 10px !important;
-    text-transform: uppercase !important;
-  }
-
-  nav.navbar .active,
-  nav.navbar .nav-link:hover {
-    color: #fff !important;
-  }
-
-  .dropdown-menu {
-    background-color: #444 !important;
-  }
-
-  .dropdown-item {
-    color: #fff !important;
-  }
-
-  .navbar-toggler {
-    border: 2px solid #bbb !important;
-    background-color: #222 !important;
-  }
-
-  .navbar-toggler:hover {
-    border: 2px solid #aaa !important;
-    background-color: #333 !important;
-  }
-
-  .navbar-toggler:focus,
-  .navbar-toggler:active {
-    border: 2px solid #aaa !important;
-    background-color: #444 !important;
-    box-shadow: none !important;
-  }
-
-  .dropdown-item:hover {
-    background-color: #555 !important;
-    color: #fff !important;
-  }
-
-  table th {
-    background-color: #333 !important;
-    color: #fff !important;
-  }
-
-  #success {
-    background-color: #444 !important;
-    color: #fff !important;
-  }
-
-  #danger {
-    background-color: #333 !important;
-    color: #fff !important;
-  }
-
-  #warning {
-    background-color: #888 !important;
-    color: #000 !important;
-  }
-
-  table td {
-    background-color: #222 !important;
-    color: #fff !important;
-  }
-
-  table td:hover {
-    background-color: #333 !important;
-  }
-
-  li.list-group-item {
-    background-color: #222 !important;
-    color: #fff !important;
-  }
-
-  li.list-group-item a {
-    color: #fff !important;
-  }
-
-  li.list-group-item:hover {
-    background-color: #444 !important;
-  }
-
-  button,
-  .btn {
-    background-color: #444 !important;
-    color: #fff !important;
-    border: 2px solid #555 !important;
-    cursor: pointer !important;
-    padding: 4px 8px !important;
-  }
-
-  button:hover,
-  .btn:hover {
-    background-color: #555 !important;
-  }
-
-  button:active,
-  .btn:active {
-    background-color: #666 !important;
-    border: 2px solid #666 !important;
-    transform: translateY(2px) !important;
-  }
-
-  #excluir {
-    background-color: #333 !important;
-    border: 2px solid #444 !important;
-  }
-
-  #excluir:hover {
-    background-color: #444 !important;
-  }
-
-  #excluir:active {
-    background-color: #555 !important;
-    border: 2px solid #555 !important;
-  }
-
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="date"],
-  input[type="number"],
-  textarea,
-  select {
-    border: 2px solid #555 !important;
-    padding: 4px !important;
-    background-color: #333 !important;
-    color: #fff !important;
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    border: 2px solid #777 !important;
-  }
-
-  input[type="checkbox"]:hover,
-  input[type="radio"]:hover {
-    border-color: #666 !important;
-  }
-
-  input[type="checkbox"]:checked,
-  input[type="radio"]:checked {
-    background-color: #444 !important;
-    border-color: #333 !important;
-  }
-
-  #kmtotaldoaluguel {
-    color: white !important;
-    background-color: #333 !important;
-    border: 2px solid #555 !important;
-    border-radius: 5px !important;
-  }
-
-  #kmtotaldoaluguel-container {
-    margin: 5px 0 !important;
-  }
-
-  #kmtotaldoaluguel-container span {
-    margin-right: 8px !important;
-  }
-
-  .card {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
-    background-color: #333 !important;
-    color: #fff !important;
-  }
-
-  .card-header {
-    background-color: #fff !important;
-    color: #000 !important;
-    text-align: center !important;
-  }
-
-  #login_lucas .card {
-    max-width: 350px !important;
-    width: 100% !important;
-  }
-
-  label.error {
-    font-weight: bold !important;
-  }
-
-  label.error:before {
-    content: "⚠ " !important;
-  }
-
-  footer {
-    background-color: #222 !important;
-    color: #fff !important;
-    text-align: center !important;
-    position: fixed !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 50px !important;
+  :root {
+    --primary-bg: #121212;
+    --primary-text: #fff;
+    --secondary-bg: #222;
+    --secondary-text: #bbb;
+    --hover-bg: #333;
+    --border-color: #444;
   }
 }
